@@ -18,6 +18,12 @@ __pycache__/
 **/_temp_*/
 *.log
 
+# Bỏ qua dữ liệu email nặng và file nén theo yêu cầu
+OneDrive.zip
+TĐMB 2026 miền Bắc/
+Emails/
+*.zip
+
 # Bỏ qua file khóa truy cập
 .vscode/
 .idea/
