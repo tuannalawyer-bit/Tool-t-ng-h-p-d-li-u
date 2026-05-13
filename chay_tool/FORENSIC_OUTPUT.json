@@ -1,0 +1,27 @@
+{
+  "app_result_success": true,
+  "app_error": "",
+  "log_trail": [
+    "[info] 🤖 Đang kích hoạt Gemini để phân tích rủi ro và điền bổ sung dữ liệu...",
+    "[warn] ⚠️ Không thể thực hiện AI Analysis: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 500, model: gemini-3.1-flash-lite\\nPlease retry in 35.760453931s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-flash-lite'}, 'quotaValue': '500'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}",
+    "[warn] ⚠️ Cảnh báo: Thiếu dữ liệu (tn_tkmb)"
+  ],
+  "data_dump": {
+    "thang": "1",
+    "ngay_nhan": "2026-01-26 09:26:58",
+    "ngay_tra": "2026-01-28 09:26:58",
+    "ma_mb": "MN2866",
+    "tinh_trang": "Mở mới",
+    "thong_tin_mb": "Ðýờng 477C Ðồng Chýa, TT. Thịnh Výợng, H. Gia Viễn, T. Ninh Bình",
+    "tinh": "Ninh Bình",
+    "dtt": "130",
+    "gia_thue_vat": "17.777.778",
+    "bct": "Vũ Ngọc Thức",
+    "cv_tkmb": "Võ Thị Mai Hương",
+    "tn_tkmb": "",
+    "chi_tiet_thamdinh": "KSTT phản hồi kết quả thẩm định quy hoạch như sau:\r\n\r\n \r\n\r\n- Giá thuê chưa có bất thường\r\n\r\n- Thông tin quy hoạch: Theo các nguồn thu thập, hiện tại chưa có ghi nhận có dự án hay phương án đổi mới kv này. Theo bản đồ quy hoạch 2030 MB WCM thẩm định nằm trong nhóm đất ở nông thôn \r\n\r\n- Theo thông tin công khai và MB sử dụng ổn định lâu năm không phát sinh tranh chấp trong quá trình sử dụng\r\n\r\n--> TKMB làm việc với PC cài thêm các điều khoản ràng buộc phía BCT trong HĐ để loại bỏ các rủi ro phát sinh cho WCM trong TH chốt thuê MB\r\n\r\n \r\n\r\nTrân trọng,\r\n\r\nNguyễn Anh Tuấn (Mr.) – Phòng KSTT \r\n\r\nContact: 0986969759\r\n\r\n \r\n\r\nFrom: Võ Thị Mai Hương (SSC-PP-FM-MN) <huongvtm@winmart.masangroup.com> \r\nSent: Friday, January 16, 2026 11:32 AM\r\nTo: Nguyễn Anh Tuấn (SSC-ANCS&KSTT-MB) <tuanna13@winmart.masangroup.com>; Đỗ Ngọc Dương (SSC-ANCS&KSTT-MB) <duongdn@winmart.masangroup.com>\r\nCc: Lê Đình Thái (MiniMart-WinRural-MB) <thaild@winmart.masangroup.com>; Phạm Công Linh (MiniMart-WinRural-MB) <linhpc@w",
+    "gia_thue_sum": "",
+    "hspl": "",
+    "ghi_chu": ""
+  }
+}

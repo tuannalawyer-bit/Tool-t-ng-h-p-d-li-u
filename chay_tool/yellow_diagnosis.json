@@ -1,0 +1,82 @@
+[
+    {
+        "row": 10,
+        "ma_mb": "MB07620",
+        "missing_fields": [
+            "DTT"
+        ]
+    },
+    {
+        "row": 68,
+        "ma_mb": "MB07985",
+        "missing_fields": [
+            "Tỉnh"
+        ]
+    },
+    {
+        "row": 69,
+        "ma_mb": "MB07792",
+        "missing_fields": [
+            "Tỉnh",
+            "Thông tin BCT"
+        ]
+    },
+    {
+        "row": 70,
+        "ma_mb": "MB07780",
+        "missing_fields": [
+            "Tỉnh"
+        ]
+    },
+    {
+        "row": 72,
+        "ma_mb": "MB07877",
+        "missing_fields": [
+            "Tỉnh"
+        ]
+    },
+    {
+        "row": 74,
+        "ma_mb": "MB07932",
+        "missing_fields": [
+            "Thông tin BCT"
+        ]
+    },
+    {
+        "row": 75,
+        "ma_mb": "MB07322",
+        "missing_fields": [
+            "Tỉnh"
+        ]
+    },
+    {
+        "row": 79,
+        "ma_mb": "MB07876",
+        "missing_fields": [
+            "Tỉnh"
+        ]
+    },
+    {
+        "row": 80,
+        "ma_mb": "MB07899",
+        "missing_fields": [
+            "Tỉnh",
+            "Giá thuê có VAT"
+        ]
+    },
+    {
+        "row": 81,
+        "ma_mb": "MB07975",
+        "missing_fields": [
+            "Tỉnh"
+        ]
+    },
+    {
+        "row": 83,
+        "ma_mb": "6175",
+        "missing_fields": [
+            "Tỉnh",
+            "Thông tin BCT"
+        ]
+    }
+]

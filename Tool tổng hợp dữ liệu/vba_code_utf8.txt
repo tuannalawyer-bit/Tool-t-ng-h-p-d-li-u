@@ -1,0 +1,3948 @@
+﻿olevba 0.60.2 on Python 3.14.5 - http://decalage.info/python/oletools
+===============================================================================
+FILE: Tool check tß╗òng hß╗úp V3.53_1.xlsb
+Type: OpenXML
+WARNING  For now, VBA stomping cannot be detected for files in memory
+-------------------------------------------------------------------------------
+VBA MACRO ThisWorkbook.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/ThisWorkbook'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shUI.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shUI'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shReport.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shReport'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+    Application.EnableEvents = False
+     If Target.Address = Range("cSiteCode").Address Then
+        Dim siteCode As String
+        
+        siteCode = Range("cSiteCode").Value
+        
+        updateBasicInfor siteCode
+        updateChecklist siteCode
+        
+     End If
+    Application.EnableEvents = True
+End Sub
+Sub showNegativeStock()
+    'hideReport
+    'Me.ListObjects("tNegStock").Range.EntireColumn.Hidden = False
+    Me.ListObjects("tNegStock").Range.Activate
+End Sub
+Sub showHighStock()
+    'hideReport
+    'Me.ListObjects("tHighStock").Range.EntireColumn.Hidden = False
+    Me.ListObjects("tHighStock").Range.Activate
+End Sub
+Sub showFFHighStock()
+    'hideReport
+    'Me.ListObjects("tHighFFStock").Range.EntireColumn.Hidden = False
+    Me.ListObjects("tHighFFStock").Range.Activate
+End Sub
+Sub showOutDateFF()
+    'hideReport
+    'Me.ListObjects("tODStock").Range.EntireColumn.Hidden = False
+    Me.ListObjects("tODStock").Range.Activate
+End Sub
+Sub showNonMovingStock()
+    'hideReport
+    'Me.ListObjects("tNonMoving").Range.EntireColumn.Hidden = False
+    Me.ListObjects("tNonMoving").Range.Activate
+End Sub
+Sub showShrinkage()
+    Me.ListObjects("tShrinkage").Range.Activate
+End Sub
+Sub showGRReverse()
+    Me.ListObjects("tGRReverse").Range.Activate
+End Sub
+Sub showNoCountStock()
+    Me.ListObjects("tNoCountStock").Range.Activate
+End Sub
+Sub showSum()
+    'hideReport
+    'Range("B:O").EntireColumn.Hidden = False
+    Range("A51").Activate
+End Sub
+Function hideReport()
+    Range("B:BZ").EntireColumn.Hidden = True
+    
+    ListObjects("tNegStock").AutoFilter.ShowAllData
+    ListObjects("tHighStock").AutoFilter.ShowAllData
+    ListObjects("tHighFFStock").AutoFilter.ShowAllData
+    ListObjects("tODStock").AutoFilter.ShowAllData
+    ListObjects("tNonMoving").AutoFilter.ShowAllData
+    ListObjects("tNoCountStock").AutoFilter.ShowAllData
+End Function
+
+Sub showFrmBB()
+    frmInput.Show
+End Sub
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+VBA MACRO shDataReport.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shDataReport'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+'Private Sub Worksheet_Change(ByVal Target As Range)
+'    'Application.EnableEvents = False
+'     If Not Intersect(Target, shReport.Range("cSiteCode")) Is Nothing Then
+'        Dim siteCode As String
+'
+'        siteCode = Range("cSiteCode").Value
+'
+'        updateBasicInfor siteCode
+'
+'
+'     End If
+'    'Application.EnableEvents = True
+'End Sub
+'    Function updateBasicInfor(siteCode As String)
+'
+'        Dim row As Integer
+'
+'        clearData
+'
+'        With shStoreList
+'            If .Columns(1).Find(siteCode) Is Nothing Then MsgBox ("Site khong dung"): Exit Function
+'
+'            row = .Columns(1).Find(siteCode).row
+'            Range("cSiteName") = .Cells(row, 5)                                         'site name
+'            Range("cSizeType") = .Cells(row, 22) & "/" & shStoreList.Cells(row, 23)     'site type V
+'            Range("cStoreSize") = .Cells(row, 21) & "/" & shStoreList.Cells(row, 25)    'site dien tich
+'            Range("cQLKV") = .Cells(row, 30)                                            'QLKV
+'            Range("cGDV") = .Cells(row, 34)                                             'GDV
+'            Range("cManPower") = .Cells(row, 36) & "/" & shStoreList.Cells(row, 37)     'Manpower
+'        End With
+'    End Function
+'    Function clearData()
+'        With shStoreList
+'            Union(.Range("cSiteName"), .Range("cSizeType"), .Range("cStoreSize"), .Range("cQLKV"), .Range("cGDV"), .Range("cManPower")).ClearContents
+'        End With
+'    End Function
+-------------------------------------------------------------------------------
+VBA MACRO shNegativeStock.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shNegativeStock'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shSummarizeSaleReport.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shSummarizeSaleReport'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shSale.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shSale'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shSaleDetail.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shSaleDetail'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shRowDelete.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shRowDelete'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shOrderDelete.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shOrderDelete'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shOrderPayment.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shOrderPayment'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shHangBill.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shHangBill'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shCompareNonFF.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shCompareNonFF'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shCompareFF.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shCompareFF'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shNoStockCount.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shNoStockCount'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shTemp.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shTemp'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO Sheet3.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Sheet3'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shStock.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shStock'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shGRReverse.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shGRReverse'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shShrinkage.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shShrinkage'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shMI24.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shMI24'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shMB51.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shMB51'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shMB5B_15days.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shMB5B_15days'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shMB5B.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shMB5B'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shMasterArticle.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shMasterArticle'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shListHSD.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shListHSD'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shMP.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shMP'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO shStoreList.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shStoreList'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+-------------------------------------------------------------------------------
+VBA MACRO Main.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Main'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function checkAutoSite()
+
+    Dim userName As String
+    Dim password As String
+    Dim site As String
+    
+    Dim sapUser As String, sapPassword As String
+    sapUser = shUI.Range("sapUser")
+    sapPassword = shUI.Range("sapPassword")
+    
+    userName = shUI.Range("userName")
+    password = shUI.Range("password")
+    site = UCase(shUI.Range("site"))
+
+    If userName = "" Or password = "" Or site = "" Or sapUser = "" Or sapPassword = "" Then
+        MsgBox "Nhap thong tin truoc khi chay"
+        Exit Function
+    End If
+    
+    'login sap
+    loginSAP sapUser, sapPassword
+    checkAutoSite = Main(userName, password, site, True)
+    
+End Function
+
+Sub btnCheck_click()
+    Dim userName As String
+    Dim password As String
+    Dim site As String
+    
+    Dim sapUser As String, sapPassword As String
+    sapUser = shUI.Range("sapUser")
+    sapPassword = shUI.Range("sapPassword")
+    
+    userName = shUI.Range("userName")
+    password = shUI.Range("password")
+    site = UCase(shUI.Range("site"))
+
+    If userName = "" Or password = "" Or site = "" Or sapUser = "" Or sapPassword = "" Then
+        MsgBox "Nhap thong tin truoc khi chay"
+        Exit Sub
+    End If
+    
+    'login sap
+    loginSAP sapUser, sapPassword
+    Main userName, password, site, True
+End Sub
+Sub btnUserCheck_click()
+    Dim userName As String
+    Dim password As String
+    Dim site As String
+    
+    userName = shUserUI.Range("userName")
+    password = shUserUI.Range("password")
+    site = UCase(shUserUI.Range("site"))
+    
+    If userName = "" Or password = "" Or site = "" Then
+        MsgBox "Nhap thong tin truoc khi chay"
+        Exit Sub
+    End If
+    
+    Main userName, password, site, False
+    shReport.Activate
+End Sub
+
+
+Function Main(userName As String, password As String, site As String, isOPS As Boolean)
+
+    'download all report
+
+    Dim startDate As String
+    Dim endDate As String
+    
+    startDate = Format(Date - 31, "yyyy/mm/dd")
+    endDate = Format(Date, "yyyy/mm/dd")
+    
+
+    If Not shUI.Range("isErrStop") Then On Error GoTo Out
+
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    Application.DisplayAlerts = False
+
+'import data base MP and storelist, datelist, password analysis
+    mdUpdateData.update_data site
+
+'download bao cao POS: huy dong, huy bill, chi tiet giao dich, payment, treo bill
+    mdPOSDownloader.RunDownloadReport userName, password, site, startDate, endDate
+    
+    'mapping and summarize
+    mdCheckPOSData.checkPOSdata
+    
+
+'do du lieu OPS
+    If isOPS Then
+        DownloadOPS_InOut site
+        mdOPSDownload.checkDupImei
+        mdOPSDownload.DownloadOPS_PhieuHuy site
+    Else
+        shShrinkageTicket.UsedRange.Offset(1).ClearContents
+        shInOut.UsedRange.Offset(1).ClearContents
+    End If
+
+
+'do ton
+    Dim SAPdownloader As New clsSAPdownloader
+
+    Dim filePath As String
+    
+    filePath = SAPdownloader.Dl_MB52(site)
+    SAPdownloader.Import_Datafile shStock, filePath
+
+'loc sheet ton am
+    filterNegStock
+'tao danh sach check ton FF
+    mdCheckFF.checkFF site
+'tao danh sach check ton
+    mdCheckMoving.check_Moving site
+'tao danh sach huy nhap
+    mdCheckGRreverse.checkGRReverse site
+'tao danh sach khong kiem ke
+    mdNoStockCount.checkNoStockCount site
+'kiem tra du lieu huy va chenh lech kiem ke
+    mdCheckShrinkage.checkShrinkage site
+
+    'create checklist
+    updateChecklist
+    
+
+    'xoa bot cho nhe
+    shMB51.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+    shSaleDetail.Range("A1").CurrentRegion.Offset(1).ClearContents
+    
+    Main = "success"
+    
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.DisplayAlerts = True
+    Exit Function
+Out:
+    Main = Err.Description
+    Debug.Print Err.Description
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.DisplayAlerts = True
+End Function
+
+Function test()
+
+    Dim exportPath
+    exportPath = ThisWorkbook.Path & "\" & Format(shUI.Range("D" & 37), "yyyymmdd") & "\"
+    exportFile exportPath
+
+End Function
+
+Sub exportFile(reportPath)
+    ' This macro saves a copy of the current workbook to a subfolder
+    ' named "report" and then deletes the "shUI" worksheet from the new copy.
+
+    ' Declare variables
+    Dim wb As Workbook
+    Dim currentPath As String
+    Dim newFileName As String
+    Dim sh As Worksheet
+    Dim site As String
+    Dim name As String
+    
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    Application.DisplayAlerts = False
+    site = shUI.Range("site").Value
+    name = shUI.Range("name").Value
+
+    ' Set the workbook object to the current workbook
+    Set wb = ThisWorkbook
+
+    ' Get the path of the current workbook
+    currentPath = wb.Path
+    
+    ' Construct the new file name (same as the current workbook)
+    newFileName = reportPath & name & " " & site & " " & Format(Date, "yyyymmdd") & ".xlsb"
+
+    ' Check if the "report" folder exists. If not, create it.
+    If Len(Dir(reportPath, vbDirectory)) = 0 Then
+        MkDir reportPath
+    End If
+
+    
+    ' Save a copy of the workbook. If the file already exists, it will be overwritten.
+    wb.SaveCopyAs fileName:=newFileName
+    
+    ' Reopen the new file to modify
+    Set wbnew = Workbooks.Open(newFileName)
+    wbnew.Sheets(shBizIndex.name).Range("A1").CurrentRegion.ClearContents
+    wbnew.Sheets(shMasterArticle.name).UsedRange.ClearContents
+    wbnew.Sheets(shListHSD.name).UsedRange.ClearContents
+    wbnew.Sheets(shUI.name).Visible = xlSheetHidden
+    wbnew.Sheets(shUserUI.name).Visible = xlSheetHidden
+    wbnew.Save
+    wbnew.Close savechanges:=False
+    ' Re-enable display alerts
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.DisplayAlerts = True
+
+End Sub
+
+
+Private Function filterNegStock()
+    'filter negative stock into negative stock sheet
+    With shStock
+        shNegativeStock.AutoFilterMode = False
+        shNegativeStock.UsedRange.ClearContents
+        .AutoFilterMode = False
+        .Range("A1").CurrentRegion.AutoFilter field:=5, Criteria1:="<0" 'loc theo gia tri cot so 7 gia tri nho hon 0
+        .UsedRange.SpecialCells(xlCellTypeVisible).Copy shNegativeStock.Range("A1")
+    End With
+    
+    With shNegativeStock
+        .Range("A1").CurrentRegion.Sort key1:=.Range("E1"), order1:=xlAscending, Header:=xlYes
+    End With
+End Function
+
+
+Sub downloadPOSData()
+
+    'download all report
+    Dim userName As String
+    Dim password As String
+    Dim site As String
+    Dim startDate As String
+    Dim endDate As String
+    
+    startDate = Format(Date - 31, "yyyy/mm/dd")
+    endDate = Format(Date, "yyyy/mm/dd")
+    
+    userName = shUI.Range("userName")
+    password = shUI.Range("password")
+    site = UCase(shUI.Range("site"))
+    
+    If userName = "" Or password = "" Or site = "" Then
+        MsgBox "Nhap thong tin truoc khi chay"
+        Exit Sub
+    End If
+    
+    If Not shUI.Range("isErrStop") Then On Error GoTo Out
+    
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+
+'import data base MP and storelist, datelist, password analysis
+    mdUpdateData.update_data site
+
+'download bao cao POS: huy dong, huy bill, chi tiet giao dich, payment, treo bill
+    mdPOSDownloader.RunDownloadReport userName, password, site, startDate, endDate
+    'mapping and summarize
+    mdCheckPOSData.mapSaleDetailData
+    mdCheckPOSData.noteSummarize
+    mdCheckPOSData.calculateRevenueReport
+        
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    Exit Sub
+Out:
+    Main = Err.Description
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+
+
+End Sub
+
+
+
+-------------------------------------------------------------------------------
+VBA MACRO mdAnalysisRefresh.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdAnalysisRefresh'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+'Option Explicit
+'
+'Function refresh_analysis_report(rngStoreList As Range)
+''function to refresh analysis report
+''input: rngStoreList is range of storelist want to check
+''output: refresh report
+'
+'    Dim storeList       As Variant
+'    Dim i               As Integer
+'    Dim strCriteria     As String
+'    Dim lResult         As Long
+'    Dim tday            As String
+'    Dim pday            As String
+'    Dim dayRange        As String
+'    Dim pass            As String
+'    Dim user            As String
+'
+'    'get storelist
+'    storeList = rngStoreList.Value
+'    For i = LBound(storeList) To UBound(storeList)
+'        If strCriteria = "" Then
+'            strCriteria = storeList(i, 1)
+'        Else
+'            strCriteria = strCriteria & ";" & storeList(i, 1)
+'        End If
+'    Next i
+'
+'    'get text dayRange
+'    tday = Format(Date, "dd.mm.yyyy")
+'    pday = Format(Date - 30, "dd.mm.yyyy")
+'    dayRange = pday & " - " & tday
+'
+'    'user and password analysis
+'    user = shTemp.Range("J2")
+'    pass = shTemp.Range("K2")
+'
+'    'log off
+'    lResult = Application.Run("SAPLogOff", True)
+'
+'    'logon
+'    lResult = Application.Run("SAPLogon", "DS_3", "810", user, pass)
+'
+'    lResult = Application.Run("SAPGetProperty", "IsDataSourceActive", "DS_3")
+'
+'    If lResult = False Then
+'        lResult = Application.Run("SAPExecuteCommand", "Refresh", "DS_3")
+'    End If
+'
+'    lResult = Application.Run("SAPGetProperty", "IsDataSourceActive", "DS_4")
+'
+'    If lResult = False Then
+'        lResult = Application.Run("SAPExecuteCommand", "Refresh", "DS_4")
+'    End If
+'
+'    lResult = Application.Run("SAPGetProperty", "IsDataSourceActive", "DS_5")
+'
+'    If lResult = False Then
+'        lResult = Application.Run("SAPExecuteCommand", "Refresh", "DS_5")
+'    End If
+'
+'    'disable refresh for faster runtime
+'    Call Application.Run("SAPSetRefreshBehaviour", "Off")
+'    Call Application.Run("SAPExecuteCommand", "PauseVariableSubmit", "On")
+'
+'    'refresh data
+'    'lResult = Application.Run("SAPExecuteCommand", "RefreshData", "DS_3")
+'
+'    'set variable
+'    'Sale report
+'    lResult = Application.Run("SAPSetVariable", "ZVAMS_PLANT", strCriteria, "INPUT_STRING", "DS_3")
+'    lResult = Application.Run("SAPSetVariable", "ZVCIM_CALDAY07", dayRange, "INPUT_STRING", "DS_3")
+'
+'    'Sale report by article
+'    lResult = Application.Run("SAPSetVariable", "ZVAMS_PLANT", strCriteria, "INPUT_STRING", "DS_4")
+'    lResult = Application.Run("SAPSetVariable", "ZVCIM_CALDAY07", dayRange, "INPUT_STRING", "DS_4")
+'
+'    'Shrinkage
+'    lResult = Application.Run("SAPSetVariable", "ZVAMS_PLANT", strCriteria, "INPUT_STRING", "DS_5")
+'    lResult = Application.Run("SAPSetVariable", "0I_DAYIN", dayRange, "INPUT_STRING", "DS_5")
+'
+'    'Enable refresh
+'    Call Application.Run("SAPExecuteCommand", "PauseVariableSubmit", "Off")
+'    Call Application.Run("SAPSetRefreshBehaviour", "On")
+'
+'End Function
+'
+-------------------------------------------------------------------------------
+VBA MACRO mdCheckFF.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdCheckFF'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Option Explicit
+Function checkFF(site As String)
+    
+    downloadMB51_food100 site
+    Check_stock_FF
+    Mapping_OD
+
+
+End Function
+
+Private Function downloadMB51_food100(site As String)
+'this function to get list of fresh food item have stock more than 100,000 and get Good receive transaction (MVT 101, 102) within 30days
+
+    'filter list >100,000 and MCH 101*
+    Dim rngData As Range
+    shStock.AutoFilterMode = False
+    Set rngData = shStock.Range("A1").CurrentRegion
+    
+    'filter and copy all list FF
+    rngData.AutoFilter field:=7, Criteria1:="101*"
+    rngData.AutoFilter field:=5, Criteria1:=">0"    'not filter >100,000 to use this data to check out of date item
+    shCompareFF.AutoFilterMode = False
+    shCompareFF.Range("A1").CurrentRegion.Clear
+    rngData.Copy shCompareFF.Range("A1")
+
+    shTemp.Range("A1").CurrentRegion.Clear
+    rngData.Columns(1).Copy shTemp.Range("A1")
+    shTemp.Range("A1").CurrentRegion.RemoveDuplicates Columns:=1, Header:=xlYes
+    
+    'download MB51
+    Dim Sapdl As New clsSAPdownloader
+    Dim rngArticle As Range
+
+    Set rngArticle = shTemp.Range("A1").CurrentRegion.Offset(1, 0)
+    Dim startDate$, endDate$
+    
+    endDate = Format(Date, "dd.mm.yyyy")
+    startDate = Format(Date - 30, "dd.mm.yyyy")
+    
+    Dim filePath As String
+    
+    filePath = Sapdl.Dl_MB51(rngArticle, site, startDate, endDate, , shTemp.Range("D2:D3"))
+    Sapdl.Import_Datafile shMB51, filePath
+    
+End Function
+
+Private Function Check_stock_FF()
+'this function to compare current stock with average GR
+
+    'filter theo date
+    With shMB51
+        .Range("A1").CurrentRegion.Sort key1:=.Range("C1"), order1:=xlDescending, Header:=xlYes
+    End With
+    
+    'create dict to get: last 101, total 101 and count of 101 to calculate average 101
+    Dim i As Long
+    Dim dictLast101 As Object: Set dictLast101 = CreateObject("scripting.dictionary")
+    Dim dictTotal101 As Object: Set dictTotal101 = CreateObject("scripting.dictionary")
+    Dim dictCount101 As Object: Set dictCount101 = CreateObject("scripting.dictionary")
+    Dim tempVal
+    
+    Dim arrData As Variant: arrData = shMB51.Range("A1").CurrentRegion.Value
+    For i = LBound(arrData) + 1 To UBound(arrData)
+        tempVal = arrData(i, 1) & arrData(i, 4) 'site + article
+        If Not dictLast101.exists(tempVal) Then dictLast101.Add tempVal, arrData(i, 7) 'tempval, 101quantity
+        If Not dictTotal101.exists(tempVal) Then
+            dictTotal101.Add tempVal, arrData(i, 7) 'tempval, 101quatity
+            If arrData(i, 9) = "101" Then
+                dictCount101.Add tempVal, 1
+            Else
+                dictCount101.Add tempVal, -1
+            End If
+        Else
+            dictTotal101(tempVal) = dictTotal101(tempVal) + arrData(i, 7)
+            If arrData(i, 9) = "101" Then
+                dictCount101(tempVal) = dictCount101(tempVal) + 1
+            Else
+                dictCount101(tempVal) = dictCount101(tempVal) - 1
+            End If
+        End If
+    Next i
+    
+    With shCompareFF
+        arrData = .Range("A1").CurrentRegion.Value
+        Dim lRow%: lRow = .Range("A1").CurrentRegion.Rows.Count
+        Dim rngResult As Range: Set rngResult = .Range("J1:M" & lRow)
+        Dim arrResult As Variant: arrResult = rngResult.Value
+    End With
+    
+    For i = LBound(arrData) + 1 To UBound(arrData)
+        tempVal = arrData(i, 8) & arrData(i, 1) 'Site & Article
+        arrResult(i, 1) = arrData(i, 4) - dictLast101(tempVal) 'ton kho tu cac ky truoc
+        If dictCount101(tempVal) <> 0 Then
+            arrResult(i, 2) = dictTotal101(tempVal) / dictCount101(tempVal)
+            If arrResult(i, 2) <> 0 Then arrResult(i, 3) = arrResult(i, 1) / arrResult(i, 2)
+        End If
+        arrResult(i, 4) = dictTotal101(tempVal)
+    Next i
+    
+    rngResult = arrResult
+    rngResult.Rows(1) = Array("SL Ton cu (truoc lan nhap gan nhat)", "SL TB 1 lan nhap trong 30 ngay", "Ty le Ton lan truoc/TB nhap", "Tong nhap 1 thang")
+    
+    'sort data
+    With shCompareFF
+        .Range("A1").CurrentRegion.Sort key1:=.Range("L1"), order1:=xlDescending, _
+                                        key2:=.Range("E1"), order2:=xlAscending, _
+                                        Header:=xlYes
+    End With
+     
+End Function
+Private Function Mapping_OD()
+'this function compare last GR date to shelflife of item
+
+    'tao dictionary ngay cuoi cung trong han
+    Dim dictCreator As New clsDict
+    Dim hsdDict As Object
+    
+    Set hsdDict = dictCreator.createDict(shListHSD.Range("A1").CurrentRegion, 1, 5)
+    
+    'tinh tong nhap hang trong giai doan do
+    Dim inputDict As Object
+    Set inputDict = CreateObject("scripting.dictionary")
+    Dim dataArr As Variant
+    Dim i, tempVal
+    
+    dataArr = shMB51.Range("A1").CurrentRegion.Value
+    
+    For i = 2 To UBound(dataArr, 1)
+    If hsdDict.exists(CStr(dataArr(i, 4))) Then 'chi tinh voi cac ma co du lieu date
+        If Date - dataArr(i, 3) <= hsdDict(CStr(dataArr(i, 4))) Then 'tinh tong nhap cac ngay nho hon date
+            tempVal = dataArr(i, 1) & dataArr(i, 4)
+            If inputDict.exists(tempVal) Then
+                inputDict(tempVal) = inputDict(tempVal) + dataArr(i, 7)
+            Else
+                inputDict.Add tempVal, dataArr(i, 7)
+            End If
+        End If
+    End If
+    Next i
+    
+    'mapping va loc ra list hang het han
+    Dim dataRng As Range
+    Set dataRng = shCompareFF.Range("A1").CurrentRegion
+    Set dataRng = dataRng.Resize(dataRng.Rows.Count, 16)
+    dataArr = dataRng.Value
+    dataArr(1, 14) = "Tong nhap trong date"
+    dataArr(1, 15) = "Ton qua date"
+    dataArr(1, 16) = "Date SP"
+    For i = 2 To UBound(dataArr, 1)
+        If hsdDict.exists(CStr(dataArr(i, 1))) Then
+            tempVal = dataArr(i, 8) & dataArr(i, 1)
+            dataArr(i, 14) = inputDict(tempVal)
+            dataArr(i, 15) = dataArr(i, 4) - dataArr(i, 14)
+            dataArr(i, 16) = hsdDict(CStr(dataArr(i, 1)))
+        End If
+    Next i
+    dataRng = dataArr
+          
+End Function
+-------------------------------------------------------------------------------
+VBA MACRO mdCheckGRreverse.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdCheckGRreverse'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+Function checkGRReverse(site As String)
+'function to list GR reverse
+
+    downloadMB51_MVT102 site
+    filterGRReverse
+End Function
+Private Function downloadMB51_MVT102(site As String)
+'function to download all 101 and 102 within 30days
+
+    Dim Sapdl As New clsSAPdownloader
+    Dim rngArticle As Range
+
+    Set rngArticle = shTemp.Range("F1:F2")
+    Dim startDate$, endDate$
+    endDate = Format(Date, "dd.mm.yyyy")
+    startDate = Format(Date - 30, "dd.mm.yyyy")
+    Dim filePath As String
+    filePath = Sapdl.Dl_MB51(rngArticle, site, startDate, endDate, , shTemp.Range("D2:D3"))
+    Sapdl.Import_Datafile shMB51, filePath
+    
+End Function
+Private Function filterGRReverse()
+'function to filter out GR and GR reverse
+
+    Dim dtRng As Range
+    With shMB51
+        Set dtRng = .Range("A1").CurrentRegion
+        dtRng.AutoFilter field:=9, Criteria1:="102"
+        dtRng.Columns(12).SpecialCells(xlCellTypeVisible).Copy .Range("U1")
+        .AutoFilterMode = False
+    
+        shGRReverse.Range("A1").CurrentRegion.Clear
+        dtRng.AdvancedFilter xlFilterCopy, .Range("U1").CurrentRegion, shGRReverse.Range("A1")
+    End With
+    
+End Function
+-------------------------------------------------------------------------------
+VBA MACRO mdCheckMoving.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdCheckMoving'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+Function check_Moving(site As String)
+
+    downloadMB5B_15days site
+    downloadMB5B_90days site
+    filter_and_Copy_data_compare_DIO
+
+End Function
+Private Function downloadMB5B_15days(site As String)
+        
+    'filter list >500,000
+    Dim rngData As Range
+    shStock.AutoFilterMode = False
+    Set rngData = shStock.Range("A1").CurrentRegion
+    rngData.AutoFilter field:=5, Criteria1:=">300000"
+    
+    shTemp.Range("A1").CurrentRegion.Clear
+    rngData.Columns(1).Copy shTemp.Range("A1")
+    shTemp.Range("A1").CurrentRegion.RemoveDuplicates Columns:=1, Header:=xlYes
+        
+    'Download MB5B
+    Dim Sapdl As New clsSAPdownloader
+    Dim rngArticle As Range
+
+    Set rngArticle = shTemp.Range("A1").CurrentRegion
+    Dim startDate$, endDate$
+    endDate = Format(Date, "dd.mm.yyyy")
+    startDate = Format(Date - 15, "dd.mm.yyyy")
+    Dim filePath As String
+    
+    filePath = Sapdl.DL_MB5B(rngArticle, site, startDate, endDate)
+    Sapdl.Import_MB5Bfile shMB5B_15days, filePath
+    
+End Function
+Private Function downloadMB5B_90days(site As String)
+        
+    'filter list >500,000
+    Dim rngData As Range
+    With shStock
+        .AutoFilterMode = False
+        Set rngData = .Range("A1").CurrentRegion
+        rngData.AutoFilter field:=5, Criteria1:=">300000"
+    End With
+    shTemp.Range("A1").CurrentRegion.Clear
+    rngData.Columns(1).Copy shTemp.Range("A1")
+    shTemp.Range("A1").CurrentRegion.RemoveDuplicates Columns:=1, Header:=xlYes
+        
+    'Download MB5B
+    Dim Sapdl As New clsSAPdownloader
+    Dim rngArticle As Range
+
+    Set rngArticle = shTemp.Range("A1").CurrentRegion
+    Dim startDate$, endDate$
+    endDate = Format(Date, "dd.mm.yyyy")
+    startDate = Format(Date - 90, "dd.mm.yyyy")
+            
+    Dim filePath As String
+    filePath = Sapdl.DL_MB5B(rngArticle, site, startDate, endDate)
+    Sapdl.Import_MB5Bfile shMB5B, filePath
+    
+End Function
+Private Function filter_and_Copy_data_compare_DIO()
+    Dim rngData As Range
+    Dim arrData
+    Dim lRow As Long
+    Dim i As Long
+    Dim tempValue As String
+    
+    'filter and copy data to shtemp
+    shStock.AutoFilterMode = False
+    Set rngData = shStock.Range("A1").CurrentRegion
+    rngData.AutoFilter field:=5, Criteria1:=">300000"
+    rngData.AutoFilter field:=7, Criteria1:="<>203*", Criteria2:="<>501*"
+    
+    shCompareNonFF.Range("A1").CurrentRegion.Clear
+    rngData.Copy shCompareNonFF.Range("A1")
+    
+    'mapping current stock with MB5B data
+    'createdict
+    Dim dictMB5B_15days As Object: Set dictMB5B_15days = CreateObject("scripting.dictionary")
+    Dim dictMB5B As Object: Set dictMB5B = CreateObject("scripting.dictionary")
+    Dim dictDate  As Object: Set dictDate = CreateObject("scripting.dictionary")
+    Dim dictDIO As Object: Set dictDIO = CreateObject("scripting.dictionary")
+    With shMB5B_15days
+        Set rngData = .Range("A1").CurrentRegion
+        arrData = rngData.Value
+        
+        For i = LBound(arrData, 1) To UBound(arrData, 1)
+            tempValue = arrData(i, 3) & arrData(i, 5)
+            If Not dictMB5B_15days.exists(tempValue) Then
+                dictMB5B_15days.Add tempValue, arrData(i, 8)
+            End If
+        Next i
+    End With
+    With shMB5B
+        Set rngData = .Range("A1").CurrentRegion
+        arrData = rngData.Value
+        
+        For i = LBound(arrData, 1) To UBound(arrData, 1)
+            tempValue = arrData(i, 3) & arrData(i, 5)
+            If Not dictMB5B.exists(tempValue) Then
+                dictMB5B.Add tempValue, arrData(i, 8) & ";" & arrData(i, 9) & ";" & arrData(i, 10)
+            End If
+        Next i
+    End With
+    With shMasterArticle
+        Set rngData = .Range("A1").CurrentRegion
+        arrData = rngData.Value
+        
+        For i = LBound(arrData, 1) To UBound(arrData, 1)
+            
+            dictDate(arrData(i, 1)) = arrData(i, 4)
+        Next i
+        
+        Set rngData = .Range("K1").CurrentRegion
+        arrData = rngData.Value
+        
+        For i = LBound(arrData, 1) + 1 To UBound(arrData, 1)
+            dictDIO.Add arrData(i, 1), arrData(i, 2) / 0.7
+        Next i
+    End With
+    
+    'mapping data
+    With shCompareNonFF
+        lRow = .Range("A1").End(xlDown).row
+        Set rngData = Range(.Range("A1"), .Cells(lRow, "R"))
+        arrData = rngData.Value
+        
+        For i = LBound(arrData, 1) + 1 To UBound(arrData, 1)
+            'mapping data
+            tempValue = arrData(i, 8) & arrData(i, 1)
+            If dictMB5B.exists(tempValue) Then
+                arrData(i, 10) = Split(dictMB5B(tempValue), ";")(0)
+                arrData(i, 11) = Split(dictMB5B(tempValue), ";")(1)
+                arrData(i, 12) = Split(dictMB5B(tempValue), ";")(2)
+            End If
+            If dictMB5B_15days.exists(tempValue) Then
+                arrData(i, 13) = dictMB5B_15days(tempValue)
+            End If
+            If dictDate(arrData(i, 1)) <> "" Then
+                arrData(i, 14) = Round(dictDate(arrData(i, 1)), 0)
+            ElseIf dictDIO.exists(Left(arrData(i, 8), 5)) Then
+                arrData(i, 14) = Round(dictDIO(Left(arrData(i, 8), 5)), 0)
+            Else
+                arrData(i, 14) = "NA"
+            End If
+            'calculate data
+            If arrData(i, 13) = 0 Then
+                arrData(i, 15) = 0
+            ElseIf arrData(i, 12) = 0 Then
+                arrData(i, 15) = 9999                                                       'khong co ban thi DIO = 9999
+            Else
+                arrData(i, 15) = Round(-arrData(i, 13) / arrData(i, 12) * 90, 0)            'DIO theo ton kho truoc 15 ngay
+            End If
+            
+            On Error Resume Next
+            If Not IsError(Round(arrData(i, 15) / arrData(i, 14), 2)) Then
+                arrData(i, 16) = Round(arrData(i, 15) / arrData(i, 14), 2) 'ty le (DIO trc 15 ngay/Date tham khao)
+            Else
+                arrData(i, 16) = "NA"
+            End If
+            
+            arrData(i, 17) = Round((arrData(i, 10) + CLng(arrData(i, 12))) / arrData(i, 4), 2)    'ty le (ton cu - so giam)/ton hien tai
+            If arrData(i, 10) <> 0 And _
+               CStr(Left(arrData(i, 8), 9)) <> "102030603" And _
+               CStr(Left(arrData(i, 8), 9)) <> "201010105" And _
+               CStr(Left(arrData(i, 8), 5)) <> "20107" And _
+               CStr(Left(arrData(i, 8), 9)) <> "102030509" Then
+               
+                If arrData(i, 17) >= 0.8 Then
+                    arrData(i, 18) = "Check"
+                ElseIf arrData(i, 16) >= 1 And CStr(Left(arrData(i, 8), 3)) <> "101" Then                                 'bo bo tuoi song, ruou, bong vai soi
+                    arrData(i, 18) = "Check"
+                End If
+            End If
+            On Error GoTo 0
+        Next i
+        rngData = arrData
+        
+        .Range("J1:R1") = Array("Ton ngay D-90", "So tang 90 ngay", "So giam 90 ngay", "Ton ngay D-15", "Date tham khao", "Ngay ton kho tinh theo D-15", "Ty le ngay ton kho/date tham khao", "Ty le (ton cu - so giam)/ton hien tai", "Check")
+    
+    End With
+    
+End Function
+
+-------------------------------------------------------------------------------
+VBA MACRO mdCheckPOSData.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdCheckPOSData'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Function checkPOSdata()
+    mapSaleDetailData
+    noteSummarize
+    calculateRevenueReport
+    addRowDeletePivot
+    sumCardPayment
+End Function
+
+
+Private Function mapSaleDetailData()
+    'copy sang sheet report
+    shSummarizeSaleReport.UsedRange.ClearContents
+    shSaleDetail.Range("A1").CurrentRegion.Copy shSummarizeSaleReport.Range("E1")
+    'copy du lieu sang report
+    With shSummarizeSaleReport
+        .Range("F:H").Insert
+        .Range("F1:H1") = Array("S? l?n g?i giao d?ch treo", "S? d├▓ng h?y", "Gi├í tr? h?y d├▓ng")
+        .Range("O:O").Insert
+        .Range("K:M,O:O").ClearContents
+        .Range("K1:O1") = Array("Th?i gian thanh to├ín", "Ch├¬nh l?ch th?i gian", "H├¼nh th?c thanh to├ín", "S? ??n h├áng g?c", "H├¼nh th?c thanh to├ín ??n h├áng g?c")
+        .Range("A1:D1") = Array("Note treo bill", "Note tra hang", "Note tra hang", "KM")
+        .Range("Q:R").ClearContents
+        .Range("Q1:R1") = Array("1", "2")
+    End With
+    
+    'map so lan giao dich
+    Dim data As Variant
+    Dim dictRowDelete As Object: Set dictRowDelete = CreateObject("scripting.dictionary")
+    Dim dictRowDeleteSum As Object: Set dictRowDeleteSum = CreateObject("scripting.dictionary")
+    Dim i
+    data = shRowDelete.Range("A1").CurrentRegion.Value
+    For i = LBound(data) + 1 To UBound(data)
+        If dictRowDelete.exists(data(i, 3)) Then
+            dictRowDelete(data(i, 3)) = dictRowDelete(data(i, 3)) + 1
+            If data(i, 12) = "" Then
+                dictRowDeleteSum(data(i, 3)) = dictRowDeleteSum(data(i, 3))
+            Else
+                dictRowDeleteSum(data(i, 3)) = dictRowDeleteSum(data(i, 3)) + data(i, 12) * 1
+            End If
+        Else
+            dictRowDelete(data(i, 3)) = 1
+            If data(i, 12) = "" Then
+                dictRowDeleteSum(data(i, 3)) = 0
+            Else
+                dictRowDeleteSum(data(i, 3)) = data(i, 12) * 1
+            End If
+        End If
+    Next
+    
+    'map so lan treo
+    data = shHangBill.Range("A1").CurrentRegion.Value
+    Dim dictHangBill As Object: Set dictHangBill = CreateObject("scripting.dictionary")
+    For i = LBound(data) + 1 To UBound(data)
+        If dictHangBill.exists(data(i, 1)) Then
+            If Left(data(i, 5), 1) = "G" Then dictHangBill(data(i, 1)) = dictHangBill(data(i, 1)) + 1
+        Else
+            If Left(data(i, 5), 1) = "G" Then dictHangBill(data(i, 1)) = 1
+        End If
+    Next
+    
+    'map thoi gian thanh toan
+    data = shOrderPayment.Range("A1").CurrentRegion.Value
+    Dim dictPayment As Object: Set dictPayment = CreateObject("scripting.dictionary")
+    For i = LBound(data) + 1 To UBound(data)
+        dictPayment(data(i, 1)) = Array(data(i, 2), data(i, 7))
+    Next
+    
+    
+    data = shSummarizeSaleReport.Range("A1").CurrentRegion.Value
+    
+    For i = LBound(data) + 1 To UBound(data)
+        If dictHangBill.exists(data(i, 5)) Then data(i, 6) = dictHangBill(data(i, 5))
+        If dictRowDelete.exists(data(i, 5)) Then
+            data(i, 7) = dictRowDelete(data(i, 5))
+            data(i, 8) = dictRowDeleteSum(data(i, 5))
+        End If
+        If dictPayment.exists(data(i, 5)) Then
+            data(i, 11) = "'" & dictPayment(data(i, 5))(0)
+            data(i, 12) = Round((CDate(Right(data(i, 11), 8)) - CDate(data(i, 10))) * 24 * 60, 2)
+            data(i, 13) = dictPayment(data(i, 5))(1)
+        End If
+        If data(i, 14) <> "" Then
+            If dictPayment.exists(CStr(data(i, 14))) Then
+                data(i, 15) = dictPayment(CStr(data(i, 14)))(1)
+                data(i, 17) = dictPayment(CStr(data(i, 14)))(0)
+                data(i, 18) = (CDate(data(i, 10)) - (CDate(Right(data(i, 17), 8)))) * 60 * 24
+            End If
+        End If
+
+        data(i, 5) = "'" & data(i, 5)
+        data(i, 14) = "'" & data(i, 14)
+        data(i, 21) = "'" & data(i, 21)
+    Next
+     
+    With shSummarizeSaleReport
+        
+        .Range("A1").Resize(UBound(data), UBound(data, 2)).Value = data
+        
+        shUI.Range("AA1:BO1").Copy .Range("A1")
+        
+        .Range("A1").CurrentRegion.Sort key1:=.Range("E1"), Header:=xlYes, order1:=xlAscending
+    End With
+End Function
+
+Private Function noteSummarize()
+    
+    Const hangLimit = 1
+    Const rowDelLimit = 0
+    
+    
+    Dim dt As Variant
+    dt = shSummarizeSaleReport.Range("A1").CurrentRegion.Value
+    
+    Dim i, r, j
+    Dim isFound As Boolean
+    Dim isSame As Boolean
+    For i = 2 To UBound(dt)
+        'note hangbill
+        If dt(i, 12) > 30 Then 'thoi gian treo bill lau
+            If dt(i, 6) > hangLimit And dt(i, 7) > rowDelLimit Then
+                dt(i, 1) = "Treo bill huy dong"
+            Else
+                dt(i, 1) = "Treo bill"
+            End If
+        End If
+        
+        
+        'note order return
+        'xac dinh don tra hang
+        If dt(i, 14) <> "" Then
+            r = 0
+            j = 1
+            isFound = False
+            Do While r < 10 And Not isFound And i + j <= UBound(dt)
+                If i + j <= UBound(dt) Then
+                    If dt(i + j, 5) <> dt(i, 5) Then 'don hang khac
+                        r = r + 1
+                        If dt(i + j, 22) = dt(i, 22) Then 'don hang duoc thanh toan lai
+                            If dt(i + j, 28) < dt(i, 28) * -1 Then
+                                dt(i, 2) = "Tra hang thanh toan lai giam tien"
+                                dt(i + j, 2) = "Tra hang thanh toan lai giam tien"
+                            Else
+                                dt(i, 2) = "Tra hang thanh toan lai"
+                                dt(i + j, 2) = "Tra hang thanh toan lai"
+                            End If
+                            isFound = True
+                        End If
+                        
+                    End If
+                    j = j + 1
+                End If
+            Loop
+        End If
+    
+        'note tra hang lau
+        If dt(i, 18) > 24 * 60 Then dt(i, 3) = "Tra hang sau 24h"
+        
+        'note KM 50%
+        If dt(i, 20) <> "" Then 'su dung coupon
+            If dt(i, 20) = "2210000002497" Then dt(i, 4) = "Coupon 70%"
+            j = 1
+            isFound = False
+            isSame = True
+            Do While isFound Or Not isSame
+                If i + j <= UBound(dt) Then
+                    If dt(i + j, 5) = dt(i, 5) Then
+                        If dt(i + j, 22) = dt(i, 22) Then 'don hang duoc thanh toan lai
+                            dt(i, 4) = "KM tach ra"
+                            dt(i + j, 4) = "KM tach ra"
+                            isFound = True
+                        End If
+                        
+                    Else
+                        isSame = False
+                    End If
+                    j = j + 1
+                End If
+            Loop
+        End If
+        
+        dt(i, 5) = "'" & dt(i, 5)
+        dt(i, 14) = "'" & dt(i, 14)
+        dt(i, 21) = "'" & dt(i, 21)
+    Next
+    
+    'paste data back
+    shSummarizeSaleReport.Range("A1").CurrentRegion.Value = dt
+End Function
+
+Private Function calculateRevenueReport()
+    Dim dictGerenator As New clsDict
+    Dim dictDate As Object
+    Dim dictSP As Object
+    Dim dictBill As Object
+    Dim dt
+    Dim reArr
+    
+    shSaleDetail.Range("A1").CurrentRegion.Sort shSaleDetail.Range("A1"), xlAscending, Header:=xlYes
+    shSale.UsedRange.Offset(1).ClearContents
+    shSaleDetail.Range("A2") = "junk"
+    shSaleDetail.Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, , shSale.Range("A1"), Unique:=True
+'        shSale.Range("A1").CurrentRegion.RemoveDuplicates Columns:=Array(1), Header:=xlYes
+    
+    shSaleDetail.Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, , shSale.Range("E1:G1"), Unique:=True
+    shSale.Range("E1").CurrentRegion.RemoveDuplicates Columns:=Array(1), Header:=xlYes
+    
+    shSaleDetail.Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, , shSale.Range("K1:L1"), Unique:=True
+    
+    Set dictDate = dictGerenator.createDict(shSaleDetail.Range("A1").CurrentRegion, 4, 20, "sum")
+    Set dictBill = dictGerenator.createDict(shSale.Range("K1").CurrentRegion, 2, 1, "count")
+    Set dictSP = dictGerenator.createDict(shSaleDetail.Range("A1").CurrentRegion, 14, 20, "sum")
+    
+    dt = shSale.Range("A1").CurrentRegion.Value
+    ReDim reArr(1 To UBound(dt), 1 To 2)
+    reArr(1, 1) = dt(1, 2)
+    For i = 2 To UBound(dt)
+        reArr(i, 1) = dictDate(dt(i, 1))
+        reArr(i, 2) = dictBill(dt(i, 1))
+    Next
+    shSale.Range("B1").Resize(UBound(reArr), 2).Value = reArr
+    
+    dt = shSale.Range("E1").CurrentRegion.Value
+    ReDim reArr(1 To UBound(dt), 1 To 1)
+    reArr(1, 1) = dt(1, 4)
+    For i = 2 To UBound(dt)
+        reArr(i, 1) = dictSP(dt(i, 1))
+    Next
+    shSale.Range("H1").Resize(UBound(reArr), 1).Value = reArr
+    shSale.Range("E1").CurrentRegion.Sort key1:=shSale.Range("H1"), order1:=xlDescending, Header:=xlYes
+End Function
+
+Private Function addRowDeletePivot()
+    
+    Dim dt As Variant
+    
+    dt = shRowDelete.Range("A1").CurrentRegion.Value
+    Dim reArr
+    ReDim reArr(1 To UBound(dt), 1 To 1)
+    
+    Dim dictCountBill As Object: Set dictCountBill = CreateObject("scripting.dictionary")
+    Dim dictCountArticle As Object: Set dictCountArticle = CreateObject("scripting.dictionary")
+    Dim dictSum As Object: Set dictSum = CreateObject("scripting.dictionary")
+    Dim dictBill As Object: Set dictBill = CreateObject("scripting.dictionary")
+    
+    For i = 2 To UBound(reArr)
+        reArr(i, 1) = (TimeValue(Right(dt(i, 6), 8)) - TimeValue(dt(i, 5))) * 24 * 60
+        d = CStr(Left(dt(i, 6), 10))
+        If dictCountBill.exists(d) Then
+            dictCountArticle(d) = dictCountArticle(d) + 1
+            If InStr(dt(i, 12), ",") > 0 Then dictSum(d) = dictSum(d) + Replace(dt(i, 12), ",", "") * 1
+            If Not dictBill.exists(dt(i, 3)) Then
+                dictCountBill(d) = dictCountBill(d) + 1
+                dictBill(dt(i, 3)) = 1
+            End If
+        Else
+            dictCountArticle(d) = 1
+            If InStr(dt(i, 12), ",") > 0 Then dictSum(d) = Replace(dt(i, 12), ",", "") * 1 Else dictSum(d) = 0
+            dictCountBill(d) = 1
+        End If
+    Next
+    
+    shRowDelete.Range("M2").Resize(UBound(reArr), 1).Value = reArr
+    shRowDelete.Range("M2").delete shift:=xlUp
+    
+    shRowDelete.Range("P2:S1000").ClearContents
+    
+    Dim r
+    Dim key
+    r = 2
+    For Each key In dictCountBill.keys
+        shRowDelete.Range("P" & r) = key
+        shRowDelete.Range("Q" & r) = dictCountBill(key)
+        shRowDelete.Range("R" & r) = dictCountArticle(key)
+        shRowDelete.Range("S" & r) = dictSum(key)
+        r = r + 1
+    Next
+End Function
+
+
+Private Function sumCardPayment()
+    
+    Dim sumDict As Object: Set sumDict = CreateObject("Scripting.dictionary")
+    Dim countDict As Object: Set countDict = CreateObject("scripting.dictionary")
+    
+    Dim dt
+    
+    dt = shOrderPayment.Range("A1").CurrentRegion.Value
+    Dim i
+    
+    For i = 2 To UBound(dt)
+        If countDict.exists(dt(i, 12)) Then
+            countDict(dt(i, 12)) = countDict(dt(i, 12)) + 1
+            sumDict(dt(i, 12)) = sumDict(dt(i, 12)) + dt(i, 10)
+        Else
+            countDict(dt(i, 12)) = 1
+            sumDict(dt(i, 12)) = dt(i, 10)
+        End If
+    Next
+    
+    Dim key
+    Dim row
+    row = 2
+    
+    shOrderPayment.Range("AA2:AC10000").ClearContents
+    For Each key In countDict.keys
+        shOrderPayment.Range("AA" & row) = key
+        shOrderPayment.Range("AB" & row) = countDict(key)
+        shOrderPayment.Range("AC" & row) = sumDict(key)
+        row = row + 1
+    Next
+    
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+VBA MACRO mdNoStockCount.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdNoStockCount'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+'do du lieu kiem ke 2 thang
+'loc cac ma khong co chenh lech, co chenh lech cao
+
+Sub test()
+    Dim site As String
+    
+    site = "2011"
+    checkNoStockCount site
+End Sub
+
+Function checkNoStockCount(site As String)
+
+    'downloadMB5B_EOM site
+    downloadMI24 site
+    filter_noStockCount
+    
+End Function
+
+Private Function downloadMI24(site As String)
+'this function to download all stockcount from 25-30 to match with MB5B
+    Dim rngData As Range
+           
+    'download MI24
+    Dim Sapdl As New clsSAPdownloader
+    Dim rngArticle As Range
+    
+    With shNoStockCount
+        .Range("AA1") = "Article"
+        .Range("AA2") = "*"
+        Set rngArticle = .Range("AA1:AA2")
+    End With
+    Dim startDate$, endDate$
+    startDate = "1." & Month(Date - 60) & "." & Year(Date - 60)
+    endDate = Format(WorksheetFunction.EoMonth(Date - 30, 0), "dd.mm.yyyy")
+
+    Dim filePath As String
+    
+    filePath = Sapdl.Dl_MI24(rngArticle, site, startDate, endDate)
+    Sapdl.Import_Datafile shMI24, filePath
+    
+End Function
+Private Function filter_noStockCount()
+'note article which have shrinkage over 300k or unit is kg  but does not have shrinkage
+
+    Dim dataRng As Range
+    Dim dt As Variant
+    Dim i
+    
+    Dim reArr As Variant
+    
+    Set dataRng = shMI24.Range("A1").CurrentRegion
+    dt = dataRng.Value
+    ReDim reArr(1 To UBound(dt), 1 To 1)
+    For i = 2 To UBound(dt)
+        If Abs(dt(i, 10) + dt(i, 11)) > 300000 Then
+            reArr(i, 1) = "CLKK"
+        Else
+            If dt(i, 12) = "KG" And dt(i, 9) = 0 Then
+                reArr(i, 1) = "Khong kiem dem"
+            End If
+        End If
+    Next i
+    
+    shMI24.Range("S1").Resize(UBound(reArr), 1) = reArr
+    shMI24.Range("S1") = "Note"
+    
+    shMI24.Range("W1") = "Note"
+    shMI24.Range("W2") = "<>"
+    shMI24.Range("A2") = "test"
+    shMI24.Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, shMI24.Range("W1:W2"), shNoStockCount.Range("A1:O1")
+    
+    shMI24.Range("W1:W2").ClearContents
+
+End Function
+-------------------------------------------------------------------------------
+VBA MACRO mdPOSDownloader.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdPOSDownloader'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+'===================================================================================
+' VBA Module to Login to a Website and Download an Excel Report
+'
+' This version uses LATE BINDING and the WinHttpRequest object for consistency.
+'
+' Usage:
+' Run the "RunDownloadReport" Sub procedure to start the process.
+'===================================================================================
+
+Option Explicit
+
+Private Const LOGIN_URL As String = "https://bluepos.winmart.vn/Login/Login"
+Private Const LOGIN_PAGE_URL As String = "https://bluepos.winmart.vn/dang-nhap"
+Sub testDownloadReport()
+    
+    userName = "dunghd"
+    password = "Msn@1125"
+    storeId = "2011"
+    startDate = Format(Date - 30, "yyyy-mm-dd")
+    
+
+End Sub
+
+
+' Main procedure to run the download process
+Sub RunDownloadReport(userName As String, password As String, storeId As String, startDate As String, endDate As String)
+    'On Error GoTo ErrorHandler
+
+    Dim http As Object ' The HTTP object for the entire session
+    Dim fileSavePath As String
+    Dim isLoggedIn As Boolean
+    
+    ' === Configuration ===
+    ' Update these values as needed
+    
+    ' Check for empty credentials
+    If userName = "" Or password = "" Or storeId = "" Then
+        MsgBox "Please enter username, password, and store ID.", vbCritical, "Error"
+        Exit Sub
+    End If
+    
+    
+    ' === Main Logic ===
+    
+    ' Step 1: Login and get the session cookies
+    Set http = CreateObject("WinHttp.WinHttpRequest.5.1")
+    isLoggedIn = login(userName, password, http)
+    
+    ' Check if login was successful
+    If Not isLoggedIn Then
+        Debug.Print "Login failed. Please check your credentials.", vbCritical, "Login Error"
+        Exit Sub
+    End If
+    
+    Debug.Print "? Login successful!"
+    
+    ' Step 2: Download the report
+    
+    DownloadDetailSaleExcel http, storeId, startDate, endDate
+    DownloadDeleteOrderListExcel http, storeId, startDate, endDate
+    DownloadDeleteOrderDetailExcel http, storeId, startDate, endDate
+    DownloadPaymentOrderSalesExcel http, storeId, startDate, endDate
+    DownloadHistoryHangTradingSlipOrder http, storeId, startDate, endDate
+    
+    
+    ' Step 3: Show success message
+
+    Set http = Nothing
+    Exit Sub
+
+ErrorHandler:
+    MsgBox "An error occurred: " & Err.Description, vbCritical, "Runtime Error"
+    Set http = Nothing
+End Sub
+
+' --- LOGIN FUNCTIONS (from your proven code) ---
+
+' This function performs the login and returns the session cookies string.
+Function login(userName As String, password As String, ByRef http As Object) As Boolean
+    Dim loginPage As String, token As String
+    
+    'On Error GoTo LoginError
+    
+    ' === STEP 1: GET login page (fetch token + initial cookies) ===
+    http.Open "GET", "https://bluepos.winmart.vn/dang-nhap", False
+    http.setRequestHeader "User-Agent", "Mozilla/5.0"
+    http.send
+    
+    ' Check if page was retrieved successfully
+    If http.Status <> 200 Then
+        Debug.Print "Failed to get login page. Status: " & http.Status, vbCritical, "Login Error"
+        login = False
+        Exit Function
+    End If
+
+    ' Get token from page
+    loginPage = http.responseText
+    token = ExtractToken(loginPage)
+    If token = "" Then
+        Debug.Print "Could not find '__RequestVerificationToken' on login page.", vbCritical, "Login Error"
+        login = False
+        Exit Function
+    End If
+    
+    ' === STEP 2: Build payload ===
+    Dim body As String
+    body = "__RequestVerificationToken=" & URLEncode(token) & _
+           "&RedirectUrl=" & _
+           "&LoginType=1" & _
+           "&Username=" & URLEncode(userName) & _
+           "&Password=" & URLEncode(password) & _
+           "&btnLogin="
+    
+    ' === STEP 3: POST login ===
+    http.Open "POST", LOGIN_URL, False
+    http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+    http.setRequestHeader "User-Agent", "Mozilla/5.0"
+    http.setRequestHeader "Referer", "https://bluepos.winmart.vn/dang-nhap"
+    http.setRequestHeader "Origin", "https://bluepos.winmart.vn"
+    
+    http.Option(6) = True   ' follow redirects
+    http.send body
+    
+    If http.Status = 200 Then
+        login = True
+    Else
+        Debug.Print "Login failed. HTTP Status: " & http.Status, vbCritical, "Login Error"
+        login = False
+    End If
+    
+    Exit Function
+
+LoginError:
+    Debug.Print "An unexpected error occurred during login: " & Err.Description, vbCritical, "Login Error"
+    login = False
+End Function
+
+Function ExtractToken(html As String) As String
+    Dim RE As Object, matches As Object
+    Set RE = CreateObject("VBScript.RegExp")
+    RE.Pattern = "name=""__RequestVerificationToken""[^>]*value=""([^""]+)"""
+    RE.IgnoreCase = True
+    If RE.test(html) Then
+        Set matches = RE.Execute(html)
+        ExtractToken = matches(0).SubMatches(0)
+    Else
+        ExtractToken = ""
+    End If
+End Function
+
+Function URLEncode(StringVal As String) As String
+    Dim i As Long, CharCode As Integer
+    Dim Char As String, OutStr As String
+    
+    For i = 1 To Len(StringVal)
+        Char = Mid$(StringVal, i, 1)
+        CharCode = Asc(Char)
+        
+        Select Case CharCode
+            Case 48 To 57, 65 To 90, 97 To 122  ' 0-9 A-Z a-z
+                OutStr = OutStr & Char
+            Case 32
+                OutStr = OutStr & "+"
+            Case Else
+                OutStr = OutStr & "%" & Hex(CharCode)
+        End Select
+    Next i
+    
+    URLEncode = OutStr
+End Function
+
+' --- The rest of the code remains the same as it relies on the correct cookies being passed ---
+
+' === Select server based on storeId ===
+Function GetServer(site As String)
+    Dim set1, set2, set3, set4, set5, set6
+    
+    set1 = Array(1, "10.235.25.71", "10.235.25.72")
+    set2 = Array(2, "10.235.25.73", "10.235.25.74")
+    set3 = Array(3, "10.235.25.75", "10.235.25.76")
+    set4 = Array(4, "10.235.25.77", "10.235.25.78")
+    set5 = Array(5, "10.235.25.79", "10.235.25.80")
+    set6 = Array(6, "10.235.25.87", "10.235.25.88")
+
+    If Left(site, 1) = 1 Then GetServer = set1: Exit Function
+    
+    If Left(site, 1) = "2" And Not IsNumeric(Mid(site, 2, 1)) Then GetServer = set6: Exit Function
+    If Left(site, 2) = "GH" Then GetServer = set6: Exit Function
+    If Left(site, 1) = "F" Then GetServer = set6: Exit Function
+    
+    If Left(site, 2) >= 30 And Left(site, 2) <= 37 Then GetServer = set2: Exit Function
+    If Left(site, 1) = "2" Then GetServer = set2: Exit Function
+    
+    If Left(site, 2) >= 38 And Left(site, 2) <= 39 Then GetServer = set2: Exit Function
+    If Left(site, 1) = "4" Then GetServer = set3: Exit Function
+    
+    If Left(site, 1) = "5" Then GetServer = set4: Exit Function
+    
+    If Left(site, 1) = "6" Then GetServer = set5: Exit Function
+End Function
+
+' --- Helper to download a report ---
+Function DownloadReport(http As Object, url As String, tarSh As Worksheet, isAdded As Boolean) As String
+    'On Error GoTo ErrorHandler
+
+    Dim fso As Object
+    Dim fileStream As Object
+    Dim filePath As String
+    
+    ' Define the path where the temporary file will be saved.
+    ' Using Environ("USERPROFILE") makes it work on any user's machine.
+    filePath = Environ("USERPROFILE") & "\Downloads\Data.xlsx"
+    
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Set fileStream = CreateObject("ADODB.Stream")
+    
+    ' Send request with headers (no changes needed here)
+    http.Open "GET", url, False
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+    http.setRequestHeader "Referer", "https://bluepos.winmart.vn/doanh-thu-chi-tiet"
+    
+    ' Set a longer timeout to prevent "operation timeout" errors
+    http.SetTimeouts 30000, 60000, 30000, 600000
+    
+    http.Option(6) = True
+    
+    http.send
+    
+    ' Check for status code and content type (no changes needed here)
+    If http.Status <> 200 Then
+        Err.Raise vbObjectError + 5, , "Failed to download report. Status code: " & http.Status
+    End If
+    
+    If InStr(http.getResponseHeader("Content-Type"), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") = 0 Then
+        Dim responseText As String
+        responseText = http.responseText
+        If InStr(responseText, "├Éang nh?p") > 0 Then
+            Err.Raise vbObjectError + 6, , "Download failed: The session is no longer valid. Re-login is required."
+        Else
+            Err.Raise vbObjectError + 7, , "Download failed: The server returned an invalid file type. Content-Type: " & http.getResponseHeader("Content-Type") & ". Response Text: " & Left(responseText, 500)
+        End If
+    End If
+    
+    ' Save the downloaded Excel file to the specified path
+    fileStream.Open
+    fileStream.Type = 1 ' adTypeBinary
+    fileStream.Write http.responseBody
+    
+    fileStream.SaveToFile filePath, 2 ' adSaveCreateOverWrite
+    fileStream.Close
+    
+    ' After saving, call the new function to import the data
+    Import_Datafile tarSh, isAdded
+    
+    Exit Function
+    
+ErrorHandler:
+    Debug.Print "An error occurred while downloading the file: " & Err.Description, vbCritical, "Download Error"
+    DownloadReport = "" ' Return an empty string on error
+End Function
+Function Import_Datafile(TarSheet As Worksheet, isAdded As Boolean, Optional startCell As Range)
+
+    Dim lastRow As Long
+    Dim TarRange As Range
+    Dim startCol As Integer
+    'Clear data in target sheet
+    TarSheet.AutoFilterMode = False
+    If startCell Is Nothing Then startCol = 1 Else startCol = startCell.Column
+    If isAdded Then
+        Set TarRange = TarSheet.Cells(100000, startCol).End(xlUp).Offset(1)
+    Else
+        TarSheet.Cells(1, startCol).CurrentRegion.Offset(1).ClearContents
+        Set TarRange = TarSheet.Cells(2, startCol)
+    End If
+    
+    'Open data file and copy
+    Workbooks.Open fileName:="C:\Users\" & Environ("Username") & "\Downloads\Data.xlsx"
+    Range("A1").CurrentRegion.Offset(1).Copy TarRange
+    Application.CutCopyMode = False
+    
+    'close and delete file
+    Windows("Data.XLSX").Close savechanges:=xlNo
+    
+    On Error GoTo delete
+    Kill "C:\Users\" & Environ("Username") & "\Downloads\Data.xlsx"
+    Exit Function
+delete:
+    Kill "C:\Users\" & Environ("Username") & "\Downloads\Data.xlsx"
+    
+End Function
+
+' --- Report functions ---
+Sub DownloadDetailSaleExcel(http As Object, storeId As String, startDate As String, endDate As String)
+    
+    Dim url As String
+    Dim filePath As String
+    Dim server
+    ' Example values
+    Dim cvDate
+    Dim startDate1 As String
+    Dim endDate1 As String
+    
+    cvDate = DateSerial(Split(startDate, "/")(0), Split(startDate, "/")(1), Split(startDate, "/")(2))
+        
+    endDate1 = Format(cvDate + 15, "yyyy/mm/dd") & " 11:59 PM"
+    startDate1 = Format(cvDate + 15, "yyyy/mm/dd") & " 12:00 AM"
+    startDate = startDate & " 12:00 AM"
+    endDate = endDate & " 11:59 PM"
+    server = GetServer(storeId)
+    
+    'https://bluepos.winmart.vn/Reports/ExportExcel_RevenueDetailSalesList?FromDate=2026/01/10%2012:00%20AM&ToDate=2026/01/10%2011:59%20PM&SetServer=10.235.25.87&SetDBRead=10.235.25.88&StoreNo=2AGZ&OrderType=&SalesType=-1&ReturnOrder=&VatCode=&TextSearch=&UserID=&PartnerCode=-1&FranChise=WCM
+    url = "https://bluepos.winmart.vn/Reports/ExportExcel_RevenueDetailSalesList" & _
+          "?FromDate=" & Replace(startDate, " ", "%20") & _
+          "&ToDate=" & Replace(endDate1, " ", "%20") & _
+          "&SetServer=" & server(1) & _
+          "&SetDBRead=" & server(2) & _
+          "&StoreNo=" & storeId & _
+          "&OrderType=" & _
+          "&SalesType=-1" & _
+          "&ReturnOrder=" & _
+          "&VatCode=" & _
+          "&TextSearch=" & _
+          "&UserID=" & _
+          "&PartnerCode=-1" & _
+          "&FranChise=WCM"
+    
+    DownloadReport http, url, shSaleDetail, isAdded:=False
+    
+        url = "https://bluepos.winmart.vn/Reports/ExportExcel_RevenueDetailSalesList" & _
+          "?FromDate=" & Replace(startDate1, " ", "%20") & _
+          "&ToDate=" & Replace(endDate, " ", "%20") & _
+          "&SetServer=" & server(1) & _
+          "&SetDBRead=" & server(2) & _
+          "&StoreNo=" & storeId & _
+          "&OrderType=" & _
+          "&SalesType=-1" & _
+          "&ReturnOrder=" & _
+          "&VatCode=" & _
+          "&TextSearch=" & _
+          "&UserID=" & _
+          "&PartnerCode=-1" & _
+          "&FranChise=WCM"
+         
+    DownloadReport http, url, shSaleDetail, isAdded:=True
+    
+End Sub
+
+Function DownloadDeleteOrderDetailExcel(http As Object, storeId As String, startDate As String, endDate As String)
+    
+    Dim url As String
+    Dim server
+    server = GetServer(storeId)
+    ' Build request URL
+    url = "https://bluepos.winmart.vn/Reports/ExportToExcelGetDetailDeleteRowOrderByStaff" & _
+          "?SetServer2=" & server(1) & _
+          "&StoreNo=" & storeId & _
+          "&StaffCode=" & _
+          "&OrderNo=" & _
+          "&SetDBRead2=" & server(2) & _
+          "&FromDate=" & Replace(startDate, "/", "%2F") & _
+          "&ToDate=" & Replace(endDate, "/", "%2F")
+    
+    DownloadReport http, url, shRowDelete, isAdded:=False
+End Function
+Sub DownloadDeleteOrderListExcel(http As Object, storeId As String, startDate As String, endDate As String)
+    Dim url As String
+    Dim server
+    server = GetServer(storeId)
+    ' Build URL
+    url = "https://bluepos.winmart.vn/Reports/ExportToExcelGetDeleteOrderList" & _
+          "?SetServer3=" & server(1) & _
+          "&StoreNo=" & storeId & _
+          "&PosID=" & _
+          "&DocumentType=" & _
+          "&OrderNo=" & _
+          "&StaffCode=" & _
+          "&OrderType=" & _
+          "&OrderDate=" & _
+          "&SetDBRead3=" & server(2) & _
+          "&FromDate=" & Replace(startDate, "/", "%2F") & _
+          "&ToDate=" & Replace(endDate, "/", "%2F")
+    
+    DownloadReport http, url, shOrderDelete, isAdded:=False
+End Sub
+
+Sub DownloadPaymentOrderSalesExcel(http As Object, storeId As String, startDate As String, endDate As String)
+    Dim url As String
+    Dim server
+    server = GetServer(storeId)
+    ' Build URL
+    url = "https://bluepos.winmart.vn/Reports/ExportExcel_PaymentOrderSalesList" & _
+          "?FromDate=" & Replace(startDate, "/", "%2F") & _
+          "&ToDate=" & Replace(endDate, "/", "%2F") & _
+          "&SetServer=" & server(1) & _
+          "&SetDBRead=" & server(2) & _
+          "&StoreNo=" & storeId & _
+          "&OrderNo=" & _
+          "&OrderType=" & _
+          "&TenderType=" & _
+          "&StaffCode=" & _
+          "&UserCreateBill=" & _
+          "&SearchDate=0" & _
+          "&PartnerCode=-1"
+    
+    DownloadReport http, url, shOrderPayment, isAdded:=False
+End Sub
+
+Sub DownloadHistoryHangTradingSlipOrder(http As Object, storeId As String, startDate As String, endDate As String)
+    Dim url As String
+    Dim ipDict As Object
+    Set ipDict = FetchPOSIP(storeId, http)
+
+    Dim k As Variant
+    shHangBill.Range("A1").CurrentRegion.Offset(1).ClearContents
+    For Each k In ipDict.keys
+        url = "https://bluepos.winmart.vn/Reports/ExportExcel_HistoryHangTradingSlipOrder" & _
+              "?ServerPOS=POS" & _
+              "&StoreNo=" & storeId & _
+              "&PosID=" & k & "-" & ipDict(k) & _
+              "&BehaviorCode=083" & _
+              "&FromDate=" & Replace(startDate, "/", "%2F") & _
+              "&ToDate=" & Replace(endDate, "/", "%2F") & _
+              "&OrderNo=" & _
+              "&StaffID=" & _
+              "&FDate=" & Replace(Replace(startDate, "/", "%2F"), "-", "%2F") & _
+              "&TDate=" & Replace(Replace(endDate, "/", "%2F"), "-", "%2F") & _
+              "&PosTerminal=" & k
+        
+        DownloadReport http, url, shHangBill, isAdded:=True
+    Next
+End Sub
+
+Function FetchPOSIP(storeId As String, ByRef http As Object) As Object
+    Dim body As String
+    Dim jsonResponse As String
+    Dim posDict As Object
+    
+    On Error GoTo ErrorHandler
+
+    Const url As String = "https://bluepos.winmart.vn/Reports/LoadTerminalByStoreNo"
+    
+    ' Build the request body
+    body = "&storeNo=" & storeId
+    
+    ' Perform the POST request using the existing http object
+    http.Open "POST", url, False
+    http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+    http.setRequestHeader "User-Agent", "Mozilla/5.0"
+    http.send body
+    
+    
+    Dim dict As Object
+    Dim pos As Long, startPos As Long, endPos As Long
+    Dim posID As String, ip As String
+    Dim responseText As String
+    
+    responseText = http.responseText
+    Set dict = CreateObject("Scripting.Dictionary")
+    pos = 1
+    
+    Do While InStr(pos, responseText, """IpAddress"":") > 0
+        ' --- Extract IP ---
+        startPos = InStr(pos, responseText, """IpAddress"":") + 13
+        endPos = InStr(startPos, responseText, """")
+        ip = Mid(responseText, startPos, endPos - startPos)
+        
+        ' --- Extract PosID ---
+        startPos = InStr(endPos, responseText, """PosTerminalID"":") + 17
+        endPos = InStr(startPos, responseText, """")
+        posID = Mid(responseText, startPos, endPos - startPos)
+        
+        ' --- Add to dictionary ---
+        dict(posID) = ip
+        
+        pos = endPos + 1
+    Loop
+      
+    Set FetchPOSIP = dict
+        
+    Exit Function
+    
+ErrorHandler:
+    Debug.Print "An error occurred in FetchPOSIP: " & Err.Description, vbCritical, "Runtime Error"
+    Set FetchPOSIP = Nothing
+End Function
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+VBA MACRO mdReport.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdReport'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+    Function updateBasicInfor(siteCode As String)
+        filterStoreInfor siteCode
+        filterMP siteCode
+        filterSale siteCode
+    End Function
+    Function updateChecklist()
+
+        filterNegativeStock
+        
+        filterHighStock
+        
+        filterFF_High_Stock
+        
+        filter_out_of_date_FF
+        
+        filter_fake_stock
+        
+        filter_shrinkage
+        
+        filter_GRReverse
+        
+        filter_noStockCount
+        
+        filter_hangBill
+        
+        filter_returnBill
+        
+        filter_coupon70
+        
+        filter_card10tr
+        
+        compareBiz
+
+        filter_ticketDelete
+        
+    End Function
+    Private Function filterStoreInfor(siteCode As String)
+
+    End Function
+    Private Function filterMP(siteCode As String)
+
+    End Function
+     Function filterSale(siteCode As String)
+
+    End Function
+    
+    Private Function filterNegativeStock()
+        
+        If shNegativeStock.Range("A2") <> "" Then
+            shNegativeStock.Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, , shReport.Range("negStock")
+        End If
+   
+    End Function
+    Private Function filterHighStock()
+        With shCompareNonFF
+            .AutoFilterMode = False
+            .Range("U1") = .Range("E1")
+            .Range("U2") = ">3000000"
+            
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("U1:U2"), shReport.Range("highStock")
+        
+        End With
+    End Function
+    Private Function filterFF_High_Stock()
+        With shCompareFF
+            .AutoFilterMode = False
+            .Range("U1") = .Range("L1")
+            .Range("U2") = ">5"
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("U1:U2"), shReport.Range("highStockFF")
+        End With
+    End Function
+    Private Function filter_out_of_date_FF()
+        With shCompareFF
+            .AutoFilterMode = False
+            .Range("U1") = .Range("O1")
+            .Range("U2") = ">0"
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("U1:U2"), shReport.Range("outdateFF")
+        End With
+    End Function
+    Private Function filter_fake_stock()
+        With shCompareNonFF
+            .AutoFilterMode = False
+            .Range("U1") = .Range("P1")
+            .Range("V1") = .Range("Q1")
+            .Range("U2") = ">1"
+            .Range("V2") = ">=0.8"
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("U1:V2"), shReport.Range("slowmoving")
+        End With
+    End Function
+    Private Function filter_shrinkage()
+        Dim dt
+        Dim i
+        Dim dictSale As Object: Set dictSale = CreateObject("scripting.dictionary")
+              
+    
+    
+        With shShrinkage
+            dt = shShrinkage.Range("T1").CurrentRegion.Value
+            For i = 2 To UBound(dt)
+                If Not dictSale.exists(dt(i, 1)) Then dictSale(CStr(dt(i, 1))) = 0
+            Next
+            
+            dt = shSummarizeSaleReport.Range("A1").CurrentRegion.Value
+            For i = 2 To UBound(dt)
+                If dictSale.exists(CStr(dt(i, 22))) Then
+                    dictSale(CStr(dt(i, 22))) = dictSale(CStr(dt(i, 22))) + dt(i, 28)
+                End If
+            Next
+            
+            dt = shShrinkage.Range("T1").CurrentRegion.Value
+            Dim reArr
+            ReDim reArr(1 To UBound(dt), 1 To 2)
+            
+            For i = 2 To UBound(dt)
+                reArr(i, 1) = dictSale(dt(i, 1))
+                If reArr(i, 1) = 0 Then
+                    reArr(i, 2) = 9999
+                Else
+                    reArr(i, 2) = -dt(i, 7) / reArr(i, 1)
+                End If
+                
+            Next
+            reArr(1, 1) = "Doanh thu"
+            reArr(1, 2) = "Ty le"
+            .Range("AA1").Resize(UBound(reArr), 2).Value = reArr
+            
+            .AutoFilterMode = False
+            .Range("AD1") = .Range("V1")
+            .Range("AE1") = .Range("Z1")
+            .Range("AD2") = "551"
+            .Range("AE2") = "<-500000"
+            
+            .Range("T1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("AD1:AE2"), shReport.Range("highShrinkage")
+            
+            
+            
+            
+        End With
+    End Function
+    
+    Private Function filter_GRReverse()
+        With shGRReverse
+            .AutoFilterMode = False
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, , shReport.Range("GRreverse")
+        End With
+    End Function
+    Private Function filter_noStockCount()
+    
+        With shNoStockCount
+            .AutoFilterMode = False
+            .Range("U1") = .Range("L1")
+            .Range("U2") = ""
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("U1:U2"), shReport.Range("noCounting")
+        End With
+            
+    End Function
+    Private Function filter_hangBill()
+        With shSummarizeSaleReport
+            .AutoFilterMode = False
+            .Range("AS1") = .Range("A1")
+            .Range("AS2") = "<>"
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("AS1:AS2"), shReport.Range("hangbill"), Unique:=True
+        End With
+    End Function
+    Private Function filter_returnBill()
+        With shSummarizeSaleReport
+            .AutoFilterMode = False
+            .Range("AS1") = .Range("B1")
+            .Range("AT1") = .Range("C1")
+            .Range("AS2") = "<>"
+            .Range("AT3") = "<>"
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("AS1:AT3"), shReport.Range("returnBill")
+        End With
+    End Function
+    Private Function filter_coupon70()
+        With shSummarizeSaleReport
+            .AutoFilterMode = False
+            .Range("AS1") = .Range("D1")
+            .Range("AS2") = "<>"
+            If .Range("A2") = "" Then .Range("A2") = "dumpval"
+            .Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("AS1:AS2"), shReport.Range("coupon70")
+        End With
+    End Function
+
+    Function compareBiz()
+        
+        Dim srcRng As Range
+        Dim store As String
+        
+        store = shStoreList.Range("A2").Value
+        
+        If shBizIndex.Range("A:A").Find(store) Is Nothing Then
+            shDataReport.Range("S2") = ""
+            shDataReport.Range("AA2") = ""
+            shDataReport.Range("AI2") = ""
+            shDataReport.Range("AG2") = ""
+        Else
+            Dim row As Integer
+            row = shBizIndex.Range("A:A").Find(store).row
+            shDataReport.Range("S2") = shBizIndex.Range("O" & row)
+            shDataReport.Range("AA2") = shBizIndex.Range("Q" & row)
+            shDataReport.Range("AI2") = shBizIndex.Range("C" & row)
+            shDataReport.Range("AG2") = shBizIndex.Range("L" & row)
+        End If
+        
+        Set srcRng = shBizIndex.Range("A1").CurrentRegion
+        srcRng.AdvancedFilter xlFilterCopy, shDataReport.Range("R1:S2"), shDataReport.Range("S5:X5")
+        srcRng.AdvancedFilter xlFilterCopy, shDataReport.Range("Z1:AA2"), shDataReport.Range("AA5:AF5")
+        srcRng.AdvancedFilter xlFilterCopy, shDataReport.Range("AG1:AI2"), shDataReport.Range("AI5:AN5")
+    End Function
+
+Function filter_card10tr()
+
+    With shOrderPayment
+        .Range("AF1") = .Range("AC1")
+        .Range("AG1") = .Range("AA1")
+        .Range("AF2") = ">10000000"
+        .Range("AG2") = "<>"
+        If Range("AA2") <> "" Then
+            .Range("AA1").CurrentRegion.AdvancedFilter xlFilterCopy, .Range("AF1:AG2"), shReport.Range("card10tr")
+        End If
+    End With
+    
+End Function
+
+Function filter_ticketDelete()
+    
+    If shShrinkageTicket.Range("A2") = "" Then
+        shReport.Range("ticketDelete")(1, 1).CurrentRegion.Offset(1).ClearContents
+    Else
+        shShrinkageTicket.Range("k1").CurrentRegion.AdvancedFilter xlFilterCopy, shShrinkageTicket.Range("L1"), shReport.Range("ticketDelete")
+    End If
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+VBA MACRO mdUpdateData.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdUpdateData'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+Const dataFile = "\\masan\12. An Ninh Va Thanh Tra\12.1 ANTT, ANNB & Thanh tra\12.1.3 Thanh tra\4. Du lieu\7. Tool\DataForTool\updated_data.xlsb" 'File location
+Function update_data(site As String)
+'function to update data from database on server
+'input: rngStoreList is a list of storelist to check
+'output: data paste into each sheet MP, storelist, datelist, password
+
+    Dim lastRow         As Long
+    Dim TarRange        As Range
+    Dim storeList       As Variant
+    Dim filterCriteria  As String
+    Dim SQLtext         As String
+    Dim i               As Integer
+    Dim objConnection   As Object: Set objConnection = CreateObject("ADODB.Connection")
+    Dim objRecordset    As Object: Set objRecordset = CreateObject("ADODB.Recordset")
+        
+    'create storelist text to
+    filterCriteria = "CH LIKE '" & site & "%'"
+    
+    'open database
+    objConnection.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=" & dataFile & ";Extended Properties=""Excel 12.0 Xml;HDR=Yes;IMEX=0"";"
+    
+    'update MP
+    shMP.AutoFilterMode = False
+    shMP.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+        
+    SQLtext = "Select CH, [ho_ten], [chuc_danh], [ma_nv], [ngay_sinh] FROM [MP$] WHERE " & filterCriteria
+    objRecordset.Open SQLtext, objConnection
+    shMP.Range("A2").CopyFromRecordset objRecordset
+    objRecordset.Close
+        
+    'update Store infor
+    shStoreList.AutoFilterMode = False
+    shStoreList.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+
+    SQLtext = "Select * FROM [StoreList$] WHERE " & filterCriteria
+    objRecordset.Open SQLtext, objConnection
+    shStoreList.Range("A2").CopyFromRecordset objRecordset
+    objRecordset.Close
+        
+    Set objConnection = Nothing
+    Set objRecordset = Nothing
+    
+End Function
+
+Sub update_bizIndex()
+    'function to update data from database on server
+'input: rngStoreList is a list of storelist to check
+'output: data paste into each sheet MP, storelist, datelist, password
+
+    Dim lastRow         As Long
+    Dim TarRange        As Range
+    Dim storeList       As Variant
+    Dim filterCriteria  As String
+    Dim SQLtext         As String
+    Dim i               As Integer
+    Dim objConnection   As Object: Set objConnection = CreateObject("ADODB.Connection")
+    Dim objRecordset    As Object: Set objRecordset = CreateObject("ADODB.Recordset")
+    
+    'open database
+    objConnection.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=" & dataFile & ";Extended Properties=""Excel 12.0 Xml;HDR=Yes;IMEX=0"";"
+    
+    'update MP
+    shBizIndex.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+        
+    SQLtext = "Select * FROM [bizData$]"
+    objRecordset.Open SQLtext, objConnection
+    shBizIndex.Range("A2").CopyFromRecordset objRecordset
+    objRecordset.Close
+        
+    Range("L1") = "Cap nhat lan cuoi " & Format(Date, "dd/mm/yyyy")
+    MsgBox "Cap nhat du lieu thanh cong"
+    Set objConnection = Nothing
+    Set objRecordset = Nothing
+End Sub
+-------------------------------------------------------------------------------
+VBA MACRO clsDict.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/clsDict'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+Function createDict(dataRng As Range, criCol As Integer, resCol As Integer, Optional calType As String, Optional criCol2 As Integer, Optional criCol3 As Integer) As Object
+    Dim mDict As Object
+    Dim mArr As Variant
+    Dim tempVal
+    Dim i
+    
+    Set mDict = CreateObject("scripting.dictionary")
+    mArr = dataRng.Value
+    
+    For i = LBound(mArr, 1) To UBound(mArr, 1)
+        If criCol3 <> 0 Then
+            tempVal = mArr(i, criCol) & mArr(i, criCol2) & mArr(i, criCol3)
+        ElseIf criCol2 <> 0 Then
+            tempVal = mArr(i, criCol) & mArr(i, criCol2)
+        Else
+            tempVal = mArr(i, criCol)
+        End If
+        
+        If calType = "sum" Then
+            If Not mDict.exists(tempVal) Then
+                mDict.Add tempVal, mArr(i, resCol)
+            Else
+                mDict(tempVal) = mDict(tempVal) + mArr(i, resCol)
+            End If
+        ElseIf calType = "count" Then
+            If Not mDict.exists(tempVal) Then
+                mDict.Add tempVal, 1
+            Else
+                mDict(tempVal) = mDict(tempVal) + 1
+            End If
+        Else
+            If Not mDict.exists(tempVal) Then
+                mDict.Add tempVal, mArr(i, resCol)
+            End If
+        End If
+    Next i
+    
+    Set createDict = mDict
+    
+End Function
+
+-------------------------------------------------------------------------------
+VBA MACRO clsSAPdownloader.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/clsSAPdownloader'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+#If Win64 Then
+    Private Declare PtrSafe Function GetCurrentProcessId Lib "kernel32" () As Long
+#Else
+    Private Declare Function GetCurrentProcessId Lib "kernel32" () As Long
+#End If
+
+Sub SyncFromDatabase()
+    
+    Dim dataFile As String
+    dataFile = "C:\Users\" & Environ("Username") & "\Downloads" 'File location
+
+    'Check Last Database Update
+    shDtBase.UsedRange.Offset(1, 0).ClearContents 'Clear existing data
+    On Error Resume Next
+    Set objConnection = CreateObject("ADODB.Connection")
+    Set objRecordset = CreateObject("ADODB.Recordset")
+    objConnection.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=" & dataFile & ";Extended Properties=""Excel 12.0 Xml;HDR=Yes;IMEX=0"";"
+    objRecordset.Open "Select * FROM [sheet1$]", objConnection
+    TarSheet.Range("A2").CopyFromRecordset objRecordset
+    objRecordset.Close
+    objConnection.Close
+
+End Sub
+
+Sub Import_Datafile(TarSheet As Worksheet, dataFile As String)
+
+    Dim lastRow As Long
+    Dim TarRange As Range
+    
+    'Clear data in target sheet
+    TarSheet.AutoFilterMode = False
+    TarSheet.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+ 
+    
+    'Open data file and copy
+'    Workbooks.Open Filename:="C:\Users\" & Environ("Username") & "\Downloads\Data.xlsx"
+'    Range("A1").CurrentRegion.Copy TarSheet.Range("A1")
+'    Application.CutCopyMode = False
+    
+    
+    Set objConnection = CreateObject("ADODB.Connection")
+    Set objRecordset = CreateObject("ADODB.Recordset")
+    objConnection.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=" & dataFile & ";Extended Properties=""Excel 12.0 Xml;HDR=Yes;IMEX=0"";"
+    objRecordset.Open "Select * FROM [sheet1$]", objConnection
+    TarSheet.Range("A2").CopyFromRecordset objRecordset
+    Set objConnection = Nothing
+    Set objRecordset = Nothing
+    
+    'Delete total row
+    lastRow = TarSheet.Range("A1").CurrentRegion.Rows.Count
+    
+    Do While TarSheet.Range("A" & lastRow) = ""
+        TarSheet.Range("A" & lastRow).EntireRow.delete
+        lastRow = lastRow - 1
+    Loop
+    
+    'close and delete file
+    'Windows("Data.XLSX").Close
+    
+    On Error GoTo delete
+    If Dir(dataFile) <> "" Then Kill (dataFile)
+    closeOtherExcelInstances
+    Exit Sub
+    
+delete:
+
+    closeOtherExcelInstances
+    Application.Wait (now + TimeValue("0:00:03"))
+    If Dir(dataFile) <> "" Then Kill (dataFile)
+
+End Sub
+
+Sub closeOtherExcelInstances()
+'close instances open by SAP after download data
+    Dim oServ As Object
+    Dim cProc As Variant
+    Dim oProc As Object
+    Dim currentProcId
+    Dim errReturnCode
+    
+    currentProcId = GetCurrentProcessId
+
+    Set oServ = GetObject("winmgmts:")
+    Set cProc = oServ.ExecQuery("Select * from Win32_Process where NAME = 'EXCEL.EXE'")
+
+    For Each oProc In cProc
+        If oProc.ProcessId <> currentProcId Then
+            'Debug.Print oProc.Name, oProc.ProcessId
+            errReturnCode = oProc.Terminate()
+        End If
+    Next
+End Sub
+
+Function Dl_MB52(site As String, Optional Article As Range, Optional MCH As String)
+
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+    
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".XLSX"
+    
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nmb52"
+    session.findById("wnd[0]").sendVKey 0
+    
+    'Input first site
+    session.findById("wnd[0]/usr/ctxtWERKS-LOW").text = site
+'    If site.Cells.Count > 1 Then
+'        site.Copy
+'        session.findById("wnd[0]/usr/btn%_WERKS_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    
+    'Input article
+    session.findById("wnd[0]/usr/ctxtMATNR-LOW").text = ""
+    If Not Article Is Nothing Then
+        Article.Copy
+        
+        session.findById("wnd[0]/usr/btn%_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    session.findById("wnd[0]/usr/radPA_FLT").Select
+    
+    'Nhap MC
+    session.findById("wnd[0]/usr/ctxtMATKLA-LOW").text = MCH
+'    If Not MCH Is Nothing Then
+'        MCH.Copy
+'
+'        session.findById("wnd[0]/usr/btn%_MATKLA_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    
+    'set option
+    session.findById("wnd[0]/usr/chkNEGATIV").Selected = False
+    session.findById("wnd[0]/usr/chkXMCHB").Selected = False
+    session.findById("wnd[0]/usr/chkNOVALUES").Selected = False
+    session.findById("wnd[0]/usr/chkNOZERO").Selected = True
+    session.findById("wnd[0]/usr/chkNOVALUES").SetFocus
+    
+    'choose layout
+    
+    session.findById("wnd[0]/usr/ctxtP_VARI").text = "//.TTKSCL"
+    
+    session.findById("wnd[0]").sendVKey 8
+    session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").Select
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 4
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+    
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+    Dl_MB52 = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+    
+End Function
+Function Dl_MB51(Article As Range, site As String, startDate As String, endDate As String, Optional Storage As Range, Optional Mvt As Range)
+    
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+    
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".XLSX"
+    
+    'Turn on tcode MB51
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nmb51"
+    session.findById("wnd[0]").sendVKey 0
+    
+    'Input first site
+    session.findById("wnd[0]/usr/ctxtWERKS-LOW").text = site
+    
+'    'Check number of site more than 1
+'    If site.Cells.Count > 1 Then
+'        site.Copy
+'
+'        session.findById("wnd[0]/usr/btn%_WERKS_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    'Input first article
+    session.findById("wnd[0]/usr/ctxtMATNR-LOW").text = Article(1, 1).text
+    
+    'Check number of article more than 1
+    If Article.Cells.Count > 1 Then
+        Article.Copy
+        
+        session.findById("wnd[0]/usr/btn%_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    'Clear storage
+    session.findById("wnd[0]/usr/ctxtLGORT-LOW").text = ""
+    
+    'Input storage
+    If Not Storage Is Nothing Then
+        Storage.Copy
+        session.findById("wnd[0]/usr/btn%_LGORT_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    'Clear mvt
+    session.findById("wnd[0]/usr/ctxtBWART-LOW").text = ""
+    'input mvt
+    If Not Mvt Is Nothing Then
+        Mvt.Copy
+        session.findById("wnd[0]/usr/btn%_BWART_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    'nhap date
+    If startDate <> "" And endDate <> "" Then
+        session.findById("wnd[0]/usr/ctxtBUDAT-LOW").text = startDate
+        session.findById("wnd[0]/usr/ctxtBUDAT-HIGH").text = endDate
+    End If
+    
+    'Nhap layout
+    session.findById("wnd[0]/usr/ctxtALV_DEF").text = "//.TTKSCL"
+    session.findById("wnd[0]").sendVKey 8
+    session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").Select
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 4
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+    
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+    Dl_MB51 = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+End Function
+
+Function DL_MB5B(Article As Range, site As String, startDate As String, endDate As String)
+
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+    
+        
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".txt"
+    
+    'Open tcode MB5B
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nmb5b"
+    session.findById("wnd[0]").sendVKey 0
+    
+    'Input Site
+    session.findById("wnd[0]/usr/ctxtWERKS-LOW").text = site
+'    If site.Cells.Count > 1 Then
+'        site.Copy
+'
+'        session.findById("wnd[0]/usr/btn%_WERKS_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    
+    'Input article
+    session.findById("wnd[0]/usr/ctxtMATNR-LOW").text = Article(1, 1).Value
+    If Article.Cells.Count > 1 Then
+        Article.Copy
+        
+        session.findById("wnd[0]/usr/btn%_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    session.findById("wnd[0]/usr/radBWBST").Select
+    session.findById("wnd[0]/usr/btnPB_LIU").press
+    session.findById("wnd[0]/usr/chkPA_WDZER").Selected = True
+    session.findById("wnd[0]/usr/chkPA_WDZEW").Selected = True
+    session.findById("wnd[0]/usr/chkPA_WDWIZ").Selected = True
+    session.findById("wnd[0]/usr/chkPA_WDWUW").Selected = True
+    session.findById("wnd[0]/usr/chkPA_WDWEW").Selected = True
+    session.findById("wnd[0]/usr/chkPA_NDZER").Selected = True
+    session.findById("wnd[0]/usr/chkPA_NDSTO").Selected = True
+    
+    session.findById("wnd[0]/usr/ctxtDATUM-LOW").text = startDate
+    session.findById("wnd[0]/usr/ctxtDATUM-HIGH").text = endDate
+    
+    session.findById("wnd[0]/usr/ctxtPA_SFLVA").text = "/TTKSCL"
+    session.findById("wnd[0]/usr/radLGBST").Select
+    session.findById("wnd[0]/usr/chkPA_SUMFL").Selected = True
+    session.findById("wnd[0]").sendVKey 8
+    
+    session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[2]").Select
+    session.findById("wnd[1]/usr/subSUBSCREEN_STEPLOOP:SAPLSPO5:0150/sub:SAPLSPO5:0150/radSPOPLI-SELFLAG[1,0]").Select
+    session.findById("wnd[1]/usr/subSUBSCREEN_STEPLOOP:SAPLSPO5:0150/sub:SAPLSPO5:0150/radSPOPLI-SELFLAG[1,0]").SetFocus
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILE_ENCODING").text = "4110"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 8
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+    
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+    DL_MB5B = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+End Function
+Function Dl_ZRT107(Article As Range, site As String, startDate As String, endDate As String, Optional MC As Range)
+            
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+        
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".XLSX"
+    
+    
+    'Open tcode ZRT107
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nzrt107"
+    session.findById("wnd[0]").sendVKey 0
+
+    'Input site
+    session.findById("wnd[0]/usr/ctxtS_WERKS-LOW").text = site
+'    If site.Cells.Count > 1 Then
+'        site.Copy
+'
+'        session.findById("wnd[0]/usr/btn%_S_WERKS_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    
+    'Input article
+    session.findById("wnd[0]/usr/ctxtS_MATNR-LOW").text = Article(1, 1).Value
+    If Article.Cells.Count > 1 Then
+        Article.Copy
+        
+        session.findById("wnd[0]/usr/btn%_S_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    'Input MC
+    session.findById("wnd[0]/usr/ctxtS_MATKL-LOW").text = ""
+    If Not MC Is Nothing Then
+        MC.Copy
+        session.findById("wnd[0]/usr/btn%_S_MATKL_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+        session.findById("wnd[0]").sendVKey 8
+    End If
+
+    session.findById("wnd[0]/usr/ctxtS_AEDAT-LOW").text = startDate
+    session.findById("wnd[0]/usr/ctxtS_AEDAT-HIGH").text = endDate
+    
+'    session.findById("wnd[0]/usr/ctxtS_MATKL-LOW").SetFocus
+'    session.findById("wnd[0]/usr/ctxtS_MATKL-LOW").caretPosition = 4
+    session.findById("wnd[0]").sendVKey 8
+
+    session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").contextMenu
+    session.findById("wnd[0]/usr/cntlGRID1/shellcont/shell").selectContextMenuItem "&XXL"
+    'session.findById("wnd[1]/usr/chkCB_ALWAYS").SetFocus
+    session.findById("wnd[1]/usr/chkCB_ALWAYS").Selected = False
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 6
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+
+    Dl_ZRT107 = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+    
+    
+End Function
+
+Public Sub Dl_ZRT144(site As String, Optional Article As Range, Optional checkDate As String, Optional MC As Range)
+        
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+            
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".XLSX"
+    
+    'Open tcode ZRT144
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nzrt144"
+    session.findById("wnd[0]").sendVKey 0
+
+    session.findById("wnd[0]/usr/ctxtS_WERKS-LOW").text = site
+'    If site.Cells.Count > 1 Then
+'        site.Copy
+'        session.findById("wnd[0]/usr/btn%_S_WERKS_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    
+    session.findById("wnd[0]/usr/ctxtS_MATNR-LOW").text = ""
+    If Not Article Is Nothing Then
+        Article.Copy
+        session.findById("wnd[0]/usr/btn%_S_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    session.findById("wnd[0]/usr/ctxtS_MATKL-LOW").text = ""
+    If Not MC Is Nothing Then
+        MC.Copy
+        session.findById("wnd[0]/usr/btn%_S_MATKL_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+
+    If checkDate <> "" Then
+        session.findById("wnd[0]/usr/ctxtP_DATBI").text = checkDate
+    End If
+
+    session.findById("wnd[0]").sendVKey 8
+    session.findById("wnd[0]/mbar/menu[0]/menu[1]/menu[1]").Select
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 6
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+    
+    Dl_ZRT144 = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+
+End Sub
+
+Function Dl_ZRT020(site As String, Optional Article As Range, Optional checkDate As String, Optional MC As Range)
+    
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+            
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".XLSX"
+    
+    'Open Tcode ZRT020
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nzrt020"
+    session.findById("wnd[0]").sendVKey 0
+
+    session.findById("wnd[0]/usr/ctxtP_WERKS").text = site
+    session.findById("wnd[0]/usr/ctxtS_MATKL-LOW").text = ""
+    If Not MC Is Nothing Then
+        MC.Copy
+        session.findById("wnd[0]/usr/btn%_S_MATKL_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+
+    session.findById("wnd[0]/usr/ctxtS_MATNR-LOW").text = ""
+    If Not Article Is Nothing Then
+        Article.Copy
+        session.findById("wnd[0]/usr/btn%_S_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    session.findById("wnd[0]/usr/ctxtS_MATKL-LOW").text = ""
+    If Not MC Is Nothing Then
+        MC.Copy
+        session.findById("wnd[0]/usr/btn%_S_MATKL_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    If checkDate <> "" Then
+        session.findById("wnd[0]/usr/ctxtP_DATUM").text = checkDate
+    End If
+
+    session.findById("wnd[0]").sendVKey 8
+    
+    session.findById("wnd[0]/mbar/menu[0]/menu[3]/menu[1]").Select
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 6
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+    
+    Dl_ZRT020 = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+    
+End Function
+Function Dl_MI24(Article As Range, site As String, startDate As String, endDate As String)
+
+    If Not IsObject(Apps) Then
+       Set SapGuiAuto = GetObject("SAPGUI")
+       Set Apps = SapGuiAuto.GetScriptingEngine
+    End If
+    If Not IsObject(Connection) Then
+       Set Connection = Apps.Children(0)
+    End If
+    If Not IsObject(session) Then
+       Set session = Connection.Children(0)
+    End If
+    If IsObject(WScript) Then
+       WScript.ConnectObject session, "on"
+       WScript.ConnectObject Apps, "on"
+    End If
+    
+    Dim fileName As String
+    fileName = "Data" & Format(now, "yymmddhhmmss") & ".XLSX"
+    
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/nmi24"
+    session.findById("wnd[0]").sendVKey 0
+    
+    'Input first site
+    session.findById("wnd[0]/usr/ctxtIM_WERKS-LOW").text = site
+'    If site.Cells.Count > 1 Then
+'        site.Copy
+'        session.findById("wnd[0]/usr/btn%_IM_WERKS_%_APP_%-VALU_PUSH").press
+'        session.findById("wnd[1]/tbar[0]/btn[24]").press
+'        session.findById("wnd[1]/tbar[0]/btn[8]").press
+'    End If
+    
+    'Input article
+    'session.findById("wnd[0]/usr/ctxtMATNR-LOW").Text = ""
+    If Not Article Is Nothing Then
+        Article.Copy
+        
+        session.findById("wnd[0]/usr/btn%_IM_MATNR_%_APP_%-VALU_PUSH").press
+        session.findById("wnd[1]/tbar[0]/btn[24]").press
+        session.findById("wnd[1]/tbar[0]/btn[8]").press
+    End If
+    
+    session.findById("wnd[0]/usr/ctxtZLDAT-LOW").text = startDate
+    session.findById("wnd[0]/usr/ctxtZLDAT-HIGH").text = endDate
+        
+    'set layout
+    session.findById("wnd[0]/usr/ctxtP_VARI").text = "/ttkscl"
+    
+    session.findById("wnd[0]").sendVKey 8
+    session.findById("wnd[0]/mbar/menu[0]/menu[2]/menu[1]").Select
+    session.findById("wnd[1]/tbar[0]/btn[0]").press
+    session.findById("wnd[1]/usr/ctxtDY_PATH").text = "C:\Users\" & Environ("Username") & "\Downloads"
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").text = fileName
+    session.findById("wnd[1]/usr/ctxtDY_FILENAME").caretPosition = 4
+    session.findById("wnd[1]/tbar[0]/btn[11]").press
+    
+    session.findById("wnd[0]/tbar[0]/btn[15]").press
+    
+    Dl_MI24 = "C:\Users\" & Environ("Username") & "\Downloads\" & fileName
+
+End Function
+
+Sub Import_MB5Bfile(TarSheet As Worksheet, filePath As String)
+       
+    TarSheet.AutoFilterMode = False
+    TarSheet.UsedRange.ClearContents
+    
+    With TarSheet.QueryTables.Add(Connection:= _
+        "TEXT;" & filePath, Destination:=TarSheet.Range("$A$1"))
+        '.CommandType = 0
+        .name = "MB5B"
+        .FieldNames = True
+        .RowNumbers = False
+        .FillAdjacentFormulas = False
+        .PreserveFormatting = True
+        .RefreshOnFileOpen = False
+        .RefreshStyle = xlInsertDeleteCells
+        .SavePassword = False
+        .SaveData = True
+        .AdjustColumnWidth = True
+        .RefreshPeriod = 0
+        .TextFilePromptOnRefresh = False
+        .TextFilePlatform = 65001
+        .TextFileStartRow = 2
+        .TextFileParseType = xlDelimited
+        .TextFileTextQualifier = xlTextQualifierDoubleQuote
+        .TextFileTabDelimiter = True
+        .TextFileOtherDelimiter = "|"
+        .TextFileColumnDataTypes = Array(9, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1)
+        .TextFileDecimalSeparator = ","
+        .TextFileThousandsSeparator = "."
+        .TextFileTrailingMinusNumbers = True
+        .Refresh BackgroundQuery:=False
+    End With
+    With TarSheet
+        .Rows(2).delete
+        .Cells.Find(What:="*Opening Stock", MatchCase:=False) = "Opening Stock"
+        .Cells.Find(What:="*Total Receipt Qties", MatchCase:=False) = "Total Receipt Qties"
+        .Cells.Find(What:="*Total Issue Quantities", MatchCase:=False) = "Total Issue Quantities"
+        .Cells.Find(What:="*Closing Stock", MatchCase:=False) = "Closing Stock"
+    End With
+    
+    Kill filePath
+End Sub
+
+-------------------------------------------------------------------------------
+VBA MACRO clsTimer.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/clsTimer'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+Dim startTime
+
+Function StartTimer()
+    startTime = Timer
+End Function
+
+Function runtime(functionName$)
+    Debug.Print functionName & " " & Round(Timer - startTime, 1) & "s"
+End Function
+-------------------------------------------------------------------------------
+VBA MACRO mdCheckShrinkage.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdCheckShrinkage'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+
+Function checkShrinkage(site As String)
+'function to list GR reverse
+
+    downloadMB51_shrinkage site
+    filterShrinkage
+
+    'shDataReport.Range("N3:N35").Sort key1:=shDataReport.Range("N3"), order1:=xlAscending, Header:=xlYes
+    
+End Function
+Private Function downloadMB51_shrinkage(site As String)
+'function to download all 101 and 102 within 30days
+
+    Dim Sapdl As New clsSAPdownloader
+    Dim rngArticle As Range
+
+    Set rngArticle = shTemp.Range("F1:F2")
+    Dim startDate$, endDate$
+    endDate = Format(Date, "dd.mm.yyyy")
+    startDate = Format(Date - 31, "dd.mm.yyyy")
+    
+    Dim filePath As String
+    
+    filePath = Sapdl.Dl_MB51(rngArticle, site, startDate, endDate, , shTemp.Range("G2:G5"))
+    Sapdl.Import_Datafile shShrinkage, filePath
+    
+End Function
+
+Private Function filterShrinkage()
+    
+    Dim dictCount As Object: Set dictCount = CreateObject("scripting.dictionary")
+    Dim dictSum As Object: Set dictSum = CreateObject("scripting.dictionary")
+    Dim i
+    Dim dt, temp
+    
+    dt = shShrinkage.Range("A1").CurrentRegion.Value
+    shShrinkage.Range("A2") = "test"
+    shShrinkage.Range("A1").CurrentRegion.AdvancedFilter xlFilterCopy, , shShrinkage.Range("T1:X1"), True
+    
+    For i = 2 To UBound(dt)
+        temp = dt(i, 4) & dt(i, 9) & dt(i, 10)
+        If dictCount.exists(temp) Then
+            dictCount(temp) = dictCount(temp) + dt(i, 7)
+            dictSum(temp) = dictSum(temp) + dt(i, 8)
+        Else
+            dictCount(temp) = dt(i, 7)
+            dictSum(temp) = dt(i, 8)
+        End If
+    Next
+     
+    dt = shShrinkage.Range("T1").CurrentRegion.Value
+    Dim reArr
+    ReDim reArr(1 To UBound(dt), 1 To 2)
+    For i = 2 To UBound(dt)
+        temp = dt(i, 1) & dt(i, 3) & dt(i, 4)
+        reArr(i, 1) = dictCount(temp)
+        reArr(i, 2) = dictSum(temp)
+    Next i
+    reArr(1, 1) = "SL"
+    reArr(1, 2) = "Gia tri"
+    shShrinkage.Range("Y1").Resize(UBound(dt), 2).Value = reArr
+    
+End Function
+-------------------------------------------------------------------------------
+VBA MACRO mdUpdateVisitPlan.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdUpdateVisitPlan'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Option Explicit
+Const APP_URL = "https://script.google.com/macros/s/AKfycbyQirulf6a-oe2H90wHgw4PEVvosmNTNf_Sii5ArCjoUzHM3mjwarrdGVIfqRNCwT6a/exec"
+
+Sub getVisitPlan()
+    Dim submitData As String
+    Dim objHTTP As Object
+    Dim JSONdata As String
+    Dim checkDate
+
+    'If Date = shUI.Range("D22") Then Exit Sub 'du lieu ngay roi
+    If shUI.Range("checkDate") = "" Then checkDate = Date Else checkDate = shUI.Range("checkDate")
+    submitData = "{""user"":"""",""date"":""" & Format(checkDate, "yyyy-mm-dd") & """}"
+    JSONdata = "{""type"": ""getVisitPlan"", ""data"": " & submitData & "}"
+
+    On Error GoTo ErrHandler
+    Set objHTTP = CreateObject("MSXML2.ServerXMLHTTP.6.0")
+
+    objHTTP.Open "POST", APP_URL, False
+    objHTTP.setRequestHeader "Content-Type", "application/json;charset=utf-8"
+    objHTTP.setRequestHeader "Content-Length", LenB(JSONdata)
+
+    objHTTP.send JSONdata
+
+    If objHTTP.Status = 200 Then
+        parseResponse objHTTP.responseText
+    Else
+        Debug.Print "Request failed. HTTP Status: " & objHTTP.Status, vbCritical
+    End If
+
+    Exit Sub
+ErrHandler:
+    Debug.Print "Error: " & Err.Description, vbCritical, "VBA Error"
+End Sub
+
+Private Function parseResponse(response)
+    Dim data As Variant
+    Dim i
+    Dim s
+    Dim r
+    Dim temp
+        
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    shUI.Range("C21") = "id"
+    shUI.Range("D21") = "day"
+    shUI.Range("C21").CurrentRegion.Offset(1).ClearContents
+    
+    s = Mid(response, 3, Len(response) - 4)
+    
+    data = Split(s, "},{")
+    r = 22
+    For i = LBound(data) To UBound(data)
+        temp = Split(data(i), ",""")
+        shUI.Range("C" & r) = Split(temp(0), """:")(1)
+        shUI.Range("D" & r) = Mid(Split(temp(1), """:")(1), 2, 10)
+        shUI.Range("E" & r) = Replace(Split(temp(2), """:")(1), """", "")
+        shUI.Range("F" & r) = Replace(Replace(Split(temp(3), """:")(1), """", ""), "\\", "\")
+        shUI.Range("G" & r) = Replace(Split(temp(4), """:")(1), """", "")
+        shUI.Range("H" & r) = Replace(Split(temp(5), """:")(1), """", "")
+        r = r + 1
+    Next
+        
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    
+End Function
+Sub updateVisitPlan(submitData)
+
+    Dim objHTTP As Object
+    Dim JSONdata As String
+
+    JSONdata = "{""type"": ""updateDownloadData"", ""data"": """ & submitData & """}"
+
+    On Error GoTo ErrHandler
+    Set objHTTP = CreateObject("MSXML2.ServerXMLHTTP.6.0")
+        
+    objHTTP.Open "POST", APP_URL, False
+    objHTTP.setRequestHeader "Content-Type", "application/json;charset=utf-8"
+    objHTTP.setRequestHeader "Content-Length", LenB(JSONdata)
+
+    objHTTP.send JSONdata
+
+    If objHTTP.Status = 200 Then
+        
+    Else
+        Debug.Print "Request failed. HTTP Status: " & objHTTP.Status & vbCrLf & objHTTP.responseText, vbCritical
+    End If
+
+    Exit Sub
+ErrHandler:
+    Debug.Print "Error: " & Err.Description, vbCritical, "VBA Error"
+End Sub
+
+Sub downloadVisitData()
+
+    Dim r
+    Dim lastR
+    Dim submitData
+    Dim result
+    shUI.Activate
+    'update visit plan
+    getVisitPlan
+    
+    
+
+    'start download data
+    lastR = shUI.Range("C2000").End(xlUp).row
+    If lastR = 21 Then Exit Sub
+    
+    For r = 22 To lastR
+        With shUI
+        If .Range("G" & r) <> "success" And Len(.Range("E" & r)) = 4 Then
+            .Range("site") = .Range("E" & r)
+            .Range("name") = .Range("H" & r)
+            result = checkAutoSite
+            If result = "success" Then
+                .Range("F" & r) = .Range("sharePath")
+                .Range("G" & r) = "success"
+                helper.ResetUsedRangeAllSheets
+                exportFile .Range("rootPath") & "\" & Format(.Range("D" & r), "yyyymmdd") & "\"
+            Else
+                shUI.Range("G" & r) = result
+            End If
+            submitData = .Range("C" & r) & "|" & .Range("D" & r) & "|" & .Range("E" & r) & "|" & EscapeJsonString(.Range("F" & r)) & "|" & .Range("G" & r) & "|" & .Range("H" & r)
+            updateVisitPlan submitData
+            'ThisWorkbook.Save
+        End If
+        End With
+    Next
+    
+    Shell "taskkill /F /IM saplogon.exe", vbHide
+
+End Sub
+Function EscapeJsonString(str As String) As String
+    str = Replace(str, "\", "\\")   ' escape backslash
+    str = Replace(str, """", "\""") ' escape quotes if any
+    EscapeJsonString = str
+End Function
+
+Sub closeWb()
+    ThisWorkbook.Close savechanges:=False
+End Sub
+-------------------------------------------------------------------------------
+VBA MACRO sapLogin.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/sapLogin'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Private Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As LongPtr)
+
+Function StartSAPLogon(Optional maxRetries As Integer = 2) As Boolean
+    Dim WshShell As Object
+    Dim started As Boolean
+    Dim attempts As Integer
+    Dim startTime As Double, timeoutSeconds As Long
+    Dim winTitles As Variant, t As Variant
+    
+    ' Kill existing SAP processes
+    On Error Resume Next
+    Shell "taskkill /F /IM saplogon.exe", vbHide
+    Shell "taskkill /F /IM saplgpad.exe", vbHide
+    On Error GoTo 0
+    
+    Sleep 2000   ' wait for processes to close
+    
+    attempts = 0
+    started = False
+    
+    winTitles = Array("SAP Logon 770", "SAP Logon Pad 770", "SAP Logon") ' possible captions
+    
+    Do While attempts < maxRetries And Not started
+        attempts = attempts + 1
+        
+        ' Start SAP Logon
+        Shell "C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe", vbNormalFocus
+        
+        ' Wait up to 20 seconds for window
+        Set WshShell = CreateObject("WScript.Shell")
+        timeoutSeconds = 20
+        startTime = Timer
+        Do
+            For Each t In winTitles
+                If WshShell.AppActivate(t) Then
+                    started = True
+                    Exit Do
+                End If
+            Next t
+            
+            DoEvents
+            Sleep 1000
+            
+            If Timer - startTime > timeoutSeconds Then Exit Do
+        Loop
+    Loop
+    
+    If started Then
+        StartSAPLogon = True
+    Else
+        StartSAPLogon = False
+    End If
+End Function
+
+Function loginSAP(user As String, password As String) As Boolean
+    Do While Not StartSAPLogon()
+    Loop
+    
+    Dim SapGui As Object, Appl As Object, Connection As Object, session As Object
+    Dim WshShell As Object
+
+    Dim startTime As Double, timeoutSeconds As Long
+    
+
+    
+    ' Attach to SAP GUI
+    On Error Resume Next
+    Set SapGui = GetObject("SAPGUI")
+    On Error GoTo 0
+    
+    Set Appl = SapGui.GetScriptingEngine
+    
+    ' Always start a fresh connection
+    Set Connection = Appl.Openconnection(shUI.Range("sapName").Value, True)
+    Set session = Connection.Children(0)
+    
+    ' Enter credentials
+    session.findById("wnd[0]/usr/txtRSYST-MANDT").text = "800"
+    session.findById("wnd[0]/usr/txtRSYST-BNAME").text = user
+    session.findById("wnd[0]/usr/pwdRSYST-BCODE").text = password
+    session.findById("wnd[0]/usr/txtRSYST-LANGU").text = "EN"
+    session.findById("wnd[0]").sendVKey 0  ' ENTER
+        ' --- Handle multiple logon popup (wnd[1]) ---
+    On Error Resume Next
+    If Not session.findById("wnd[1]", False) Is Nothing Then
+        ' Option 1 = Continue with this login, terminate other sessions
+        session.findById("wnd[1]/usr/radMULTI_LOGON_OPT1").Select
+        session.findById("wnd[1]/tbar[0]/btn[0]").press
+    End If
+    On Error GoTo 0
+    loginSAP = True
+End Function
+
+-------------------------------------------------------------------------------
+VBA MACRO helper.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/helper'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Sub ResetUsedRangeAllSheets()
+    Dim ws As Worksheet
+    Dim lastRow As Long, lastCol As Long
+    Dim delRange As Range
+    
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    
+    
+    For Each ws In ThisWorkbook.Sheets(Array(shSummarizeSaleReport.name, shNoStockCount.name, shCompareFF.name, shCompareNonFF.name, shNegativeStock.name, shSale.name, shStock.name, shShrinkage.name, shRowDelete.name, shOrderDelete.name, shOrderPayment.name, shHangBill.name, shGRReverse.name, shMI24.name, shMB5B_15days.name, shMB5B.name))
+        With ws
+            ' Find last row and column with real data
+            lastRow = .Cells.Find(What:="*", _
+                                  After:=.Cells(1, 1), _
+                                  Lookat:=xlPart, _
+                                  LookIn:=xlFormulas, _
+                                  SearchOrder:=xlByRows, _
+                                  SearchDirection:=xlPrevious, _
+                                  MatchCase:=False).row
+
+                                  
+            ' Delete extra rows
+            If lastRow < .Rows.Count Then
+                .Rows(lastRow + 1 & ":" & .Rows.Count).delete
+            End If
+
+            
+            ' Reset used range
+        End With
+    Next ws
+    
+    Application.Calculation = xlCalculationAutomatic
+    Application.ScreenUpdating = True
+    Application.EnableEvents = True
+
+End Sub
+
+-------------------------------------------------------------------------------
+VBA MACRO mdTimer.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdTimer'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Dim nextRunTime As Date
+
+Sub StartTimer()
+    ' Schedule the first run
+    nextRunTime = now + TimeValue("00:15:00")
+    Application.OnTime nextRunTime, "scheduleMacro"
+End Sub
+
+Sub scheduleMacro()
+
+    ' Your code goes here
+    Debug.Print "startTime", now
+    downloadVisitData
+    
+    Wait 5
+    ' Schedule next run
+    nextRunTime = now + TimeValue("00:15:00")
+    Application.OnTime nextRunTime, "scheduleMacro"
+End Sub
+
+Sub DailyLoopTimer()
+    Dim startTime As Date
+    Dim currentTime As Date
+    
+    ' Start the main loop to run continuously
+    Do While True
+        ' Get the current time for comparison
+        currentTime = now
+
+        ' Check if the current time is within the 7 AM to 5 PM range
+        If TimeValue(currentTime) >= TimeValue("07:00:00") And _
+           TimeValue(currentTime) <= TimeValue("17:00:00") Then
+            
+            ' Wait for the next hourly interval
+            startTime = currentTime ' Set the timer for the current hour
+            Do While now < startTime + TimeValue("01:00:00")
+                DoEvents ' Allow Excel to respond to other events
+            Loop
+            
+            ' Execute the download macro
+            Debug.Print "Run Time: ", now
+            downloadVisitData
+            
+        Else
+            ' If it's outside the work hours (before 7 AM or after 5 PM),
+            ' the code will wait for a short period to prevent a continuous loop,
+            ' then check the time again.
+            Application.Wait now + TimeValue("01:00:00") ' Wait for 1 minute
+        End If
+    Loop
+End Sub
+
+ Sub Wait(seconds As Integer)
+      Dim now As Long
+      now = Timer()
+      Do
+          DoEvents
+      Loop While (Timer < now + seconds)
+End Sub
+
+Sub StopTimer()
+    ' Stops the scheduled run
+    On Error Resume Next
+    Application.OnTime EarliestTime:=nextRunTime, Procedure:="YourMacro", Schedule:=False
+End Sub
+-------------------------------------------------------------------------------
+VBA MACRO shBizIndex.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shBizIndex'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shUserUI.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shUserUI'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO mdOPSDownload.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdOPSDownload'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Sub DownloadOPS_InOut(site)
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+    Dim http As Object ' We use Object for late binding
+    Dim stream As Object
+    Dim url As String
+    Dim cookie As String
+    Dim filePath As String
+    
+    Dim d1, d2
+        
+    d2 = Format(Date, "yyyy-mm-dd")
+    d1 = Format(Date - 30, "yyyy-mm-dd")
+
+    ' URL is correct
+    url = "https://ops.winmart.vn/bao-cao/bao-cao-check-in-out-chi-tiet?app=WinCare&sSite=" & site & "&sites=" & site & "&frda=" & d1 & "&toda=" & d2 & "&emplCode=&p=1&isExport=True"
+    Debug.Print url
+    
+    cookie = shUI.Range("I15").Value
+    
+    filePath = Environ("USERPROFILE") & "\Downloads\data.xlsx"
+    
+    ' Use ServerXMLHTTP for potentially better compatibility
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+    
+    ' --- Setting up the request ---
+    http.Open "GET", url, False
+    
+    ' 1. Set the Critical Cookie header
+    http.setRequestHeader "Cookie", cookie
+    
+    ' 2. Replicate ALL standard browser headers from your debug request:
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+    
+    ' The sec-ch-ua headers are included as before
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+    
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+    
+    ' 3. Send the request
+    http.send
+    
+    ' Output for debugging
+    Debug.Print "HTTP Status: " & http.Status
+    
+    ' --- Handling the response ---
+    If http.Status = 200 Then
+        
+        ' Proceed with file saving
+        Set stream = CreateObject("ADODB.Stream")
+        stream.Type = 1 ' 1 = binary
+        stream.Open
+        stream.Write http.responseBody
+        stream.Position = 0
+        stream.SaveToFile filePath, 2 ' 2 = overwrite if exists
+        stream.Close
+        Debug.Print "? File downloaded successfully to: " & filePath
+    Else
+        Debug.Print "? Download failed. Status: " & http.Status
+    End If
+    
+    Import_Datafile shInOut, False
+    
+    ' Clean up objects
+    Set http = Nothing
+    Set stream = Nothing
+End Sub
+
+Function checkDupImei()
+
+    Dim rng As Range
+    
+    Set rng = shInOut.Range("A1").CurrentRegion
+    rng.AdvancedFilter xlFilterCopy, shInOut.Range("M1:M2"), shInOut.Range("M1:N1"), True
+    shInOut.Range("M1").CurrentRegion.Sort key1:=shInOut.Range("M1"), order1:=xlAscending, Header:=xlYes
+    
+    rng.AdvancedFilter xlFilterCopy, shInOut.Range("Q1:Q2"), shInOut.Range("Q1"), True
+    rng.AdvancedFilter xlFilterCopy, shInOut.Range("S1:S2"), shInOut.Range("S1"), True
+End Function
+
+Sub getTnid()
+
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+    Dim http As Object ' We use Object for late binding
+    Dim stream As Object
+    Dim url As String
+    Dim cookie As String
+    Dim filePath As String
+    
+    ' URL is correct
+    url = "https://ops.winmart.vn/danh-sach-yeu-cau-huy-hang"
+        
+    cookie = shUI.Range("I15").Value
+    
+    ' Use ServerXMLHTTP for potentially better compatibility
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+    
+    ' --- Setting up the request ---
+    http.Open "GET", url, False
+    
+    ' 1. Set the Critical Cookie header
+    http.setRequestHeader "Cookie", cookie
+    
+    ' 2. Replicate ALL standard browser headers from your debug request:
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+    
+    ' The sec-ch-ua headers are included as before
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+    
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+    
+    ' 3. Send the request
+    http.send
+    
+    ' Output for debugging
+    Debug.Print "HTTP Status: " & http.Status
+    
+    ' --- Handling the response ---
+    If http.Status = 200 Then
+        
+                
+        Dim text
+        Dim options
+        text = Right(http.responseText, Len(http.responseText) - InStr(http.responseText, "id=""tnid"""))
+        options = Split(text, "<option")
+        ReDim reArr(1 To UBound(options), 1 To 2)
+        r = 1
+        For i = LBound(options) To UBound(options)
+            If Left(options(i), 6) = " value" Then
+                items = Split(options(i), """>")
+                tnid = Right(items(0), Len(items(0)) - InStr(items(0), """"))
+                If InStr(items(1), "-") > 0 Then
+                    site = Left(items(1), InStr(items(1), "-") - 1)
+                Else
+                    site = ""
+                End If
+                Debug.Print tnid, site
+                reArr(r, 1) = site
+                reArr(r, 2) = tnid
+                r = r + 1
+            End If
+        Next i
+        
+        shTnid.Range("A1").CurrentRegion.Offset(1).ClearContents
+        shTnid.Range("A2").Resize(UBound(options), 2).Value = reArr
+        
+        MsgBox "Done"
+    Else
+        Debug.Print "? Download failed. Status: " & http.Status
+    End If
+    
+    ' Clean up objects
+    Set http = Nothing
+    Set stream = Nothing
+End Sub
+
+Sub DownloadOPS_PhieuHuy(site)
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+    Dim http As Object ' We use Object for late binding
+    Dim stream As Object
+    Dim url As String
+    Dim cookie As String
+    Dim filePath As String
+    
+    Dim d1, d2
+    Dim tnid
+
+    tnid = shTnid.Range("A:A").Find(site).Offset(0, 1).Value
+    d2 = Format(Date, "yyyy-mm-dd")
+    d1 = Format(Date - 30, "yyyy-mm-dd")
+
+    
+    If Left(site, 1) = 1 Then
+        node = 2
+    Else
+        node = 3
+    End If
+    ' URL is correct
+    url = "https://ops.winmart.vn/danh-sach-yeu-cau-huy-hang?fromDate=" & d1 & "&toDate=" & d2 & "&nodes=" & node & "&tnid=" & tnid & "&statusId=0&iswarning=0&searchText=&exp=1"
+    'url = "https://ops.winmart.vn/danh-sach-yeu-cau-huy-hang?fromDate=" & d1 & "&toDate=" & d2 & "&nodes=2&tnid=" & tnid & "&statusId=0&iswarning=0&searchText=&exp=1"
+    Debug.Print url
+    
+    cookie = shUI.Range("I15").Value
+    
+    filePath = Environ("USERPROFILE") & "\Downloads\data.xlsx"
+    
+    ' Use ServerXMLHTTP for potentially better compatibility
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+    
+    ' --- Setting up the request ---
+    http.Open "GET", url, False
+    
+    ' 1. Set the Critical Cookie header
+    http.setRequestHeader "Cookie", cookie
+    
+    ' 2. Replicate ALL standard browser headers from your debug request:
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+    
+    ' The sec-ch-ua headers are included as before
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+    
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+    
+    ' 3. Send the request
+    http.send
+    
+    ' Output for debugging
+    Debug.Print "HTTP Status: " & http.Status
+    
+    ' --- Handling the response ---
+    If http.Status = 200 Then
+        
+        ' Proceed with file saving
+        Set stream = CreateObject("ADODB.Stream")
+        stream.Type = 1 ' 1 = binary
+        stream.Open
+        stream.Write http.responseBody
+        stream.Position = 0
+        stream.SaveToFile filePath, 2 ' 2 = overwrite if exists
+        stream.Close
+        Debug.Print "? File downloaded successfully to: " & filePath
+    Else
+        Debug.Print "? Download failed. Status: " & http.Status
+    End If
+    
+    Import_Datafile shShrinkageTicket, False, Range("L1")
+    
+    'download delete ticket detail
+    shShrinkageTicket.Range("A1").CurrentRegion.Offset(1).ClearContents
+    dt = shShrinkageTicket.Range("L1").CurrentRegion.Value
+    On Error GoTo Out
+    For i = 2 To UBound(dt)
+        If dt(i, 4) Like "?├ú h?y" Then
+            DownloadOPS_PhieuHuyChiTiet dt(i, 2)
+        End If
+    
+    Next
+    
+Out:
+    ' Clean up objects
+    Set http = Nothing
+    Set stream = Nothing
+End Sub
+
+Sub DownloadOPS_PhieuHuyChiTiet(ticketId)
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+    Dim http As Object ' We use Object for late binding
+    Dim stream As Object
+    Dim url As String
+    Dim cookie As String
+    Dim filePath As String
+    
+    ' URL is correct
+    url = "https://ops.winmart.vn/chi-tiet-phieu-yeu-cau-huy-hang?requestId=" & ticketId & "&exp=1"
+    Debug.Print url
+    
+    cookie = shUI.Range("I15").Value
+    
+    filePath = Environ("USERPROFILE") & "\Downloads\data.xlsx"
+    
+    ' Use ServerXMLHTTP for potentially better compatibility
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+    
+    ' --- Setting up the request ---
+    http.Open "GET", url, False
+    
+    ' 1. Set the Critical Cookie header
+    http.setRequestHeader "Cookie", cookie
+    
+    ' 2. Replicate ALL standard browser headers from your debug request:
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+    
+    ' The sec-ch-ua headers are included as before
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+    
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+    
+    ' 3. Send the request
+    http.send
+    
+    ' Output for debugging
+    Debug.Print "HTTP Status: " & http.Status
+    
+    ' --- Handling the response ---
+    If http.Status = 200 Then
+        
+        ' Proceed with file saving
+        Set stream = CreateObject("ADODB.Stream")
+        stream.Type = 1 ' 1 = binary
+        stream.Open
+        stream.Write http.responseBody
+        stream.Position = 0
+        stream.SaveToFile filePath, 2 ' 2 = overwrite if exists
+        stream.Close
+        Debug.Print "? File downloaded successfully to: " & filePath
+    Else
+        Debug.Print "? Download failed. Status: " & http.Status
+    End If
+    
+    Import_Datafile shShrinkageTicket, True, Range("B1")
+        
+    Set endcell = shShrinkageTicket.Range("B100000").End(xlUp).Offset(0, -1)
+    If endcell.row > 1 Then
+        Range(endcell.End(xlUp).Offset(1), endcell) = ticketId
+    End If
+    ' Clean up objects
+    Set http = Nothing
+    Set stream = Nothing
+End Sub
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+VBA MACRO shInOut.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shInOut'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shTnid.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shTnid'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO shShrinkageTicket.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shShrinkageTicket'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |btnCheck_click      |Runs when the file is opened and ActiveX     |
+|          |                    |objects trigger events                       |
+|AutoExec  |Worksheet_Change    |Runs when the file is opened and ActiveX     |
+|          |                    |objects trigger events                       |
+|Suspicious|Environ             |May read system environment variables        |
+|Suspicious|Open                |May open a file                              |
+|Suspicious|Write               |May write to a file (if combined with Open)  |
+|Suspicious|output              |May write to a file (if combined with Open)  |
+|Suspicious|binary              |May read or write a binary file (if combined |
+|          |                    |with Open)                                   |
+|Suspicious|Kill                |May delete a file                            |
+|Suspicious|ADODB.Stream        |May create a text file                       |
+|Suspicious|SaveToFile          |May create a text file                       |
+|Suspicious|shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|vbNormalFocus       |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|vbHide              |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|WScript.Shell       |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|Run                 |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|create              |May execute file or a system command through |
+|          |                    |WMI                                          |
+|Suspicious|Call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+|Suspicious|MkDir               |May create a directory                       |
+|Suspicious|CreateObject        |May create an OLE object                     |
+|Suspicious|GetObject           |May get an OLE object with a running instance|
+|Suspicious|Windows             |May enumerate application windows (if        |
+|          |                    |combined with Shell.Application object)      |
+|Suspicious|Lib                 |May run code from a DLL                      |
+|Suspicious|MSXML2.XMLHTTP      |May download files from the Internet         |
+|Suspicious|MSXML2.ServerXMLHTTP|May download files from the Internet         |
+|Suspicious|User-Agent          |May download files from the Internet         |
+|Suspicious|AppActivate         |May control another application by simulating|
+|          |                    |user keystrokes                              |
+|Suspicious|exec                |May run an executable file or a system       |
+|          |                    |command using Excel 4 Macros (XLM/XLF)       |
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Login/Login  |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/dang-nhap    |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn              |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/doanh-thu-   |                                             |
+|          |chi-tiet            |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/Expor|                                             |
+|          |tExcel_RevenueDetail|                                             |
+|          |SalesList?FromDate=2|                                             |
+|          |026/01/10%2012      |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/Expor|                                             |
+|          |tExcel_RevenueDetail|                                             |
+|          |SalesList           |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/Expor|                                             |
+|          |tToExcelGetDetailDel|                                             |
+|          |eteRowOrderByStaff  |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/Expor|                                             |
+|          |tToExcelGetDeleteOrd|                                             |
+|          |erList              |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/Expor|                                             |
+|          |tExcel_PaymentOrderS|                                             |
+|          |alesList            |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/Expor|                                             |
+|          |tExcel_HistoryHangTr|                                             |
+|          |adingSlipOrder      |                                             |
+|IOC       |https://bluepos.winm|URL                                          |
+|          |art.vn/Reports/LoadT|                                             |
+|          |erminalByStoreNo    |                                             |
+|IOC       |https://script.googl|URL                                          |
+|          |e.com/macros/s/AKfyc|                                             |
+|          |byQirulf6a-         |                                             |
+|          |oe2H90wHgw4PEVvosmNT|                                             |
+|          |Nf_Sii5ArCjoUzHM3mjw|                                             |
+|          |arrdGVIfqRNCwT6a/exe|                                             |
+|          |c                   |                                             |
+|IOC       |https://ops.winmart.|URL                                          |
+|          |vn/bao-cao/bao-cao- |                                             |
+|          |check-in-out-chi-tie|                                             |
+|          |t?app=WinCare&sSite=|                                             |
+|IOC       |https://ops.winmart.|URL                                          |
+|          |vn/danh-sach-yeu-   |                                             |
+|          |cau-huy-hang        |                                             |
+|IOC       |https://ops.winmart.|URL                                          |
+|          |vn/danh-sach-yeu-   |                                             |
+|          |cau-huy-            |                                             |
+|          |hang?fromDate=      |                                             |
+|IOC       |https://ops.winmart.|URL                                          |
+|          |vn/chi-tiet-phieu-  |                                             |
+|          |yeu-cau-huy-        |                                             |
+|          |hang?requestId=     |                                             |
+|IOC       |10.235.25.71        |IPv4 address                                 |
+|IOC       |10.235.25.72        |IPv4 address                                 |
+|IOC       |10.235.25.73        |IPv4 address                                 |
+|IOC       |10.235.25.74        |IPv4 address                                 |
+|IOC       |10.235.25.75        |IPv4 address                                 |
+|IOC       |10.235.25.76        |IPv4 address                                 |
+|IOC       |10.235.25.77        |IPv4 address                                 |
+|IOC       |10.235.25.78        |IPv4 address                                 |
+|IOC       |10.235.25.79        |IPv4 address                                 |
+|IOC       |10.235.25.80        |IPv4 address                                 |
+|IOC       |10.235.25.87        |IPv4 address                                 |
+|IOC       |10.235.25.88        |IPv4 address                                 |
+|IOC       |139.0.0.0           |IPv4 address                                 |
+|IOC       |141.0.0.0           |IPv4 address                                 |
+|IOC       |EXCEL.EXE           |Executable file name                         |
+|IOC       |saplogon.exe        |Executable file name                         |
+|IOC       |saplgpad.exe        |Executable file name                         |
+|Suspicious|VBA Stomping        |VBA Stomping was detected: the VBA source    |
+|          |                    |code and P-code are different, this may have |
+|          |                    |been used to hide malicious code             |
++----------+--------------------+---------------------------------------------+
+VBA Stomping detection is experimental: please report any false positive/negative at https://github.com/decalage2/oletools/issues
+

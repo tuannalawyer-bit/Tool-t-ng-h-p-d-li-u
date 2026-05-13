@@ -1,0 +1,23 @@
+# Bỏ qua môi trường ảo (cực nặng, không đẩy lên GitHub)
+venv/
+.env
+
+# Bỏ qua các tệp tạm thời của Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Bỏ qua các file rác hệ thống và file cài đặt tải về
+*.exe
+*.msi
+
+# Bỏ qua dữ liệu rác tạm thời sinh ra khi chạy Tool
+**/temp_ocr*/
+**/_temp_gemini*/
+**/temp_*/
+**/_temp_*/
+*.log
+
+# Bỏ qua file khóa truy cập
+.vscode/
+.idea/
