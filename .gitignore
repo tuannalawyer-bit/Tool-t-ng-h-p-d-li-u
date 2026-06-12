@@ -32,3 +32,8 @@ Emails/
 python_portable/
 **/python_portable/
 
+# Bỏ qua file chứa API Key để bảo vệ thông tin bảo mật cục bộ
+gemini_api_key.txt
+**/gemini_api_key.txt
+
+
