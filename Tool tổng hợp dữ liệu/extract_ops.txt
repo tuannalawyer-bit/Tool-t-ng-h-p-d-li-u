@@ -1,0 +1,964 @@
+VBA MACRO mdOPSDownload.bas 
+
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdOPSDownload'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Sub DownloadOPS_InOut(site)
+
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+
+    Dim http As Object ' We use Object for late binding
+
+    Dim stream As Object
+
+    Dim url As String
+
+    Dim cookie As String
+
+    Dim filePath As String
+
+    
+
+    Dim d1, d2
+
+        
+
+    d2 = Format(Date, "yyyy-mm-dd")
+
+    d1 = Format(Date - 30, "yyyy-mm-dd")
+
+
+
+    ' URL is correct
+
+    url = "https://ops.winmart.vn/bao-cao/bao-cao-check-in-out-chi-tiet?app=WinCare&sSite=" & site & "&sites=" & site & "&frda=" & d1 & "&toda=" & d2 & "&emplCode=&p=1&isExport=True"
+
+    Debug.Print url
+
+    
+
+    cookie = shUI.Range("I15").Value
+
+    
+
+    filePath = Environ("USERPROFILE") & "\Downloads\data.xlsx"
+
+    
+
+    ' Use ServerXMLHTTP for potentially better compatibility
+
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+
+    
+
+    ' --- Setting up the request ---
+
+    http.Open "GET", url, False
+
+    
+
+    ' 1. Set the Critical Cookie header
+
+    http.setRequestHeader "Cookie", cookie
+
+    
+
+    ' 2. Replicate ALL standard browser headers from your debug request:
+
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+
+    
+
+    ' The sec-ch-ua headers are included as before
+
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+
+    
+
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+
+    
+
+    ' 3. Send the request
+
+    http.send
+
+    
+
+    ' Output for debugging
+
+    Debug.Print "HTTP Status: " & http.Status
+
+    
+
+    ' --- Handling the response ---
+
+    If http.Status = 200 Then
+
+        
+
+        ' Proceed with file saving
+
+        Set stream = CreateObject("ADODB.Stream")
+
+        stream.Type = 1 ' 1 = binary
+
+        stream.Open
+
+        stream.Write http.responseBody
+
+        stream.Position = 0
+
+        stream.SaveToFile filePath, 2 ' 2 = overwrite if exists
+
+        stream.Close
+
+        Debug.Print "? File downloaded successfully to: " & filePath
+
+    Else
+
+        Debug.Print "? Download failed. Status: " & http.Status
+
+    End If
+
+    
+
+    Import_Datafile shInOut, False
+
+    
+
+    ' Clean up objects
+
+    Set http = Nothing
+
+    Set stream = Nothing
+
+End Sub
+
+
+
+Function checkDupImei()
+
+
+
+    Dim rng As Range
+
+    
+
+    Set rng = shInOut.Range("A1").CurrentRegion
+
+    rng.AdvancedFilter xlFilterCopy, shInOut.Range("M1:M2"), shInOut.Range("M1:N1"), True
+
+    shInOut.Range("M1").CurrentRegion.Sort key1:=shInOut.Range("M1"), order1:=xlAscending, Header:=xlYes
+
+    
+
+    rng.AdvancedFilter xlFilterCopy, shInOut.Range("Q1:Q2"), shInOut.Range("Q1"), True
+
+    rng.AdvancedFilter xlFilterCopy, shInOut.Range("S1:S2"), shInOut.Range("S1"), True
+
+End Function
+
+
+
+Sub getTnid()
+
+
+
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+
+    Dim http As Object ' We use Object for late binding
+
+    Dim stream As Object
+
+    Dim url As String
+
+    Dim cookie As String
+
+    Dim filePath As String
+
+    
+
+    ' URL is correct
+
+    url = "https://ops.winmart.vn/danh-sach-yeu-cau-huy-hang"
+
+        
+
+    cookie = shUI.Range("I15").Value
+
+    
+
+    ' Use ServerXMLHTTP for potentially better compatibility
+
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+
+    
+
+    ' --- Setting up the request ---
+
+    http.Open "GET", url, False
+
+    
+
+    ' 1. Set the Critical Cookie header
+
+    http.setRequestHeader "Cookie", cookie
+
+    
+
+    ' 2. Replicate ALL standard browser headers from your debug request:
+
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+
+    
+
+    ' The sec-ch-ua headers are included as before
+
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+
+    
+
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+
+    
+
+    ' 3. Send the request
+
+    http.send
+
+    
+
+    ' Output for debugging
+
+    Debug.Print "HTTP Status: " & http.Status
+
+    
+
+    ' --- Handling the response ---
+
+    If http.Status = 200 Then
+
+        
+
+                
+
+        Dim text
+
+        Dim options
+
+        text = Right(http.responseText, Len(http.responseText) - InStr(http.responseText, "id=""tnid"""))
+
+        options = Split(text, "<option")
+
+        ReDim reArr(1 To UBound(options), 1 To 2)
+
+        r = 1
+
+        For i = LBound(options) To UBound(options)
+
+            If Left(options(i), 6) = " value" Then
+
+                items = Split(options(i), """>")
+
+                tnid = Right(items(0), Len(items(0)) - InStr(items(0), """"))
+
+                If InStr(items(1), "-") > 0 Then
+
+                    site = Left(items(1), InStr(items(1), "-") - 1)
+
+                Else
+
+                    site = ""
+
+                End If
+
+                Debug.Print tnid, site
+
+                reArr(r, 1) = site
+
+                reArr(r, 2) = tnid
+
+                r = r + 1
+
+            End If
+
+        Next i
+
+        
+
+        shTnid.Range("A1").CurrentRegion.Offset(1).ClearContents
+
+        shTnid.Range("A2").Resize(UBound(options), 2).Value = reArr
+
+        
+
+        MsgBox "Done"
+
+    Else
+
+        Debug.Print "? Download failed. Status: " & http.Status
+
+    End If
+
+    
+
+    ' Clean up objects
+
+    Set http = Nothing
+
+    Set stream = Nothing
+
+End Sub
+
+
+
+Sub DownloadOPS_PhieuHuy(site)
+
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+
+    Dim http As Object ' We use Object for late binding
+
+    Dim stream As Object
+
+    Dim url As String
+
+    Dim cookie As String
+
+    Dim filePath As String
+
+    
+
+    Dim d1, d2
+
+    Dim tnid
+
+
+
+    tnid = shTnid.Range("A:A").Find(site).Offset(0, 1).Value
+
+    d2 = Format(Date, "yyyy-mm-dd")
+
+    d1 = Format(Date - 30, "yyyy-mm-dd")
+
+
+
+    
+
+    If Left(site, 1) = 1 Then
+
+        node = 2
+
+    Else
+
+        node = 3
+
+    End If
+
+    ' URL is correct
+
+    url = "https://ops.winmart.vn/danh-sach-yeu-cau-huy-hang?fromDate=" & d1 & "&toDate=" & d2 & "&nodes=" & node & "&tnid=" & tnid & "&statusId=0&iswarning=0&searchText=&exp=1"
+
+    'url = "https://ops.winmart.vn/danh-sach-yeu-cau-huy-hang?fromDate=" & d1 & "&toDate=" & d2 & "&nodes=2&tnid=" & tnid & "&statusId=0&iswarning=0&searchText=&exp=1"
+
+    Debug.Print url
+
+    
+
+    cookie = shUI.Range("I15").Value
+
+    
+
+    filePath = Environ("USERPROFILE") & "\Downloads\data.xlsx"
+
+    
+
+    ' Use ServerXMLHTTP for potentially better compatibility
+
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+
+    
+
+    ' --- Setting up the request ---
+
+    http.Open "GET", url, False
+
+    
+
+    ' 1. Set the Critical Cookie header
+
+    http.setRequestHeader "Cookie", cookie
+
+    
+
+    ' 2. Replicate ALL standard browser headers from your debug request:
+
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+
+    
+
+    ' The sec-ch-ua headers are included as before
+
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+
+    
+
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+
+    
+
+    ' 3. Send the request
+
+    http.send
+
+    
+
+    ' Output for debugging
+
+    Debug.Print "HTTP Status: " & http.Status
+
+    
+
+    ' --- Handling the response ---
+
+    If http.Status = 200 Then
+
+        
+
+        ' Proceed with file saving
+
+        Set stream = CreateObject("ADODB.Stream")
+
+        stream.Type = 1 ' 1 = binary
+
+        stream.Open
+
+        stream.Write http.responseBody
+
+        stream.Position = 0
+
+        stream.SaveToFile filePath, 2 ' 2 = overwrite if exists
+
+        stream.Close
+
+        Debug.Print "? File downloaded successfully to: " & filePath
+
+    Else
+
+        Debug.Print "? Download failed. Status: " & http.Status
+
+    End If
+
+    
+
+    Import_Datafile shShrinkageTicket, False, Range("L1")
+
+    
+
+    'download delete ticket detail
+
+    shShrinkageTicket.Range("A1").CurrentRegion.Offset(1).ClearContents
+
+    dt = shShrinkageTicket.Range("L1").CurrentRegion.Value
+
+    On Error GoTo Out
+
+    For i = 2 To UBound(dt)
+
+        If dt(i, 4) Like "?├ú h?y" Then
+
+            DownloadOPS_PhieuHuyChiTiet dt(i, 2)
+
+        End If
+
+    
+
+    Next
+
+    
+
+Out:
+
+    ' Clean up objects
+
+    Set http = Nothing
+
+    Set stream = Nothing
+
+End Sub
+
+
+
+Sub DownloadOPS_PhieuHuyChiTiet(ticketId)
+
+    ' Changed from MSXML2.XMLHTTP to ServerXMLHTTP which is sometimes more reliable
+
+    Dim http As Object ' We use Object for late binding
+
+    Dim stream As Object
+
+    Dim url As String
+
+    Dim cookie As String
+
+    Dim filePath As String
+
+    
+
+    ' URL is correct
+
+    url = "https://ops.winmart.vn/chi-tiet-phieu-yeu-cau-huy-hang?requestId=" & ticketId & "&exp=1"
+
+    Debug.Print url
+
+    
+
+    cookie = shUI.Range("I15").Value
+
+    
+
+    filePath = Environ("USERPROFILE") & "\Downloads\data.xlsx"
+
+    
+
+    ' Use ServerXMLHTTP for potentially better compatibility
+
+    Set http = CreateObject("MSXML2.ServerXMLHTTP")
+
+    
+
+    ' --- Setting up the request ---
+
+    http.Open "GET", url, False
+
+    
+
+    ' 1. Set the Critical Cookie header
+
+    http.setRequestHeader "Cookie", cookie
+
+    
+
+    ' 2. Replicate ALL standard browser headers from your debug request:
+
+    http.setRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+
+    http.setRequestHeader "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+
+    http.setRequestHeader "Accept-Language", "en-US,en;q=0.9,vi-VN;q=0.8,vi;q=0.7" ' NEW!
+
+    http.setRequestHeader "Upgrade-Insecure-Requests", "1"
+
+    
+
+    ' The sec-ch-ua headers are included as before
+
+    http.setRequestHeader "sec-ch-ua", """Google Chrome"";v=""141"", ""Not?A_Brand"";v=""8"", ""Chromium"";v=""141"""
+
+    http.setRequestHeader "sec-ch-ua-mobile", "?0"
+
+    http.setRequestHeader "sec-ch-ua-platform", """Windows"""
+
+    
+
+    ' NOTE: Do NOT set "Connection" or "Host" as XMLHTTP handles these.
+
+    
+
+    ' 3. Send the request
+
+    http.send
+
+    
+
+    ' Output for debugging
+
+    Debug.Print "HTTP Status: " & http.Status
+
+    
+
+    ' --- Handling the response ---
+
+    If http.Status = 200 Then
+
+        
+
+        ' Proceed with file saving
+
+        Set stream = CreateObject("ADODB.Stream")
+
+        stream.Type = 1 ' 1 = binary
+
+        stream.Open
+
+        stream.Write http.responseBody
+
+        stream.Position = 0
+
+        stream.SaveToFile filePath, 2 ' 2 = overwrite if exists
+
+        stream.Close
+
+        Debug.Print "? File downloaded successfully to: " & filePath
+
+    Else
+
+        Debug.Print "? Download failed. Status: " & http.Status
+
+    End If
+
+    
+
+    Import_Datafile shShrinkageTicket, True, Range("B1")
+
+        
+
+    Set endcell = shShrinkageTicket.Range("B100000").End(xlUp).Offset(0, -1)
+
+    If endcell.row > 1 Then
+
+        Range(endcell.End(xlUp).Offset(1), endcell) = ticketId
+
+    End If
+
+    ' Clean up objects
+
+    Set http = Nothing
+
+    Set stream = Nothing
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+VBA MACRO shInOut.cls 
+
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shInOut'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+(empty macro)
+
+-------------------------------------------------------------------------------
+
+VBA MACRO shTnid.cls 
+
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shTnid'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+(empty macro)
+
+-------------------------------------------------------------------------------
+
+VBA MACRO shShrinkageTicket.cls 
+
+in file: xl/vbaProject.bin - OLE stream: 'VBA/shShrinkageTicket'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+(empty macro)
+
++----------+--------------------+---------------------------------------------+
+
+|Type      |Keyword             |Description                                  |
+
++----------+--------------------+---------------------------------------------+
+
+|AutoExec  |btnCheck_click      |Runs when the file is opened and ActiveX     |
+
+|          |                    |objects trigger events                       |
+
+|AutoExec  |Worksheet_Change    |Runs when the file is opened and ActiveX     |
+
+|          |                    |objects trigger events                       |
+
+|Suspicious|Environ             |May read system environment variables        |
+
+|Suspicious|Open                |May open a file                              |
+
+|Suspicious|Write               |May write to a file (if combined with Open)  |
+
+|Suspicious|output              |May write to a file (if combined with Open)  |
+
+|Suspicious|binary              |May read or write a binary file (if combined |
+
+|          |                    |with Open)                                   |
+
+|Suspicious|Kill                |May delete a file                            |
+
+|Suspicious|ADODB.Stream        |May create a text file                       |
+
+|Suspicious|SaveToFile          |May create a text file                       |
+
+|Suspicious|shell               |May run an executable file or a system       |
+
+|          |                    |command                                      |
+
+|Suspicious|vbNormalFocus       |May run an executable file or a system       |
+
+|          |                    |command                                      |
+
+|Suspicious|vbHide              |May run an executable file or a system       |
+
+|          |                    |command                                      |
+
+|Suspicious|WScript.Shell       |May run an executable file or a system       |
+
+|          |                    |command                                      |
+
+|Suspicious|Run                 |May run an executable file or a system       |
+
+|          |                    |command                                      |
+
+|Suspicious|create              |May execute file or a system command through |
+
+|          |                    |WMI                                          |
+
+|Suspicious|Call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+
+|Suspicious|MkDir               |May create a directory                       |
+
+|Suspicious|CreateObject        |May create an OLE object                     |
+
+|Suspicious|GetObject           |May get an OLE object with a running instance|
+
+|Suspicious|Windows             |May enumerate application windows (if        |
+
+|          |                    |combined with Shell.Application object)      |
+
+|Suspicious|Lib                 |May run code from a DLL                      |
+
+|Suspicious|MSXML2.XMLHTTP      |May download files from the Internet         |
+
+|Suspicious|MSXML2.ServerXMLHTTP|May download files from the Internet         |
+
+|Suspicious|User-Agent          |May download files from the Internet         |
+
+|Suspicious|AppActivate         |May control another application by simulating|
+
+|          |                    |user keystrokes                              |
+
+|Suspicious|exec                |May run an executable file or a system       |
+
+|          |                    |command using Excel 4 Macros (XLM/XLF)       |
+
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+
+|          |                    |used to obfuscate strings (option --decode to|
+
+|          |                    |see all)                                     |
+
+|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+
+|          |                    |used to obfuscate strings (option --decode to|
+
+|          |                    |see all)                                     |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Login/Login  |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/dang-nhap    |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn              |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/doanh-thu-   |                                             |
+
+|          |chi-tiet            |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/Expor|                                             |
+
+|          |tExcel_RevenueDetail|                                             |
+
+|          |SalesList?FromDate=2|                                             |
+
+|          |026/01/10%2012      |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/Expor|                                             |
+
+|          |tExcel_RevenueDetail|                                             |
+
+|          |SalesList           |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/Expor|                                             |
+
+|          |tToExcelGetDetailDel|                                             |
+
+|          |eteRowOrderByStaff  |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/Expor|                                             |
+
+|          |tToExcelGetDeleteOrd|                                             |
+
+|          |erList              |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/Expor|                                             |
+
+|          |tExcel_PaymentOrderS|                                             |
+
+|          |alesList            |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/Expor|                                             |
+
+|          |tExcel_HistoryHangTr|                                             |
+
+|          |adingSlipOrder      |                                             |
+
+|IOC       |https://bluepos.winm|URL                                          |
+
+|          |art.vn/Reports/LoadT|                                             |
+
+|          |erminalByStoreNo    |                                             |
+
+|IOC       |https://script.googl|URL                                          |
+
+|          |e.com/macros/s/AKfyc|                                             |
+
+|          |byQirulf6a-         |                                             |
+
+|          |oe2H90wHgw4PEVvosmNT|                                             |
+
+|          |Nf_Sii5ArCjoUzHM3mjw|                                             |
+
+|          |arrdGVIfqRNCwT6a/exe|                                             |
+
+|          |c                   |                                             |
+
+|IOC       |https://ops.winmart.|URL                                          |
+
+|          |vn/bao-cao/bao-cao- |                                             |
+
+|          |check-in-out-chi-tie|                                             |
+
+|          |t?app=WinCare&sSite=|                                             |
+
+|IOC       |https://ops.winmart.|URL                                          |
+
+|          |vn/danh-sach-yeu-   |                                             |
+
+|          |cau-huy-hang        |                                             |
+
+|IOC       |https://ops.winmart.|URL                                          |
+
+|          |vn/danh-sach-yeu-   |                                             |
+
+|          |cau-huy-            |                                             |
+
+|          |hang?fromDate=      |                                             |
+
+|IOC       |https://ops.winmart.|URL                                          |
+
+|          |vn/chi-tiet-phieu-  |                                             |
+
+|          |yeu-cau-huy-        |                                             |
+
+|          |hang?requestId=     |                                             |
+
+|IOC       |10.235.25.71        |IPv4 address                                 |
+
+|IOC       |10.235.25.72        |IPv4 address                                 |
+
+|IOC       |10.235.25.73        |IPv4 address                                 |
+
+|IOC       |10.235.25.74        |IPv4 address                                 |
+
+|IOC       |10.235.25.75        |IPv4 address                                 |
+
+|IOC       |10.235.25.76        |IPv4 address                                 |
+
+|IOC       |10.235.25.77        |IPv4 address                                 |
+
+|IOC       |10.235.25.78        |IPv4 address                                 |
+
+|IOC       |10.235.25.79        |IPv4 address                                 |
+
+|IOC       |10.235.25.80        |IPv4 address                                 |
+
+|IOC       |10.235.25.87        |IPv4 address                                 |
+
+|IOC       |10.235.25.88        |IPv4 address                                 |
+
+|IOC       |139.0.0.0           |IPv4 address                                 |
+
+|IOC       |141.0.0.0           |IPv4 address                                 |
+
+|IOC       |EXCEL.EXE           |Executable file name                         |
+
+|IOC       |saplogon.exe        |Executable file name                         |
+
+|IOC       |saplgpad.exe        |Executable file name                         |
+
+|Suspicious|VBA Stomping        |VBA Stomping was detected: the VBA source    |
+
+|          |                    |code and P-code are different, this may have |
+
+|          |                    |been used to hide malicious code             |
+
++----------+--------------------+---------------------------------------------+
+
+VBA Stomping detection is experimental: please report any false positive/negative at https://github.com/decalage2/oletools/issues
+
+
+

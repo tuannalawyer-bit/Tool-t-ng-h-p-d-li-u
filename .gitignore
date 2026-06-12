@@ -27,3 +27,11 @@ Emails/
 # Bỏ qua file khóa truy cập
 .vscode/
 .idea/
+
+# Thư mục nháp và gói cài đặt phụ trợ
+chay_tool/scratch/
+Phân lịch công tác/wheels/
+wheels/
+python_portable/
+**/python_portable/
+

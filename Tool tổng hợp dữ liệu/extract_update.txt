@@ -1,0 +1,158 @@
+VBA MACRO mdUpdateData.bas 
+
+in file: xl/vbaProject.bin - OLE stream: 'VBA/mdUpdateData'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Option Explicit
+
+Const dataFile = "\\masan\12. An Ninh Va Thanh Tra\12.1 ANTT, ANNB & Thanh tra\12.1.3 Thanh tra\4. Du lieu\7. Tool\DataForTool\updated_data.xlsb" 'File location
+
+Function update_data(site As String)
+
+'function to update data from database on server
+
+'input: rngStoreList is a list of storelist to check
+
+'output: data paste into each sheet MP, storelist, datelist, password
+
+
+
+    Dim lastRow         As Long
+
+    Dim TarRange        As Range
+
+    Dim storeList       As Variant
+
+    Dim filterCriteria  As String
+
+    Dim SQLtext         As String
+
+    Dim i               As Integer
+
+    Dim objConnection   As Object: Set objConnection = CreateObject("ADODB.Connection")
+
+    Dim objRecordset    As Object: Set objRecordset = CreateObject("ADODB.Recordset")
+
+        
+
+    'create storelist text to
+
+    filterCriteria = "CH LIKE '" & site & "%'"
+
+    
+
+    'open database
+
+    objConnection.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=" & dataFile & ";Extended Properties=""Excel 12.0 Xml;HDR=Yes;IMEX=0"";"
+
+    
+
+    'update MP
+
+    shMP.AutoFilterMode = False
+
+    shMP.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+
+        
+
+    SQLtext = "Select CH, [ho_ten], [chuc_danh], [ma_nv], [ngay_sinh] FROM [MP$] WHERE " & filterCriteria
+
+    objRecordset.Open SQLtext, objConnection
+
+    shMP.Range("A2").CopyFromRecordset objRecordset
+
+    objRecordset.Close
+
+        
+
+    'update Store infor
+
+    shStoreList.AutoFilterMode = False
+
+    shStoreList.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+
+
+
+    SQLtext = "Select * FROM [StoreList$] WHERE " & filterCriteria
+
+    objRecordset.Open SQLtext, objConnection
+
+    shStoreList.Range("A2").CopyFromRecordset objRecordset
+
+    objRecordset.Close
+
+        
+
+    Set objConnection = Nothing
+
+    Set objRecordset = Nothing
+
+    
+
+End Function
+
+
+
+Sub update_bizIndex()
+
+    'function to update data from database on server
+
+'input: rngStoreList is a list of storelist to check
+
+'output: data paste into each sheet MP, storelist, datelist, password
+
+
+
+    Dim lastRow         As Long
+
+    Dim TarRange        As Range
+
+    Dim storeList       As Variant
+
+    Dim filterCriteria  As String
+
+    Dim SQLtext         As String
+
+    Dim i               As Integer
+
+    Dim objConnection   As Object: Set objConnection = CreateObject("ADODB.Connection")
+
+    Dim objRecordset    As Object: Set objRecordset = CreateObject("ADODB.Recordset")
+
+    
+
+    'open database
+
+    objConnection.Open "Provider=Microsoft.ACE.OLEDB.12.0;" & "Data Source=" & dataFile & ";Extended Properties=""Excel 12.0 Xml;HDR=Yes;IMEX=0"";"
+
+    
+
+    'update MP
+
+    shBizIndex.Range("A1").CurrentRegion.Offset(1, 0).ClearContents
+
+        
+
+    SQLtext = "Select * FROM [bizData$]"
+
+    objRecordset.Open SQLtext, objConnection
+
+    shBizIndex.Range("A2").CopyFromRecordset objRecordset
+
+    objRecordset.Close
+
+        
+
+    Range("L1") = "Cap nhat lan cuoi " & Format(Date, "dd/mm/yyyy")
+
+    MsgBox "Cap nhat du lieu thanh cong"
+
+    Set objConnection = Nothing
+
+    Set objRecordset = Nothing
+
+End Sub
+
+-------------------------------------------------------------------------------
+

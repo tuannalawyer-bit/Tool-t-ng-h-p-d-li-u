@@ -1,0 +1,1548 @@
+{
+    "status": 1,
+    "center_lat": "21.031310679784948",
+    "center_lng": "105.8257454633713",
+    "data": [
+        {
+            "lat": 21.03376408142295,
+            "lng": 105.82634019951927,
+            "title": "Bán nhà Giang Văn Minh 40/46T2m² ngang 5.2m giá 12.55 tỷ Phường Ngọc Hà (MUA/BÁN BĐS nhắn tin Zalo 0862299066)",
+            "label": "313.75 tr",
+            "size": 40,
+            "price": "12.55 tỷ",
+            "label_ngang": "2.41 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">40 m²</strong>- <strong style=\"font-weight: 900\">12550 triệu</strong><br><strong>313.75 triệu /m² </strong><br><strong>Mã: 1713131 </strong></p>",
+            "slug_title": "ban-nha-giang-van-minh-4046t2m2-ngang-52m-gia-1255-ty-phuong-ngoc-ha-muaban-bds-nhan-tin-zalo-0862299066",
+            "id": 1713131,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03379551388,
+                    105.82638770342
+                ],
+                [
+                    21.033750451045,
+                    105.82639575005
+                ],
+                [
+                    21.033739185334,
+                    105.82631394267
+                ],
+                [
+                    21.033784248172,
+                    105.82630455494
+                ],
+                [
+                    21.03379551388,
+                    105.82638770342
+                ]
+            ]
+        },
+        {
+            "lat": 21.033278863895557,
+            "lng": 105.8275103388024,
+            "title": "BÁN TÒA KHÁCH SẠN MẶT PHỐ GIANG VĂN MINH. 290M2 - 9 TẦNG. THANG MÁY. 33 PHÒNG.",
+            "label": "1158.62 tr",
+            "size": 290,
+            "price": "336 tỷ",
+            "label_ngang": "21 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">290 m²</strong>- <strong style=\"font-weight: 900\">336000 triệu</strong><br><strong>1158.62 triệu /m² </strong><br><strong>Mã: 1704460 </strong></p>",
+            "slug_title": "ban-toa-khach-san-mat-pho-giang-van-minh-290m2-9-tang-thang-may-33-phong",
+            "id": 1704460,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.033061194639483,
+            "lng": 105.82457921191693,
+            "title": "Bán đất 21.5m² ngang 6m giá 3.65 tỷ Phường Giảng Võ",
+            "label": "169.77 tr",
+            "size": 21.5,
+            "price": "3.65 tỷ",
+            "label_ngang": "608.33 tr/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">21.5 m²</strong>- <strong style=\"font-weight: 900\">3650 triệu</strong><br><strong>169.77 triệu /m² </strong><br><strong>Mã: 1371061 </strong></p>",
+            "slug_title": "ban-dat-215m2-ngang-6m-gia-365-ty-phuong-giang-vo",
+            "id": 1371061,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.03308922531,
+                    105.82453986269
+                ],
+                [
+                    21.033072796343,
+                    105.82460490215
+                ],
+                [
+                    21.033048895438,
+                    105.82459591785
+                ],
+                [
+                    21.033059839966,
+                    105.82454988624
+                ],
+                [
+                    21.033048442083,
+                    105.82454599457
+                ],
+                [
+                    21.033047370862,
+                    105.82453221211
+                ],
+                [
+                    21.03308922531,
+                    105.82453986269
+                ]
+            ]
+        },
+        {
+            "lat": 21.032851981111623,
+            "lng": 105.82892291429222,
+            "title": "Bán đất Kim Mã 33m² full thổ cư ngang 8.6m giá 8.25 tỷ tại Đường Kim Mã Phường Ba Đình (MUA/BÁN BĐS nhắn tin Zalo 0862299066)",
+            "label": "250 tr",
+            "size": 33,
+            "price": "8.25 tỷ",
+            "label_ngang": "959.3 tr/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">33 m²</strong>- <strong style=\"font-weight: 900\">8250 triệu</strong><br><strong>250 triệu /m² </strong><br><strong>Mã: 1906766 </strong></p>",
+            "slug_title": "ban-dat-kim-ma-33m2-full-tho-cu-ngang-86m-gia-825-ty-tai-duong-kim-ma-phuong-ba-dinh-muaban-bds-nhan-tin-zalo-0862299066",
+            "id": 1906766,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.03289049934,
+                    105.82894653082
+                ],
+                [
+                    21.032824156426,
+                    105.82895189524
+                ],
+                [
+                    21.032822904672,
+                    105.82890495658
+                ],
+                [
+                    21.032836673959,
+                    105.82890495658
+                ],
+                [
+                    21.032836673959,
+                    105.82890227437
+                ],
+                [
+                    21.032875478305,
+                    105.82890093327
+                ],
+                [
+                    21.032875478305,
+                    105.82889154553
+                ],
+                [
+                    21.032882988823,
+                    105.82889154553
+                ],
+                [
+                    21.032882988823,
+                    105.82889825106
+                ],
+                [
+                    21.032889247587,
+                    105.82889825106
+                ],
+                [
+                    21.03289049934,
+                    105.82894653082
+                ]
+            ]
+        },
+        {
+            "lat": 21.03283781176844,
+            "lng": 105.8265158985654,
+            "title": "Bán đất 41.5m² ngang 4m giá 7.2 tỷ Phường Giảng Võ",
+            "label": "173.49 tr",
+            "size": 41.5,
+            "price": "7.2 tỷ",
+            "label_ngang": "1.8 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">41.5 m²</strong>- <strong style=\"font-weight: 900\">7200 triệu</strong><br><strong>173.49 triệu /m² </strong><br><strong>Mã: 1371099 </strong></p>",
+            "slug_title": "ban-dat-415m2-ngang-4m-gia-72-ty-phuong-giang-vo",
+            "id": 1371099,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.03284603,
+                    105.8265457
+                ],
+                [
+                    21.03281513,
+                    105.8265303
+                ],
+                [
+                    21.03285608,
+                    105.826439
+                ],
+                [
+                    21.0328897,
+                    105.82645312
+                ],
+                [
+                    21.03288264,
+                    105.82646871
+                ],
+                [
+                    21.03284623,
+                    105.82654516
+                ],
+                [
+                    21.03284603,
+                    105.8265457
+                ]
+            ]
+        },
+        {
+            "lat": 21.03275892165979,
+            "lng": 105.82938719904585,
+            "title": "Bán nhà Mặt phố Kim Mã 45m² ngang 3.5m giá 32.7 tỷ Phường Giảng Võ",
+            "label": "726.67 tr",
+            "size": 45,
+            "price": "32.7 tỷ",
+            "label_ngang": "9.34 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">45 m²</strong>- <strong style=\"font-weight: 900\">32700 triệu</strong><br><strong>726.67 triệu /m² </strong><br><strong>Mã: 1362545 </strong></p>",
+            "slug_title": "ban-nha-mat-pho-kim-ma-45m2-ngang-35m-gia-327-ty-phuong-giang-vo",
+            "id": 1362545,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.032797113547,
+                    105.82940221916
+                ],
+                [
+                    21.032744340629,
+                    105.82940856907
+                ],
+                [
+                    21.032735817564,
+                    105.82937066341
+                ],
+                [
+                    21.032847393703,
+                    105.82935918122
+                ],
+                [
+                    21.03285142869,
+                    105.82939485705
+                ],
+                [
+                    21.032827736732,
+                    105.82939790165
+                ],
+                [
+                    21.032797113547,
+                    105.82940221916
+                ]
+            ]
+        },
+        {
+            "lat": 21.032582,
+            "lng": 105.827463,
+            "title": "🏢 TOÀ CĂN HỘ DỊCH VỤ 45 PHÒNG – 1 HẦM 8 NỔI – NỞ HẬU – MẶT NGÕ 10M – CÁCH PHỐ KIM MÃ 10M",
+            "label": "411.76 tr",
+            "size": 170,
+            "price": "70 tỷ",
+            "label_ngang": "15.56 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">170 m²</strong>- <strong style=\"font-weight: 900\">70000 triệu</strong><br><strong>411.76 triệu /m² </strong><br><strong>Mã: 1806360 </strong></p>",
+            "slug_title": "toa-can-ho-dich-vu-45-phong-1-ham-8-noi-no-hau-mat-ngo-10m-cach-pho-kim-ma-10m",
+            "id": 1806360,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.03254501516106,
+            "lng": 105.82680367005261,
+            "title": "Bán đất 54.5m² ngang 3m2m giá 21.6 tỷ Phường Ngọc Hà",
+            "label": "396.33 tr",
+            "size": 54.5,
+            "price": "21.6 tỷ",
+            "label_ngang": "6.75 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">54.5 m²</strong>- <strong style=\"font-weight: 900\">21600 triệu</strong><br><strong>396.33 triệu /m² </strong><br><strong>Mã: 1798979 </strong></p>",
+            "slug_title": "ban-dat-545m2-ngang-3m2m-gia-216-ty-phuong-ngoc-ha",
+            "id": 1798979,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.032652666114,
+                    105.82680746913
+                ],
+                [
+                    21.032651414359,
+                    105.82683563232
+                ],
+                [
+                    21.03255127394,
+                    105.82683160901
+                ],
+                [
+                    21.032550022184,
+                    105.82683295012
+                ],
+                [
+                    21.032491189655,
+                    105.8268289268
+                ],
+                [
+                    21.032492441411,
+                    105.8267994225
+                ],
+                [
+                    21.032652666114,
+                    105.82680746913
+                ]
+            ]
+        },
+        {
+            "lat": 21.032426973316337,
+            "lng": 105.82686396108168,
+            "title": "Bán nhà mặt phố Giang Văn Minh 24m² ngang 4.1m giá 19.5 tỷ Phường Giảng Võ (LH: Zalo 0862299066)",
+            "label": "812.5 tr",
+            "size": 24,
+            "price": "19.5 tỷ",
+            "label_ngang": "4.76 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">24 m²</strong>- <strong style=\"font-weight: 900\">19500 triệu</strong><br><strong>812.5 triệu /m² </strong><br><strong>Mã: 1415398 </strong></p>",
+            "slug_title": "ban-nha-mat-pho-giang-van-minh-24m2-ngang-41m-gia-195-ty-phuong-giang-vo-lh-zalo-0862299066",
+            "id": 1415398,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03245494,
+                    105.82681832
+                ],
+                [
+                    21.03245183,
+                    105.82691673
+                ],
+                [
+                    21.03240871,
+                    105.82691577
+                ],
+                [
+                    21.03241075,
+                    105.8268345
+                ],
+                [
+                    21.03241121,
+                    105.82681634
+                ],
+                [
+                    21.03245494,
+                    105.82681832
+                ]
+            ]
+        },
+        {
+            "lat": 21.032414263435,
+            "lng": 105.823223131515,
+            "title": "Bán nhà 77m² 15 tỷ tại Kim Mã Phường Kim Mã Quận Ba Đình (LH: zalo 0862299066)",
+            "label": "194.81 tr",
+            "size": 77,
+            "price": "15 tỷ",
+            "label_ngang": "2.03 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">77 m²</strong>- <strong style=\"font-weight: 900\">15000 triệu</strong><br><strong>194.81 triệu /m² </strong><br><strong>Mã: 1249580 </strong></p>",
+            "slug_title": "ban-nha-77m2-15-ty-tai-kim-ma-phuong-kim-ma-quan-ba-dinh-lh-zalo-0862299066",
+            "id": 1249580,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.032462887899,
+                    105.82319333889
+                ],
+                [
+                    21.03244337051,
+                    105.82326805967
+                ],
+                [
+                    21.032370219121,
+                    105.82325260179
+                ],
+                [
+                    21.032365214835,
+                    105.82325082338
+                ],
+                [
+                    21.032381860628,
+                    105.82317820336
+                ],
+                [
+                    21.032463312035,
+                    105.82319155181
+                ],
+                [
+                    21.032462887899,
+                    105.82319333889
+                ]
+            ]
+        },
+        {
+            "lat": 21.032342751851896,
+            "lng": 105.82607053220272,
+            "title": "Bán nhà 42.8m² ngang 5.35m giá 9.7 tỷ Phường Giảng Võ",
+            "label": "226.64 tr",
+            "size": 42.8,
+            "price": "9.7 tỷ",
+            "label_ngang": "1.81 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">42.8 m²</strong>- <strong style=\"font-weight: 900\">9700 triệu</strong><br><strong>226.64 triệu /m² </strong><br><strong>Mã: 1371103 </strong></p>",
+            "slug_title": "ban-nha-428m2-ngang-535m-gia-97-ty-phuong-giang-vo",
+            "id": 1371103,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03243247,
+                    105.82608454
+                ],
+                [
+                    21.03232135,
+                    105.82610255
+                ],
+                [
+                    21.03231445,
+                    105.82605243
+                ],
+                [
+                    21.03231509,
+                    105.82605221
+                ],
+                [
+                    21.0323604,
+                    105.82604655
+                ],
+                [
+                    21.03236447,
+                    105.82607467
+                ],
+                [
+                    21.03242986,
+                    105.82606299
+                ],
+                [
+                    21.03243247,
+                    105.82608454
+                ]
+            ]
+        },
+        {
+            "lat": 21.032241125,
+            "lng": 105.82482822,
+            "title": "Bán đất 35m² 8.8 tỷ tại Kim Mã Phường Kim Mã Quận Ba Đình",
+            "label": "251.43 tr",
+            "size": 35,
+            "price": "8.8 tỷ",
+            "label_ngang": "2.05 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">35 m²</strong>- <strong style=\"font-weight: 900\">8800 triệu</strong><br><strong>251.43 triệu /m² </strong><br><strong>Mã: 1103896 </strong></p>",
+            "slug_title": "ban-dat-35m2-88-ty-tai-kim-ma-phuong-kim-ma-quan-ba-dinh",
+            "id": 1103896,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.03227649,
+                    105.82484856
+                ],
+                [
+                    21.03220429,
+                    105.8248478
+                ],
+                [
+                    21.03220412,
+                    105.82480788
+                ],
+                [
+                    21.03227813,
+                    105.82480979
+                ],
+                [
+                    21.03227649,
+                    105.82484856
+                ]
+            ]
+        },
+        {
+            "lat": 21.032237373373654,
+            "lng": 105.82331535681762,
+            "title": "Bán đất 122m² ngang 6.4m giá 24.4 tỷ Phường Giảng Võ",
+            "label": "200 tr",
+            "size": 122,
+            "price": "24.4 tỷ",
+            "label_ngang": "3.81 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">122 m²</strong>- <strong style=\"font-weight: 900\">24400 triệu</strong><br><strong>200 triệu /m² </strong><br><strong>Mã: 1371086 </strong></p>",
+            "slug_title": "ban-dat-122m2-ngang-64m-gia-244-ty-phuong-giang-vo",
+            "id": 1371086,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.03232689,
+                    105.8233003
+                ],
+                [
+                    21.03231795,
+                    105.82335005
+                ],
+                [
+                    21.03232246,
+                    105.82335083
+                ],
+                [
+                    21.03231988,
+                    105.82336298
+                ],
+                [
+                    21.03231526,
+                    105.82336201
+                ],
+                [
+                    21.03225582,
+                    105.82335097
+                ],
+                [
+                    21.03220159,
+                    105.82333877
+                ],
+                [
+                    21.03219558,
+                    105.82333737
+                ],
+                [
+                    21.03217246,
+                    105.82333361
+                ],
+                [
+                    21.0321721,
+                    105.82333505
+                ],
+                [
+                    21.03214552,
+                    105.82332888
+                ],
+                [
+                    21.03215265,
+                    105.82329661
+                ],
+                [
+                    21.03215582,
+                    105.82328173
+                ],
+                [
+                    21.03215675,
+                    105.82327738
+                ],
+                [
+                    21.03218705,
+                    105.82327961
+                ],
+                [
+                    21.03221102,
+                    105.82328149
+                ],
+                [
+                    21.03221656,
+                    105.82328178
+                ],
+                [
+                    21.03224751,
+                    105.82328748
+                ],
+                [
+                    21.03227482,
+                    105.82329189
+                ],
+                [
+                    21.03232689,
+                    105.8233003
+                ]
+            ]
+        },
+        {
+            "lat": 21.03223686501584,
+            "lng": 105.82352846860887,
+            "title": "Bán nhà 36.7m² ngang 4.8m giá 10.5 tỷ Phường Giảng Võ",
+            "label": "286.1 tr",
+            "size": 36.7,
+            "price": "10.5 tỷ",
+            "label_ngang": "2.19 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">36.7 m²</strong>- <strong style=\"font-weight: 900\">10500 triệu</strong><br><strong>286.1 triệu /m² </strong><br><strong>Mã: 1371084 </strong></p>",
+            "slug_title": "ban-nha-367m2-ngang-48m-gia-105-ty-phuong-giang-vo",
+            "id": 1371084,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03229166,
+                    105.82351973
+                ],
+                [
+                    21.0322875,
+                    105.82354793
+                ],
+                [
+                    21.03221956,
+                    105.82353758
+                ],
+                [
+                    21.03222532,
+                    105.82349275
+                ],
+                [
+                    21.03229435,
+                    105.82350149
+                ],
+                [
+                    21.03229166,
+                    105.82351973
+                ]
+            ]
+        },
+        {
+            "lat": 21.032235,
+            "lng": 105.824912,
+            "title": "BÁN ĐẤT TẶNG NHÀ, LÕI TRUNG TÂM KIM MÃ, BA ĐÌNH. 66M2, MT 9M, GIÁ 7,8",
+            "label": "118.18 tr",
+            "size": 66,
+            "price": "7.8 tỷ",
+            "label_ngang": "709.09 tr/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">66 m²</strong>- <strong style=\"font-weight: 900\">7800 triệu</strong><br><strong>118.18 triệu /m² </strong><br><strong>Mã: 791087 </strong></p>",
+            "slug_title": "ban-dat-tang-nha-loi-trung-tam-kim-ma-ba-dinh-66m2-mt-9m-gia-78",
+            "id": 791087,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.032200405217413,
+            "lng": 105.825563582209,
+            "title": "Mua Nhà Ăn Tết! Kim Mã,50m ra Phố,DT:30m2 x 6Tầng,MT: 3.9m,Giá: 8.8 tỷ Ba Đình",
+            "label": "293.33 tr",
+            "size": 30,
+            "price": "8.8 tỷ",
+            "label_ngang": "2.26 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">30 m²</strong>- <strong style=\"font-weight: 900\">8800 triệu</strong><br><strong>293.33 triệu /m² </strong><br><strong>Mã: 1743606 </strong></p>",
+            "slug_title": "mua-nha-an-tet-kim-ma50m-ra-phodt30m2-x-6tangmt-39mgia-88-ty-ba-dinh",
+            "id": 1743606,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.032107099999998,
+            "lng": 105.82457153499999,
+            "title": "Bán nhà 86m² 23 tỷ tại Phường Kim Mã Quận Ba Đình",
+            "label": "267.44 tr",
+            "size": 86,
+            "price": "23 tỷ",
+            "label_ngang": "3.29 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">86 m²</strong>- <strong style=\"font-weight: 900\">23000 triệu</strong><br><strong>267.44 triệu /m² </strong><br><strong>Mã: 1060104 </strong></p>",
+            "slug_title": "ban-nha-86m2-23-ty-tai-phuong-kim-ma-quan-ba-dinh",
+            "id": 1060104,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03215086,
+                    105.82460368
+                ],
+                [
+                    21.03206131,
+                    105.82459921
+                ],
+                [
+                    21.03206263,
+                    105.82453939
+                ],
+                [
+                    21.03215289,
+                    105.82454487
+                ],
+                [
+                    21.03215086,
+                    105.82460368
+                ]
+            ]
+        },
+        {
+            "lat": 21.03204,
+            "lng": 105.83005,
+            "title": "CCMN Giảng Võ 90m2, thang máy, dòng tiền 100tr, nhú nhẹ 24 tỷ.",
+            "label": "276.67 tr",
+            "size": 90,
+            "price": "24.9 tỷ",
+            "label_ngang": "2.88 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">90 m²</strong>- <strong style=\"font-weight: 900\">24900 triệu</strong><br><strong>276.67 triệu /m² </strong><br><strong>Mã: 2129412 </strong></p>",
+            "slug_title": "ccmn-giang-vo-90m2-thang-may-dong-tien-100tr-nhu-nhe-24-ty",
+            "id": 2129412,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.03196462882437,
+            "lng": 105.82337130411817,
+            "title": "Bán nhà 41.6m² ngang 7m giá 9 tỷ Phường Giảng Võ",
+            "label": "216.35 tr",
+            "size": 41.6,
+            "price": "9 tỷ",
+            "label_ngang": "1.29 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">41.6 m²</strong>- <strong style=\"font-weight: 900\">9000 triệu</strong><br><strong>216.35 triệu /m² </strong><br><strong>Mã: 1371097 </strong></p>",
+            "slug_title": "ban-nha-416m2-ngang-7m-gia-9-ty-phuong-giang-vo",
+            "id": 1371097,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03199613,
+                    105.8233702
+                ],
+                [
+                    21.03199432,
+                    105.82338708
+                ],
+                [
+                    21.03199123,
+                    105.82341565
+                ],
+                [
+                    21.03197348,
+                    105.82341391
+                ],
+                [
+                    21.03194143,
+                    105.82341101
+                ],
+                [
+                    21.03194761,
+                    105.82333914
+                ],
+                [
+                    21.03195856,
+                    105.82334023
+                ],
+                [
+                    21.03199871,
+                    105.82334617
+                ],
+                [
+                    21.03199613,
+                    105.8233702
+                ]
+            ]
+        },
+        {
+            "lat": 21.03192,
+            "lng": 105.82716,
+            "title": "Giang Văn Minh. 20m ra MP. Gần nhà hát Chèo VN. 2 thoáng vĩnh viễn. Nhà đẹp ở luôn. Khu dân trí cao..An sinh đỉnh",
+            "label": "321.05 tr",
+            "size": 38,
+            "price": "12.2 tỷ",
+            "label_ngang": "3.49 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">38 m²</strong>- <strong style=\"font-weight: 900\">12200 triệu</strong><br><strong>321.05 triệu /m² </strong><br><strong>Mã: 2232801 </strong></p>",
+            "slug_title": "giang-van-minh-20m-ra-mp-gan-nha-hat-cheo-vn-2-thoang-vinh-vien-nha-dep-o-luon-khu-dan-tri-caoan-sinh-dinh",
+            "id": 2232801,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.031770045000002,
+            "lng": 105.82946324,
+            "title": "Bán nhà 70m² 31.5 tỷ tại Giảng Võ Phường Cát Linh Quận Đống Đa (LH: zalo 0862299066)",
+            "label": "450 tr",
+            "size": 70,
+            "price": "31.5 tỷ",
+            "label_ngang": "5.43 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">70 m²</strong>- <strong style=\"font-weight: 900\">31500 triệu</strong><br><strong>450 triệu /m² </strong><br><strong>Mã: 1237755 </strong></p>",
+            "slug_title": "ban-nha-70m2-315-ty-tai-giang-vo-phuong-cat-linh-quan-dong-da-lh-zalo-0862299066",
+            "id": 1237755,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03171253,
+                    105.82947344
+                ],
+                [
+                    21.03172933,
+                    105.82942068
+                ],
+                [
+                    21.03182756,
+                    105.82945237
+                ],
+                [
+                    21.03181125,
+                    105.8295058
+                ],
+                [
+                    21.03171253,
+                    105.82947344
+                ]
+            ]
+        },
+        {
+            "lat": 21.0317003213417,
+            "lng": 105.82784888998609,
+            "title": "Bán đất Giang Văn Minh 39m² full thổ cư ngang 9.8m giá 10.2 tỷ tại Đường Giang Văn Minh Phường Giảng Võ (MUA/BÁN BĐS nhắn tin Zalo 0862299066)",
+            "label": "261.54 tr",
+            "size": 39,
+            "price": "10.2 tỷ",
+            "label_ngang": "1.04 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">39 m²</strong>- <strong style=\"font-weight: 900\">10200 triệu</strong><br><strong>261.54 triệu /m² </strong><br><strong>Mã: 1906472 </strong></p>",
+            "slug_title": "ban-dat-giang-van-minh-39m2-full-tho-cu-ngang-98m-gia-102-ty-tai-duong-giang-van-minh-phuong-giang-vo-muaban-bds-nhan-tin-zalo-0862299066",
+            "id": 1906472,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.031763917543,
+                    105.82784414291
+                ],
+                [
+                    21.031708839993,
+                    105.82786425948
+                ],
+                [
+                    21.031712595281,
+                    105.82787364721
+                ],
+                [
+                    21.031692567076,
+                    105.82788303494
+                ],
+                [
+                    21.031675042395,
+                    105.8278414607
+                ],
+                [
+                    21.031752651682,
+                    105.82781195641
+                ],
+                [
+                    21.031763917543,
+                    105.82784414291
+                ]
+            ]
+        },
+        {
+            "lat": 21.03167,
+            "lng": 105.82714,
+            "title": "Kim Mã. Ba Đình. Mặt ngõ thông ô tô tránh. KD gia đình. Lô góc, 2 thoáng vĩnh viễn. DT 35m 5 tầng MT 5m. Giá 14,8 tỷ",
+            "label": "422.86 tr",
+            "size": 35,
+            "price": "14.8 tỷ",
+            "label_ngang": "2.96 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">35 m²</strong>- <strong style=\"font-weight: 900\">14800 triệu</strong><br><strong>422.86 triệu /m² </strong><br><strong>Mã: 2169161 </strong></p>",
+            "slug_title": "kim-ma-ba-dinh-mat-ngo-thong-o-to-tranh-kd-gia-dinh-lo-goc-2-thoang-vinh-vien-dt-35m-5-tang-mt-5m-gia-148-ty",
+            "id": 2169161,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.0316,
+            "lng": 105.824718,
+            "title": "BÁN NHÀ ĐẸP KIM MÃ – LÔ GÓC 3 MẶT THOÁNG – FULL NỘI THẤT – CÓ SÂN VƯỜN",
+            "label": "204.55 tr",
+            "size": 66,
+            "price": "13.5 tỷ",
+            "label_ngang": "2.7 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">66 m²</strong>- <strong style=\"font-weight: 900\">13500 triệu</strong><br><strong>204.55 triệu /m² </strong><br><strong>Mã: 1282694 </strong></p>",
+            "slug_title": "ban-nha-dep-kim-ma-lo-goc-3-mat-thoang-full-noi-that-co-san-vuon",
+            "id": 1282694,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.031495122385504,
+            "lng": 105.82585608982257,
+            "title": "Bán nhà Kim Mã 56m² ngang 3.8m giá 15.9 tỷ Phường Giảng Võ (MUA/BÁN BĐS nhắn tin Zalo 0862299066)",
+            "label": "283.93 tr",
+            "size": 56,
+            "price": "15.9 tỷ",
+            "label_ngang": "4.18 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">56 m²</strong>- <strong style=\"font-weight: 900\">15900 triệu</strong><br><strong>283.93 triệu /m² </strong><br><strong>Mã: 1824465 </strong></p>",
+            "slug_title": "ban-nha-kim-ma-56m2-ngang-38m-gia-159-ty-phuong-giang-vo-muaban-bds-nhan-tin-zalo-0862299066",
+            "id": 1824465,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.031543607219,
+                    105.82589283586
+                ],
+                [
+                    21.031488529587,
+                    105.82589417696
+                ],
+                [
+                    21.031488529587,
+                    105.82588613033
+                ],
+                [
+                    21.031463494293,
+                    105.82588613033
+                ],
+                [
+                    21.031469753117,
+                    105.82582309842
+                ],
+                [
+                    21.031542355455,
+                    105.82583114505
+                ],
+                [
+                    21.031543607219,
+                    105.82589283586
+                ]
+            ]
+        },
+        {
+            "lat": 21.03134804564245,
+            "lng": 105.82397815742752,
+            "title": "Bán đất 49.9m² ngang 7.7m giá 11 tỷ Phường Giảng Võ",
+            "label": "220.44 tr",
+            "size": 49.9,
+            "price": "11 tỷ",
+            "label_ngang": "1.43 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">49.9 m²</strong>- <strong style=\"font-weight: 900\">11000 triệu</strong><br><strong>220.44 triệu /m² </strong><br><strong>Mã: 1371056 </strong></p>",
+            "slug_title": "ban-dat-499m2-ngang-77m-gia-11-ty-phuong-giang-vo",
+            "id": 1371056,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.03133177,
+                    105.82398947
+                ],
+                [
+                    21.03131586,
+                    105.82398906
+                ],
+                [
+                    21.03132928,
+                    105.8238974
+                ],
+                [
+                    21.03134537,
+                    105.8238987
+                ],
+                [
+                    21.03135681,
+                    105.82389845
+                ],
+                [
+                    21.03135836,
+                    105.8238999
+                ],
+                [
+                    21.03136027,
+                    105.82391158
+                ],
+                [
+                    21.03136753,
+                    105.82395135
+                ],
+                [
+                    21.03137701,
+                    105.82397659
+                ],
+                [
+                    21.03138506,
+                    105.82399797
+                ],
+                [
+                    21.03133177,
+                    105.82398947
+                ]
+            ]
+        },
+        {
+            "lat": 21.031318453767494,
+            "lng": 105.82558694905181,
+            "title": "Bán nhà Kim Mã 68m² ngang 5.2m giá 17.2 tỷ Phường Giảng Võ (LH: Zalo 0862299066)",
+            "label": "252.94 tr",
+            "size": 68,
+            "price": "17.2 tỷ",
+            "label_ngang": "3.31 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">68 m²</strong>- <strong style=\"font-weight: 900\">17200 triệu</strong><br><strong>252.94 triệu /m² </strong><br><strong>Mã: 1528082 </strong></p>",
+            "slug_title": "ban-nha-kim-ma-68m2-ngang-52m-gia-172-ty-phuong-giang-vo-lh-zalo-0862299066",
+            "id": 1528082,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03134428,
+                    105.8254845
+                ],
+                [
+                    21.03133722,
+                    105.82561466
+                ],
+                [
+                    21.03129833,
+                    105.82561329
+                ],
+                [
+                    21.03129845,
+                    105.82561228
+                ],
+                [
+                    21.03129648,
+                    105.82552062
+                ],
+                [
+                    21.03129496,
+                    105.82549589
+                ],
+                [
+                    21.03129469,
+                    105.82547623
+                ],
+                [
+                    21.03132225,
+                    105.82548085
+                ],
+                [
+                    21.03132622,
+                    105.82548167
+                ],
+                [
+                    21.03134428,
+                    105.8254845
+                ]
+            ]
+        },
+        {
+            "lat": 21.0313076,
+            "lng": 105.8256434,
+            "title": "BÁN GẤP NHÀ ĐẸP, PHỐ KIM MÃ, QUẬN BA ĐÌNH, DIỆN TÍCH 41 M2, 5T, MT 3M, GIÁ 6.5 TỶ",
+            "label": "158.54 tr",
+            "size": 41,
+            "price": "6.5 tỷ",
+            "label_ngang": "2.17 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">41 m²</strong>- <strong style=\"font-weight: 900\">6500 triệu</strong><br><strong>158.54 triệu /m² </strong><br><strong>Mã: 836928 </strong></p>",
+            "slug_title": "ban-gap-nha-dep-pho-kim-ma-quan-ba-dinh-dien-tich-41-m2-5t-mt-3m-gia-65-ty",
+            "id": 836928,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.031165,
+            "lng": 105.824215,
+            "title": "BÁN NHÀ ĐẸP KIM MÃ – LÔ GÓC 3 MẶT THOÁNG – FULL NỘI THẤT – CÓ SÂN VƯỜN",
+            "label": "204.55 tr",
+            "size": 66,
+            "price": "13.5 tỷ",
+            "label_ngang": "2.7 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">66 m²</strong>- <strong style=\"font-weight: 900\">13500 triệu</strong><br><strong>204.55 triệu /m² </strong><br><strong>Mã: 1281226 </strong></p>",
+            "slug_title": "ban-nha-dep-kim-ma-lo-goc-3-mat-thoang-full-noi-that-co-san-vuon",
+            "id": 1281226,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.0311,
+            "lng": 105.82736,
+            "title": "- Giang Văn Minh - Ba Đình. Gần phố. 2 thoáng trước sau vĩnh viễn. Trước nhà 4m\r\n\r\n- DT 40m 4 tầng MT 3,7m. Giá 12,3 tỷ",
+            "label": "307.5 tr",
+            "size": 40,
+            "price": "12.3 tỷ",
+            "label_ngang": "3.32 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">40 m²</strong>- <strong style=\"font-weight: 900\">12300 triệu</strong><br><strong>307.5 triệu /m² </strong><br><strong>Mã: 2155708 </strong></p>",
+            "slug_title": "giang-van-minh-ba-dinh-gan-pho-2-thoang-truoc-sau-vinh-vien-truoc-nha-4m-dt-40m-4-tang-mt-37m-gia-123-ty",
+            "id": 2155708,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.03105952862257,
+            "lng": 105.82889019926743,
+            "title": "Bán nhà Giảng Võ, 36m, nhà xây mới, sổ đỏ nở hậu 10,9 Tỷ",
+            "label": "302.78 tr",
+            "size": 36,
+            "price": "10.9 tỷ",
+            "label_ngang": "3.21 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">36 m²</strong>- <strong style=\"font-weight: 900\">10900 triệu</strong><br><strong>302.78 triệu /m² </strong><br><strong>Mã: 2149664 </strong></p>",
+            "slug_title": "ban-nha-giang-vo-36m-nha-xay-moi-so-do-no-hau-109-ty",
+            "id": 2149664,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.0310514,
+            "lng": 105.8220777,
+            "title": "BÁN GẤP NHÀ HIẾM, PHỐ KIM MÃ, QUẬN BA ĐÌNH, DIỆN TÍCH 78M2, 2T, MT 5M, GIÁ 10.9 TỶ",
+            "label": "139.74 tr",
+            "size": 78,
+            "price": "10.9 tỷ",
+            "label_ngang": "2.18 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">78 m²</strong>- <strong style=\"font-weight: 900\">10900 triệu</strong><br><strong>139.74 triệu /m² </strong><br><strong>Mã: 834730 </strong></p>",
+            "slug_title": "ban-gap-nha-hiem-pho-kim-ma-quan-ba-dinh-dien-tich-78m2-2t-mt-5m-gia-109-ty",
+            "id": 834730,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.0308507,
+            "lng": 105.8236863,
+            "title": "BÁN GẤP NHÀ HIẾM, PHỐ KIM MÃ, QUẬN BA ĐÌNH, DIỆN TÍCH 75M2, 3T, MT 6.7M, GIÁ 6.9 TỶ",
+            "label": "92 tr",
+            "size": 75,
+            "price": "6.9 tỷ",
+            "label_ngang": "1.03 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">75 m²</strong>- <strong style=\"font-weight: 900\">6900 triệu</strong><br><strong>92 triệu /m² </strong><br><strong>Mã: 835264 </strong></p>",
+            "slug_title": "ban-gap-nha-hiem-pho-kim-ma-quan-ba-dinh-dien-tich-75m2-3t-mt-67m-gia-69-ty",
+            "id": 835264,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.030602087883857,
+            "lng": 105.82404345273973,
+            "title": "Bán đất 57.8m² ngang 4.9m giá 9.6 tỷ Phường Giảng Võ",
+            "label": "166.09 tr",
+            "size": 57.8,
+            "price": "9.6 tỷ",
+            "label_ngang": "1.96 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">57.8 m²</strong>- <strong style=\"font-weight: 900\">9600 triệu</strong><br><strong>166.09 triệu /m² </strong><br><strong>Mã: 1371052 </strong></p>",
+            "slug_title": "ban-dat-578m2-ngang-49m-gia-96-ty-phuong-giang-vo",
+            "id": 1371052,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.0306471,
+                    105.82397329
+                ],
+                [
+                    21.03060735,
+                    105.82407676
+                ],
+                [
+                    21.03058894,
+                    105.82407541
+                ],
+                [
+                    21.03058323,
+                    105.82407473
+                ],
+                [
+                    21.03058636,
+                    105.82402513
+                ],
+                [
+                    21.03057925,
+                    105.82402427
+                ],
+                [
+                    21.03057412,
+                    105.82402393
+                ],
+                [
+                    21.03060012,
+                    105.82395257
+                ],
+                [
+                    21.03060627,
+                    105.8239551
+                ],
+                [
+                    21.0306471,
+                    105.82397329
+                ]
+            ]
+        },
+        {
+            "lat": 21.030511935875264,
+            "lng": 105.82415476441385,
+            "title": "Bán nhà 32.2m² ngang 5m giá 6.2 tỷ Phường Giảng Võ",
+            "label": "192.55 tr",
+            "size": 32.2,
+            "price": "6.2 tỷ",
+            "label_ngang": "1.24 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">32.2 m²</strong>- <strong style=\"font-weight: 900\">6200 triệu</strong><br><strong>192.55 triệu /m² </strong><br><strong>Mã: 1371054 </strong></p>",
+            "slug_title": "ban-nha-322m2-ngang-5m-gia-62-ty-phuong-giang-vo",
+            "id": 1371054,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.03049338,
+                    105.82416289
+                ],
+                [
+                    21.0305004,
+                    105.82411434
+                ],
+                [
+                    21.03055387,
+                    105.824124
+                ],
+                [
+                    21.03055196,
+                    105.82414045
+                ],
+                [
+                    21.03054798,
+                    105.8241646
+                ],
+                [
+                    21.03054601,
+                    105.82417654
+                ],
+                [
+                    21.03049708,
+                    105.82416431
+                ],
+                [
+                    21.03049338,
+                    105.82416289
+                ]
+            ]
+        },
+        {
+            "lat": 21.03044953667874,
+            "lng": 105.82424333819064,
+            "title": "Bán nhà 17.3m² ngang 3m giá 3.6 tỷ Phường Giảng Võ",
+            "label": "208.09 tr",
+            "size": 17.3,
+            "price": "3.6 tỷ",
+            "label_ngang": "1.2 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">17.3 m²</strong>- <strong style=\"font-weight: 900\">3600 triệu</strong><br><strong>208.09 triệu /m² </strong><br><strong>Mã: 1371048 </strong></p>",
+            "slug_title": "ban-nha-173m2-ngang-3m-gia-36-ty-phuong-giang-vo",
+            "id": 1371048,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.030465019387,
+                    105.82426129586
+                ],
+                [
+                    21.030438528803,
+                    105.8242536367
+                ],
+                [
+                    21.030452894401,
+                    105.82420057296
+                ],
+                [
+                    21.030478981671,
+                    105.82420758534
+                ],
+                [
+                    21.030465019387,
+                    105.82426129586
+                ]
+            ]
+        },
+        {
+            "lat": 21.030426425,
+            "lng": 105.824042795,
+            "title": "Bán đất 88m² 26.7 tỷ tại Phường Kim Mã Quận Ba Đình",
+            "label": "303.41 tr",
+            "size": 88,
+            "price": "26.7 tỷ",
+            "label_ngang": "2.23 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">88 m²</strong>- <strong style=\"font-weight: 900\">26700 triệu</strong><br><strong>303.41 triệu /m² </strong><br><strong>Mã: 1049950 </strong></p>",
+            "slug_title": "ban-dat-88m2-267-ty-tai-phuong-kim-ma-quan-ba-dinh",
+            "id": 1049950,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.0304103,
+                    105.82408168
+                ],
+                [
+                    21.03035112,
+                    105.82406018
+                ],
+                [
+                    21.03036999,
+                    105.82399807
+                ],
+                [
+                    21.03042893,
+                    105.82401764
+                ],
+                [
+                    21.03045458,
+                    105.82400256
+                ],
+                [
+                    21.03050173,
+                    105.82401999
+                ],
+                [
+                    21.03047295,
+                    105.82408752
+                ],
+                [
+                    21.03041529,
+                    105.82406336
+                ],
+                [
+                    21.0304103,
+                    105.82408168
+                ]
+            ]
+        },
+        {
+            "lat": 21.030415030558608,
+            "lng": 105.82421136149607,
+            "title": "Bán đất 78.2m² giá 10.5 tỷ Phường Giảng Võ",
+            "label": "134.27 tr",
+            "size": 78.2,
+            "price": "10.5 tỷ",
+            "label_ngang": "",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">78.2 m²</strong>- <strong style=\"font-weight: 900\">10500 triệu</strong><br><strong>134.27 triệu /m² </strong><br><strong>Mã: 1371055 </strong></p>",
+            "slug_title": "ban-dat-782m2-gia-105-ty-phuong-giang-vo",
+            "id": 1371055,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.030438528803,
+                    105.8242536367
+                ],
+                [
+                    21.030380155121,
+                    105.82423650895
+                ],
+                [
+                    21.030387826473,
+                    105.82420682816
+                ],
+                [
+                    21.030407682278,
+                    105.82413001124
+                ],
+                [
+                    21.030412820141,
+                    105.82413124973
+                ],
+                [
+                    21.0304435228,
+                    105.82413865401
+                ],
+                [
+                    21.030466215088,
+                    105.82414412673
+                ],
+                [
+                    21.030452894401,
+                    105.82420057296
+                ],
+                [
+                    21.030438528803,
+                    105.8242536367
+                ]
+            ]
+        },
+        {
+            "lat": 21.030383217348614,
+            "lng": 105.82391738891603,
+            "title": "Bán đất 185m² ngang 5m30m giá 60 tỷ Phường Giảng Võ",
+            "label": "324.32 tr",
+            "size": 185,
+            "price": "60 tỷ",
+            "label_ngang": "12 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">185 m²</strong>- <strong style=\"font-weight: 900\">60000 triệu</strong><br><strong>324.32 triệu /m² </strong><br><strong>Mã: 1888489 </strong></p>",
+            "slug_title": "ban-dat-185m2-ngang-5m30m-gia-60-ty-phuong-giang-vo",
+            "id": 1888489,
+            "is_check_plan": 0,
+            "color": "pink",
+            "polygon": [
+                [
+                    21.030485862772,
+                    105.82388788462
+                ],
+                [
+                    21.030453316669,
+                    105.82398444414
+                ],
+                [
+                    21.030432036522,
+                    105.82397773862
+                ],
+                [
+                    21.030427029428,
+                    105.82399651408
+                ],
+                [
+                    21.030339405256,
+                    105.82396835089
+                ],
+                [
+                    21.030270557657,
+                    105.82394018769
+                ],
+                [
+                    21.030286830729,
+                    105.82387983799
+                ],
+                [
+                    21.030226745531,
+                    105.82385972142
+                ],
+                [
+                    21.030241766833,
+                    105.82376986742
+                ],
+                [
+                    21.030485862772,
+                    105.82388788462
+                ]
+            ]
+        },
+        {
+            "lat": 21.030203074465998,
+            "lng": 105.82367424558115,
+            "title": "BÁN TÒA NHÀ MẶT PHỐ NÚI TRÚC. 90M2 - 9 TẦNG. THANG MÁY.",
+            "label": "511.11 tr",
+            "size": 90,
+            "price": "46 tỷ",
+            "label_ngang": "12.43 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">90 m²</strong>- <strong style=\"font-weight: 900\">46000 triệu</strong><br><strong>511.11 triệu /m² </strong><br><strong>Mã: 2197443 </strong></p>",
+            "slug_title": "ban-toa-nha-mat-pho-nui-truc-90m2-9-tang-thang-may",
+            "id": 2197443,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.030190444046212,
+            "lng": 105.82942664623262,
+            "title": "BÁN GẤP NHÀ KINH DOANH TỐT, PHỐ CÁT LINH, QUẬN ĐỐNG ĐA, DIỆN TÍCH 23M2, 6T, MT 4.7M, GIÁ 6.5 TỶ.",
+            "label": "282.61 tr",
+            "size": 23,
+            "price": "6.5 tỷ",
+            "label_ngang": "1.38 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">23 m²</strong>- <strong style=\"font-weight: 900\">6500 triệu</strong><br><strong>282.61 triệu /m² </strong><br><strong>Mã: 797417 </strong></p>",
+            "slug_title": "ban-gap-nha-kinh-doanh-tot-pho-cat-linh-quan-dong-da-dien-tich-23m2-6t-mt-47m-gia-65-ty",
+            "id": 797417,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.0290557,
+            "lng": 105.8299949,
+            "title": "NHÀ ĐẸP LONG LANH 6 TẦNG THANG MÁY, ,KHU VỰC HIẾM NHÀ BÁN- PHỐ CÁT LINH- 48/50M- MT4M",
+            "label": "279 tr",
+            "size": 50,
+            "price": "13.95 tỷ",
+            "label_ngang": "3.49 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">50 m²</strong>- <strong style=\"font-weight: 900\">13950 triệu</strong><br><strong>279 triệu /m² </strong><br><strong>Mã: 2229351 </strong></p>",
+            "slug_title": "nha-dep-long-lanh-6-tang-thang-may-khu-vuc-hiem-nha-ban-pho-cat-linh-4850m-mt4m",
+            "id": 2229351,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.02895618829166,
+            "lng": 105.82844495773317,
+            "title": "BÁN GẤP NHÀ KINH DOANH , PHỐ, QUẬN ĐỐNG ĐA, DIỆN TÍCH 23M2, 4T, MT 4.8M, GIÁ 6.2 TỶ",
+            "label": "269.57 tr",
+            "size": 23,
+            "price": "6.2 tỷ",
+            "label_ngang": "1.29 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">23 m²</strong>- <strong style=\"font-weight: 900\">6200 triệu</strong><br><strong>269.57 triệu /m² </strong><br><strong>Mã: 797365 </strong></p>",
+            "slug_title": "ban-gap-nha-kinh-doanh-pho-quan-dong-da-dien-tich-23m2-4t-mt-48m-gia-62-ty",
+            "id": 797365,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.02893,
+            "lng": 105.82859,
+            "title": "Cát Linh. 20m ra phố. 3 thoáng vĩnh viễn. Khu dân trí cao. Hàng xóm thân thiện. An ninh cực tốt. Nhà thiết kế 3 ngủ rộng. Cầu thang ngoài. Không gian thoáng sáng",
+            "label": "248 tr",
+            "size": 25,
+            "price": "6.2 tỷ",
+            "label_ngang": "2.07 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">25 m²</strong>- <strong style=\"font-weight: 900\">6200 triệu</strong><br><strong>248 triệu /m² </strong><br><strong>Mã: 2244675 </strong></p>",
+            "slug_title": "cat-linh-20m-ra-pho-3-thoang-vinh-vien-khu-dan-tri-cao-hang-xom-than-thien-an-ninh-cuc-tot-nha-thiet-ke-3-ngu-rong-cau-thang-ngoai-khong-gian-thoang-sang",
+            "id": 2244675,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": []
+        },
+        {
+            "lat": 21.028918495,
+            "lng": 105.82679920999999,
+            "title": "Bán nhà 50m² 29 tỷ tại Phường Cát Linh Quận Đống Đa",
+            "label": "580 tr",
+            "size": 50,
+            "price": "29 tỷ",
+            "label_ngang": "7.25 tỷ/mn",
+            "content": "<p style=\"font-size: 20px; text-align: center\"><strong style=\"font-weight: 900\">50 m²</strong>- <strong style=\"font-weight: 900\">29000 triệu</strong><br><strong>580 triệu /m² </strong><br><strong>Mã: 1052452 </strong></p>",
+            "slug_title": "ban-nha-50m2-29-ty-tai-phuong-cat-linh-quan-dong-da",
+            "id": 1052452,
+            "is_check_plan": 0,
+            "color": "yellow",
+            "polygon": [
+                [
+                    21.02896051,
+                    105.82674344
+                ],
+                [
+                    21.02897936,
+                    105.82677477
+                ],
+                [
+                    21.02891008,
+                    105.8268303
+                ],
+                [
+                    21.02888446,
+                    105.82685084
+                ],
+                [
+                    21.02887929,
+                    105.82685498
+                ],
+                [
+                    21.02887764,
+                    105.82685262
+                ],
+                [
+                    21.02886278,
+                    105.82683141
+                ],
+                [
+                    21.02885763,
+                    105.82682406
+                ],
+                [
+                    21.02896051,
+                    105.82674344
+                ]
+            ]
+        }
+    ]
+}

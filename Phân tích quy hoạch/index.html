@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guland Map Overlay Integration</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Control Panel -->
+        <aside class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-map-location-dot brand-icon"></i>
+                <div class="brand-text">
+                    <h1>Bản Đồ Quy Hoạch</h1>
+                    <span>Tích hợp dữ liệu Guland</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="controls">
+                <!-- Region Selector -->
+                <div class="control-group">
+                    <label for="regionSelect"><i class="fa-solid fa-city"></i> Chọn Khu Vực</label>
+                    <div class="select-wrapper">
+                        <select id="regionSelect">
+                            <option value="hcm">TP. Hồ Chí Minh</option>
+                            <option value="hn">Hà Nội</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Map Overlay Selector -->
+                <div class="control-group">
+                    <label for="overlaySelect"><i class="fa-solid fa-layer-group"></i> Bản Đồ Quy Hoạch</label>
+                    <div class="select-wrapper">
+                        <select id="overlaySelect">
+                            <!-- Populated dynamically based on region -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Opacity Slider -->
+                <div class="control-group">
+                    <div class="slider-header">
+                        <label for="opacityRange"><i class="fa-solid fa-circle-half-stroke"></i> Độ Trong Suốt</label>
+                        <span id="opacityVal">80%</span>
+                    </div>
+                    <input type="range" id="opacityRange" min="0" max="100" value="80" class="slider">
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Base Map Selector -->
+                <div class="control-group">
+                    <label><i class="fa-solid fa-earth-americas"></i> Bản Đồ Nền (Open Map)</label>
+                    <div class="basemap-grid">
+                        <button class="basemap-btn active" data-basemap="osm">
+                            <div class="btn-indicator"></div>
+                            <span>OSM Standard</span>
+                        </button>
+                        <button class="basemap-btn" data-basemap="satellite">
+                            <div class="btn-indicator"></div>
+                            <span>Vệ Tinh (Esri)</span>
+                        </button>
+                        <button class="basemap-btn" data-basemap="dark">
+                            <div class="btn-indicator"></div>
+                            <span>CartoDB Dark</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Jump Points -->
+                <div class="control-group">
+                    <label><i class="fa-solid fa-location-crosshairs"></i> Vị Trí Nổi Bật</label>
+                    <div class="quick-links" id="quickLinks">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>Phát triển bởi Antigravity AI</p>
+                <p class="disclaimer">Dữ liệu quy hoạch được trích xuất từ Guland.vn</p>
+            </div>
+        </aside>
+
+        <!-- Main Map Wrapper -->
+        <main class="map-container">
+            <div id="map"></div>
+            <!-- Loading Indicator -->
+            <div id="mapLoader" class="map-loader hidden">
+                <div class="spinner"></div>
+                <span>Đang tải dữ liệu bản đồ...</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
