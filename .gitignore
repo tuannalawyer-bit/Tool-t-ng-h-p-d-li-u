@@ -28,10 +28,7 @@ Emails/
 .vscode/
 .idea/
 
-# Thư mục nháp và gói cài đặt phụ trợ
-chay_tool/scratch/
-Phân lịch công tác/wheels/
-wheels/
+# Bỏ qua môi trường Python di động nặng
 python_portable/
 **/python_portable/
 
